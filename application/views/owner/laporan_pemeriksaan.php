@@ -108,12 +108,17 @@
 </style>
 
 <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main" style="">
+    <div class="row">
+        <div class="col-lg-12">
+        </div>
+    </div>
+    <br>
     <div class="panel panel-default">
         <div class="panel-body">
             <div class="row">
                 <div class="col-md-9">
                     <div class="col-md-12">
-                        <font style="font-weight: bold; font-size: 20px;">Laporan Harian</font>
+                        <font style="font-weight: bold; font-size: 20px;">Laporan Pemeriksaan</font>
                         <a href="<?php echo base_url('owner/export_pemeriksaan') ?>" class="btn" style="margin-top: 45px; background-color: #e7e6e6; border: none; color:#f40049; font-weight:bold; float: right;">
                             <img src="<?php echo base_url() ?>assets/images/download.png" height="30px">
                             Download
@@ -121,48 +126,61 @@
                     </div>
                     <div class="col-md-12" style="border: 1px solid #e0e0e0; margin-top: 15px;">
                         <div style="float: left">
-                            <a href="<?php echo base_url('owner/laporan_harian_dokter') ?>">
-                                <div href="#" class="btn" style="background-color: #e7e6e6; border: none; color:black; font-weight:bold;">
-                                    <div class="col-md-8" style="text-align: left; display: table-cell;vertical-align:middle; padding-right:0px">
-                                        <span>Total Transaksi</span>
+                            <div class="col-lg-12 nav-menu-lap">
+                                <ul>
+                                    <li class="border-lap stileone">
+                                        <div data-toggle="tab" href="#">
+                                            <center>
+                                                <font>Total Transaksi</font>
+                                            </center>
+                                        </div>
+                                    </li>
+
+                                    <li class="border-lap stileone1">
+                                        <div data-toggle="tab" href="#">
+                                            <center>
+                                                <font>Doctor Sharing Fee</font>
+                                            </center>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12" style="border: 1px solid #e0e0e0; margin-top: 15px;">
+                        <div style="float: left">
+                            <span style="color: black; "><b>Filter :</b></span>
+                            <a>
+                                <div href="#" class="btn" style="border: none; color:black; font-weight:bold;">
+                                    <div class="col-md-2 outer" style="padding-top: 7px">
+                                        <img src="<?php echo base_url() ?>assets/images/Doctor.png" height="24px">
                                     </div>
-                                </div>
-                                <div href="#" class="btn" style="background-color: #e7e6e6; border: none; color:black; font-weight:bold;">
-                                    <div class="col-md-8" style="text-align: left; display: table-cell;vertical-align:middle; padding-right:0px">
-                                        <span>Doctor Sharing Fee</span>
+                                    <div class="col-md-10" style="text-align: left; display: table-cell;vertical-align:middle; padding-right:0px">
+                                        <select id="f_dokter" class="form-control form-control-sm">
+                                            <!-- <option value="" disabled selected style="display: none;">Filter Dokter</option> -->
+                                            <option value="b.id_dokter">Tampilkan Semua</option>
+                                            <?php foreach ($dokter->result() as $result) : ?>
+                                                <option value="<?php echo $result->id_dokter  ?>"><?php echo $result->nama_dokter ?></option>
+                                            <?php endforeach; ?>
+                                        </select>
                                     </div>
                                 </div>
                             </a>
 
-                        </div>
-                    </div>
-                    <div class="col-md-12" style="border: 1px solid #e0e0e0; margin-top: 15px;">
-                            
-                            <div style="float: left">
-                            <a>
-                                <div href="#" class="btn" style="background-color: #e7e6e6; border: none; color:black; font-weight:bold;">
-                                <select id="f_dokter" class="form-control form-control-sm">
-                                <option value="" disabled selected style="display: none;">Filter Dokter</option>
-                                <option value="b.id_dokter">Perlihatkan Semua</option>
-                                <?php foreach ($dokter->result() as $result) : ?>
-                               <option value="<?php echo $result->id_dokter  ?>"><?php echo $result->nama_dokter ?></option>
-                               <?php endforeach; ?>
-                                </select>
-                                </div>
-                            </a>
                             <span style="color: black; "><b>Periode :</b></span>
                             <div href="#" class="btn" style="border: none; color:black; font-weight:bold;">
                                 <div class="col-md-2 outer" style="text-align: left; display: table-cell;vertical-align:middle; padding-right:0px">
-                                   <input autocomplete="off" id="from" name='from'> </input>
+                                    <input autocomplete="off" id="from" name='from'> </input>
                                 </div>
                             </div>
                             <span style="color: black; background-color: #e7e6e6;"><b>To</b></span>
                             <div href="#" class="btn" style="border: none; color:black; font-weight:bold;">
                                 <div class="col-md-2" style="text-align: left; display: table-cell;vertical-align:middle; padding-right:0px">
-                                  <input id="to"  autocomplete="off" disabled='disabled'> </input>
+                                    <input id="to" autocomplete="off" disabled='disabled'> </input>
                                 </div>
                             </div>
-                    </div>
+                        </div>
                     </div>
                     <div class="col-lg-12">
                         <div class="col-lg-2 lap-mb">
@@ -391,148 +409,151 @@
             // });
         }
     </script>
- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script>
-  //Script ini digunakan untuk filter
-    $(document).ready(function() {
-        $('#f_dokter').change(function() {
-        filter_dokter();
-       });
-      });
-    function filter_dokter() {
-    var id_dokter = $('#f_dokter').val();
-    var startDate = $('#from').val();
-    var endDate = $('#to').val();
-    //Mendapatkan Interval Hari untuk filter periode
-    date1 = startDate.split('-');
-    date2 = endDate.split('-');
-    date1 = new Date(date1[0], date1[1], date1[2]);
-    date2 = new Date(date2[0], date2[1], date2[2]);
-    date1_unixtime = parseInt(date1.getTime() / 1000);
-    date2_unixtime = parseInt(date2.getTime() / 1000);
-    var timeDifference = date2_unixtime - date1_unixtime;
-    var timeDifferenceInHours = timeDifference / 60 / 60;
-    var timeDifferenceInDays = timeDifferenceInHours  / 24;
-    var interval =timeDifferenceInDays;
-    $.ajax({
-      url: "<?= base_url('owner/filter_laporan_pemeriksaan') ?>",
-      data: {
-        id_dokter : id_dokter,
-        interval : interval,
-        endDate : endDate,
-        startDate :startDate
-      },
-      success: function(data) {
-        $('#container').empty();
-        $('#container2').html(data);
-      },
-      error: function (request, status, error) {
-        alert(request.responseText);
-    }
-    });
-  }
-    function enableEnd(){
-        var date = new Date(this.value);
-        date.setDate(date.getDate()+13);
-        var id_dokter = $('#f_dokter').val();
-        var startDate = $('#from').val();
-        var endDate = $('#to').val();
-        //Mendapatkan Interval Hari untuk filter periode
-        date1 = startDate.split('-');
-        date2 = endDate.split('-');
-        date1 = new Date(date1[0], date1[1], date1[2]);
-        date2 = new Date(date2[0], date2[1], date2[2]);
-        date1_unixtime = parseInt(date1.getTime() / 1000);
-        date2_unixtime = parseInt(date2.getTime() / 1000);
-        var timeDifference = date2_unixtime - date1_unixtime;
-        var timeDifferenceInHours = timeDifference / 60 / 60;
-        var timeDifferenceInDays = timeDifferenceInHours  / 24;
-        var interval =timeDifferenceInDays;
-        $.ajax({
-        url: "<?= base_url('owner/filter_laporan_pemeriksaan') ?>",
-        data: {
-        id_dokter : id_dokter,
-        interval : interval,
-        startDate : startDate,
-        endDate : endDate
-      },
-      success: function(data) {
-        $('#container').empty();
-        $('#container2').html(data);
-      },
-      error: function (request, status, error) {
-        alert(request.responseText);
-    }
-    });
-        end.attr('disabled', !this.value.length).
-        datepicker('option', 
-        {
-        minDate:this.value,
-        changeMonth: true,
-        changeYear: true,
-        dateFormat:'yy-mm-dd',
-        monthNames: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
-            'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
-        dayNamesMin: ['Min', 'Sen', 'Sel', 'Rab', 'Ka', 'Jum', 'Sab'],
-        dayNames: ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'],
-        maxDate: date,
-        onSelect : function (dateText){
-        var id_dokter = $('#f_dokter').val();
-        var startDate = $('#from').val();
-        var endDate = $('#to').val();
-        //Mendapatkan Interval Hari untuk filter periode
-        date1 = startDate.split('-');
-        date2 = endDate.split('-');
-        date1 = new Date(date1[0], date1[1], date1[2]);
-        date2 = new Date(date2[0], date2[1], date2[2]);
-        date1_unixtime = parseInt(date1.getTime() / 1000);
-        date2_unixtime = parseInt(date2.getTime() / 1000);
-        var timeDifference = date2_unixtime - date1_unixtime;
-        var timeDifferenceInHours = timeDifference / 60 / 60;
-        var timeDifferenceInDays = timeDifferenceInHours  / 24;
-        var interval =timeDifferenceInDays;
-        $.ajax({
-        url: "<?= base_url('owner/filter_laporan_pemeriksaan') ?>",
-        data: {
-        id_dokter : id_dokter,
-        interval : interval,
-        endDate : endDate,
-        starDate : startDate
-      },
-      success: function(data) {
-        $('#container').empty();
-        $('#container2').html(data);
-      },
-      error: function (request, status, error) {
-        alert(request.responseText);
-    },
-    });
-        },
-        onClose:function( selectedDate ) {
-            var date = new Date(selectedDate);
-            date.setDate(date.getDate()-13);
-            $("#from").datepicker('option',{
-                minDate: date,
-                maxDate: selectedDate
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        //Script ini digunakan untuk filter
+        $(document).ready(function() {
+            $('#f_dokter').change(function() {
+                filter_dokter();
+            });
+        });
+
+        function filter_dokter() {
+            var id_dokter = $('#f_dokter').val();
+            var startDate = $('#from').val();
+            var endDate = $('#to').val();
+            //Mendapatkan Interval Hari untuk filter periode
+            date1 = startDate.split('-');
+            date2 = endDate.split('-');
+            date1 = new Date(date1[0], date1[1], date1[2]);
+            date2 = new Date(date2[0], date2[1], date2[2]);
+            date1_unixtime = parseInt(date1.getTime() / 1000);
+            date2_unixtime = parseInt(date2.getTime() / 1000);
+            var timeDifference = date2_unixtime - date1_unixtime;
+            var timeDifferenceInHours = timeDifference / 60 / 60;
+            var timeDifferenceInDays = timeDifferenceInHours / 24;
+            var interval = timeDifferenceInDays;
+            $.ajax({
+                url: "<?= base_url('owner/filter_laporan_pemeriksaan') ?>",
+                data: {
+                    id_dokter: id_dokter,
+                    interval: interval,
+                    endDate: endDate,
+                    startDate: startDate
+                },
+                success: function(data) {
+                    $('#container').empty();
+                    $('#container2').html(data);
+                },
+                error: function(request, status, error) {
+                    alert(request.responseText);
+                }
             });
         }
-        });
-    }
-    var end = $('#to').datepicker();
-    $('#from').datepicker({
-        onSelect : enableEnd,
-        changeMonth: true,
-        changeYear: true,
-        defaultDate: 0,
-        dateFormat: 'yy-mm-dd',
-        monthNames: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
-            'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
-        dayNamesMin: ['Min', 'Sen', 'Sel', 'Rab', 'Ka', 'Jum', 'Sab'],
-        dayNames: ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu']
-    }).bind('input', enableEnd);
-  </script>
+
+        function enableEnd() {
+            var date = new Date(this.value);
+            date.setDate(date.getDate() + 13);
+            var id_dokter = $('#f_dokter').val();
+            var startDate = $('#from').val();
+            var endDate = $('#to').val();
+            //Mendapatkan Interval Hari untuk filter periode
+            date1 = startDate.split('-');
+            date2 = endDate.split('-');
+            date1 = new Date(date1[0], date1[1], date1[2]);
+            date2 = new Date(date2[0], date2[1], date2[2]);
+            date1_unixtime = parseInt(date1.getTime() / 1000);
+            date2_unixtime = parseInt(date2.getTime() / 1000);
+            var timeDifference = date2_unixtime - date1_unixtime;
+            var timeDifferenceInHours = timeDifference / 60 / 60;
+            var timeDifferenceInDays = timeDifferenceInHours / 24;
+            var interval = timeDifferenceInDays;
+            $.ajax({
+                url: "<?= base_url('owner/filter_laporan_pemeriksaan') ?>",
+                data: {
+                    id_dokter: id_dokter,
+                    interval: interval,
+                    startDate: startDate,
+                    endDate: endDate
+                },
+                success: function(data) {
+                    $('#container').empty();
+                    $('#container2').html(data);
+                },
+                error: function(request, status, error) {
+                    alert(request.responseText);
+                }
+            });
+            end.attr('disabled', !this.value.length).
+            datepicker('option', {
+                minDate: this.value,
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: 'yy-mm-dd',
+                monthNames: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
+                    'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
+                ],
+                dayNamesMin: ['Min', 'Sen', 'Sel', 'Rab', 'Ka', 'Jum', 'Sab'],
+                dayNames: ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'],
+                maxDate: date,
+                onSelect: function(dateText) {
+                    var id_dokter = $('#f_dokter').val();
+                    var startDate = $('#from').val();
+                    var endDate = $('#to').val();
+                    //Mendapatkan Interval Hari untuk filter periode
+                    date1 = startDate.split('-');
+                    date2 = endDate.split('-');
+                    date1 = new Date(date1[0], date1[1], date1[2]);
+                    date2 = new Date(date2[0], date2[1], date2[2]);
+                    date1_unixtime = parseInt(date1.getTime() / 1000);
+                    date2_unixtime = parseInt(date2.getTime() / 1000);
+                    var timeDifference = date2_unixtime - date1_unixtime;
+                    var timeDifferenceInHours = timeDifference / 60 / 60;
+                    var timeDifferenceInDays = timeDifferenceInHours / 24;
+                    var interval = timeDifferenceInDays;
+                    $.ajax({
+                        url: "<?= base_url('owner/filter_laporan_pemeriksaan') ?>",
+                        data: {
+                            id_dokter: id_dokter,
+                            interval: interval,
+                            endDate: endDate,
+                            starDate: startDate
+                        },
+                        success: function(data) {
+                            $('#container').empty();
+                            $('#container2').html(data);
+                        },
+                        error: function(request, status, error) {
+                            alert(request.responseText);
+                        },
+                    });
+                },
+                onClose: function(selectedDate) {
+                    var date = new Date(selectedDate);
+                    date.setDate(date.getDate() - 13);
+                    $("#from").datepicker('option', {
+                        minDate: date,
+                        maxDate: selectedDate
+                    });
+                }
+            });
+        }
+        var end = $('#to').datepicker();
+        $('#from').datepicker({
+            onSelect: enableEnd,
+            changeMonth: true,
+            changeYear: true,
+            defaultDate: 0,
+            dateFormat: 'yy-mm-dd',
+            monthNames: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
+                'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
+            ],
+            dayNamesMin: ['Min', 'Sen', 'Sel', 'Rab', 'Ka', 'Jum', 'Sab'],
+            dayNames: ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu']
+        }).bind('input', enableEnd);
+    </script>
 
     <!-- <div class="RightCol" style="margin-top: 15%;">
 
