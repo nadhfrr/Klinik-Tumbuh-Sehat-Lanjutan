@@ -274,9 +274,9 @@
 
 
 	<ul class="nav menu sideHide">
-		<li <?php if (isset($_antrian)) 		  echo 'class="active"'; ?>><a href="<?php echo site_url('owner/home') ?>"><i class="fa fa-home" aria-hidden="true"></i> &nbsp; Home</a></li>
+		<li <?php if (isset($_antrian)) 		  echo 'class="active"'; ?>><a href="<?php echo site_url('owner/home') ?>"><i class="fa fa-home" aria-hidden="true"></i> &nbsp; Jadwal Pemeriksaan</a></li>
 		<li <?php if (isset($_konfirmasi)) 		  echo 'class="active"'; ?>><a href="<?php echo site_url('owner/Konfirmasi_janji') ?>"><i class="fa fa-calendar" aria-hidden="true"></i> &nbsp; Konfirmasi Janji</a></li>
-		<li <?php if (isset($_registrasi)) 		  echo 'class="active"'; ?>><a href="<?php echo site_url('owner/registrasi_janji') ?>"><i class="fa fa-check-circle-o" aria-hidden="true"></i> &nbsp; Registrasi / Ubah Janji</a></li>
+		<li <?php if (isset($_registrasi)) 		  echo 'class="active"'; ?>><a href="<?php echo site_url('owner/registrasi_janji') ?>"><i class="fa fa-check-circle-o" aria-hidden="true"></i> &nbsp; Daftar / Ubah Janji</a></li>
 		<li <?php if (isset($_pembayaran)) 		  echo 'class="active"'; ?>><a href="<?php echo site_url('owner/pembayaran') ?>"><i class="fa fa-credit-card" aria-hidden="true"></i> &nbsp; Pembayaran</a></li>
 		<li <?php if (isset($_informasi_pasien)) echo 'class="active"'; ?>><a href="<?php echo site_url('owner/informasi_pasien') ?>"><i class="fa fa-user" aria-hidden="true"></i> &nbsp; Informasi Pasien</a></li>
 		<li <?php if (isset($_laporan_transaksi)) echo 'class="active"'; ?>><a href="<?php echo site_url('owner/laporan_pemeriksaan') ?>"><i class="fa fa-line-chart" aria-hidden="true"></i> &nbsp; Laporan Pemeriksaan</a></li>
@@ -284,9 +284,9 @@
 	</ul>
 
 	<ul id="popup" class="nav menu sidelayout">
-		<li <?php if (isset($_antrian)) 		  echo 'class="active"'; ?>><a href="<?php echo site_url('owner/home') ?>"><i class="fa fa-home" aria-hidden="true"></i> &nbsp; Home</a></li>
+		<li <?php if (isset($_antrian)) 		  echo 'class="active"'; ?>><a href="<?php echo site_url('owner/home') ?>"><i class="fa fa-home" aria-hidden="true"></i> &nbsp; Jadwal Pemeriksaan</a></li>
 		<li <?php if (isset($_konfirmasi)) 		  echo 'class="active"'; ?>><a href="<?php echo site_url('owner/Konfirmasi_janji') ?>"><i class="fa fa-calendar" aria-hidden="true"></i> &nbsp; Konfirmasi Janji</a></li>
-		<li <?php if (isset($_registrasi)) 		  echo 'class="active"'; ?>><a href="<?php echo site_url('owner/registrasi_janji') ?>"><i class="fa fa-check-circle-o" aria-hidden="true"></i> &nbsp; Registrasi / Ubah Janji</a></li>
+		<li <?php if (isset($_registrasi)) 		  echo 'class="active"'; ?>><a href="<?php echo site_url('owner/registrasi_janji') ?>"><i class="fa fa-check-circle-o" aria-hidden="true"></i> &nbsp; Daftar / Ubah Janji</a></li>
 		<li <?php if (isset($_pembayaran)) 		  echo 'class="active"'; ?>><a href="<?php echo site_url('owner/pembayaran') ?>"><i class="fa fa-credit-card" aria-hidden="true"></i> &nbsp; Pembayaran</a></li>
 		<li <?php if (isset($_informasi_pasien)) echo 'class="active"'; ?>><a href="<?php echo site_url('owner/informasi_pasien') ?>"><i class="fa fa-user" aria-hidden="true"></i> &nbsp; Informasi Pasien</a></li>
 		<li <?php if (isset($_laporan_transaksi)) echo 'class="active"'; ?>><a href="<?php echo site_url('owner/laporan_pemeriksaan') ?>"><i class="fa fa-line-chart" aria-hidden="true"></i> &nbsp; Laporan Pemeriksaan</a></li>
