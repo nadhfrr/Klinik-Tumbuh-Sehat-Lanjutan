@@ -642,151 +642,89 @@
 
                 <form action="<?php echo base_url('owner/add_booking'); ?>" method="post">
                   <ul class="nav navbar-nav">
-                    <li class="button"> <a href="#" class="button" data-toggle="modal" data-target="#ModalProfil"><b>Pilih Profil</b><br><br>
+                    <li class="dropdown mega-dropdown"> <a href="#" class="" data-toggle=""><b>Pilih Profil</b><br><br>
                         <font color="#90a4ae">
                           <div id="id_pasien2">Pilih Profil Calon Pasien<br><br><br><br></div>
                         </font><span class="glyphicon glyphicon-chevron-down pull-right"></span>
                       </a>
-                    </li>
-                    <div id="ModalProfil" class="modal" style="top: 50px;">
-                      <form class="form-horizontal" action="" method="post" enctype="multipart/form-data" role="form">
-                        <div class="modal-dialog">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                              <h4 class="modal-title" style="text-align:center;"><b>Pilih Profil Pasien</b></h4>
+                      <ul class="dropdown-menu mega-dropdown-menu row">
+                        <?php foreach ($pasien->result() as $result1) : ?>
+                          <li class="col-sm-6" style="list-style-type: none;">
+                            <div class="col-sm-6">
+                              <?php echo $result1->nama_depan  ?> <?php echo $result1->nama_belakang  ?><br></b>
+                              <?php echo $result1->alamat ?><br>
                             </div>
-                            <div class="col-lg-12">
-
-                              <div class="modal-body">
-                                <h5 class="madal-body">
-                                  <center>Pilih Pasien yang ingin diperiksa</center>
-                                </h5><br><br><br>
-                                <h5>
-                                  <?php foreach ($pasien->result() as $result1) : ?>
-                                    <li class="col-sm-6" style="list-style-type: none;">
-                                      <div class="col-sm-6">
-                                        <?php echo $result1->nama_depan  ?> - <?php echo $result1->hubungan  ?><br></b>
-                                        <?php echo $result1->alamat ?><br>
-                                      </div>
-                                      <button class="btn red col-sm-6" style="float: right; width: 100px; background-color:#f40049; color:white" type="button" onclick="pilih_pasien('<?php echo $result1->id_pasien ?>')">Pilih</button>
-                                      <input type="hidden" name="id_pasien" value="<?php echo $result1->id_pasien ?>">
-                                      <div class="col-sm-12">
-                                        <hr>
-                                      </div>
-                                    </li>
-                                  <?php endforeach; ?>
-                                  <li class="col-sm-12" style="list-style-type: none;">
-                                    <div class="col-sm-6">
-                                      <b>Buat Profil Pasien Baru<br></b>
-                                      Pilih opsi ini apabila calon pasien belum terdaftar<br>
-                                    </div>
-                                    <button class="btn red col-sm-6" style="float: right; width: 100px; background-color:#f40049; color:white" type="button" onclick="location.href ='<?php echo base_url() ?>owner/tambah_pasien_k/<?php echo $result1->id_user ?>'">Pilih</button>
-                                    <!-- <a type="button" class="btn #e28a9d col-sm-4" style="float: right; width: 100px" href="<?php echo base_url('pasien/site5_addpasien'); ?>">Pilih</a> -->
-                                    <div class="col-sm-12">
-                                      <hr>
-                                    </div>
-                                  </li>
-                                </h5>
-                              </div>
+                            <button class="btn red col-sm-6" style="float: right; width: 100px; background-color:#f40049; color:white" type="button" onclick="pilih_pasien('<?php echo $result1->id_pasien ?>')">Pilih</button>
+                            <input type="hidden" name="id_pasien" value="<?php echo $result1->id_pasien ?>">
+                            <div class="col-sm-12">
+                              <hr>
                             </div>
-                            <div class="modal-footer">
-                            </div>
+                          </li>
+                        <?php endforeach; ?>
+                        <li class="col-sm-6" style="list-style-type: none;">
+                          <div class="col-sm-6">
+                            <b>Buat Profil Pasien Baru<br></b>
+                            Pilih opsi ini apabila calon pasien belum terdaftar<br>
                           </div>
-                        </div>
-                      </form>
-                    </div>
+                          <button class="btn salmon col-sm-6" style="float: right; width: 100px; background-color:#f40049; color:white" type="button" onclick="location.href ='<?php echo base_url() ?>klinik/tambah_pasien_k/<?php echo $result1->id_user ?>'">Pilih</button>
+                          <!-- <a type="button" class="btn #e28a9d col-sm-4" style="float: right; width: 100px" href="<?php echo base_url('pasien/site5_addpasien'); ?>">Pilih</a> -->
+                          <div class="col-sm-12">
+                            <hr>
+                          </div>
+                        </li>
+                      </ul>
                     </li>
-
-                    <li class="button"> <a href="#" class="button" data-toggle="modal" data-target="#ModalCabang"><b>Pilih Cabang</b><br><br>
+                    <li class="dropdown mega-dropdown"> <a href="#" class="dropdown-toggle" data-toggle=""><b>Pilih Cabang</b><br><br>
                         <font color="#90a4ae">
                           <div id="id_cabang2"> Ketik kota, daerah, atau cabang yang kamu tuju (Jakarta Selatan, Tebet Surabaya, dst)</div>
                         </font><span class="glyphicon glyphicon-chevron-down pull-right"></span>
                       </a>
+                      <ul class="dropdown-menu mega-dropdown-menu row">
+                        <h5><b style="margin-left: 30px">Jakarta Selatan</b></h5>
+                        <hr>
+                        <?php foreach ($cabang->result() as $result2) : ?>
+                          <li class="col-sm-6" style="list-style-type: none;">
+                            <div class="col-sm-6">
+                              <b><?php echo $result2->nama_cabang  ?><br></b>
+                              <?php echo $result2->alamat ?><br>
+                            </div>
+                            <button class="btn red col-sm-6" style="float: right; width: 100px; background-color:#f40049; color:white" type="button" onclick="pilih_cabang('<?php echo $result2->id_cabang ?>')">Pilih</button>
+                            <input type="hidden" name="id_cabang" value="<?php echo $result2->id_cabang ?>">
+                          </li>
+                        <?php endforeach; ?>
+                      </ul>
                     </li>
-
-                    <div id="ModalCabang" class="modal" style="top: 50px;">
-                      <form class="form-horizontal" action="" method="post" enctype="multipart/form-data" role="form">
-                        <div class="modal-dialog">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                              <h4 class="modal-title" style="text-align: center;"><b>Pilih Cabang Klinik</b></h4>
-                            </div>
-                            <div class="col-lg-12">
-                              <div class="modal-body">
-                                <h5 class="madal-body">
-                                  <center>Ketik kota, daerah, atau cabang yang kamu pilih <br>(Jakarta Selatan, Tebet Surabaya, dst)</center>
-                                </h5><br><br><br>
-                                <h5>
-                                  <?php foreach ($cabang->result() as $result2) : ?>
-                                    <li class="col-sm-12" style="list-style-type: none;"><br><br>
-                                      <div class="col-sm-6">
-                                        <b><?php echo $result2->nama_cabang  ?><br></b>
-                                        <?php echo $result2->alamat ?><br>
-                                      </div>
-                                      <button class="btn red col-sm-6" style="float: right; width: 100px; background-color:#f40049; color:white" type="button" onclick="pilih_cabang('<?php echo $result2->id_cabang ?>')">Pilih</button>
-                                      <input type="hidden" name="id_cabang" value="<?php echo $result2->id_cabang ?>">
-                                    </li>
-                                  <?php endforeach; ?>
-                                </h5>
-                              </div>
-                            </div>
-                            <div class="modal-footer">
-                              <center><button class="btn salmon remove hidden" onclick="popUpBatalKonfirmasi()" type="submit" style="background-color:#F40049; color:white; margin-top:50px"> Ya, Kirim Konfirmasi Penolakan</button></center>
-                              <!-- <button type="button" class="btn btn-warning" data-dismiss="modal"> Batal</button>  -->
-                            </div>
-                          </div>
-                        </div>
-                      </form>
-                    </div>
-                    </li>
-
-                    <li class="button"> <a href="#" class="button" data-toggle="modal" data-target="#ModalDokter"><b>Pilih Dokter</b><br><br>
+                    <li class="dropdown mega-dropdown"> <a href="#" class="dropdown-toggle" data-toggle=""><b>Pilih Dokter</b><br><br><br>
                         <font color="#90a4ae">
                           <div id="id_dokter2"> Cari Spesialisasi (Umum, Konservasi Gigi, Gigi Anak) atau nama dokter (Alana)</div>
                         </font> <span class="glyphicon glyphicon-chevron-down pull-right"></span>
                       </a>
-                    </li>
+                      <ul class="dropdown-menu mega-dropdown-menu row">
 
-                    <div id="ModalDokter" class="modal" style="top: 50px;">
-                      <form class="form-horizontal" action="" method="post" enctype="multipart/form-data" role="form">
-                        <div class="modal-dialog">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                              <h4 class="modal-title" style="text-align: center;"><b>Pilih Dokter Klinik</b></h4>
+                        <?php foreach ($dokter->result() as $result3) : ?>
+                          <li class="col-sm-6" style="list-style-type: none;">
+                            <div class="col-sm-6">
+                              <b><?php echo $result3->nama_dokter  ?><br></b>
+                              <?php echo $result3->spesialis ?><br>
                             </div>
-                            <div class="col-lg-12">
-                              <div class="modal-body">
-                                <h5 class="madal-body">
-                                  <center> Cari Spesialisasi (Umum, Konservasi Gigi, Gigi Anak) <br>atau nama dokter (Alana) </center>
-                                </h5><br><br><br>
-                                <h5>
-                                  <?php foreach ($dokter->result() as $result3) : ?>
-                                    <li class="col-sm-12" style="list-style-type: none;"><br><br>
-                                      <div class="col-sm-6">
-                                        <b><?php echo $result3->nama_dokter  ?><br></b>
-                                        <?php echo $result3->spesialis ?><br>
-                                      </div>
-                                      <button class="btn red col-sm-6" style="float: right; width: 100px; background-color:#f40049; color:white" type="button" onclick="pilih_dokter('<?php echo $result3->id_dokter ?>')">Pilih</button>
-                                      <input type="hidden" name="id_dokter" value="<?php echo $result3->id_dokter ?>">
-                                      <div class="col-sm-12">
-                                        <hr>
-                                      </div>
-                                    </li>
-                                  <?php endforeach; ?>
-                                </h5>
-                              </div>
+                            <button class="btn red col-sm-6" style="float: right; width: 100px; background-color:#f40049; color:white" type="button" onclick="pilih_dokter('<?php echo $result3->id_dokter ?>')">Pilih</button>
+                            <input type="hidden" name="id_dokter" value="<?php echo $result3->id_dokter ?>">
+                            <div class="col-sm-12">
+                              <hr>
                             </div>
-                            <div class="modal-footer">
-                              <!-- <center><button class="btn salmon remove hidden" onclick="popUpBatalKonfirmasi()" type="submit" style="background-color:#F40049; color:white; margin-top:50px"> Ya, Kirim Konfirmasi Penolakan</button></center> -->
-                              <!-- <button type="button" class="btn btn-warning" data-dismiss="modal"> Batal</button>  -->
-                            </div>
+                          </li>
+                        <?php endforeach; ?>
+                        <li class="col-sm-6" style="list-style-type: none;">
+                          <div class="col-sm-6">
+                            <b>Lihat Semua<br></b>
+                            Pilih opsi ini apabila kamu ingin melihat seluruh opsi<br>
                           </div>
-                        </div>
-                      </form>
-                    </div>
+                          <button class="btn red col-sm-6" style="float: right; width: 100px; background-color:#f40049; color:white" type="button" onclick="location.href ='<?php echo base_url('Pasien/jadwal_dokter'); ?>'">Pilih</button>
+                          <div class="col-sm-12">
+                            <hr>
+                          </div>
+                        </li>
+                      </ul>
                     </li>
 
                     <li>
