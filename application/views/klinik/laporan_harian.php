@@ -91,13 +91,14 @@
                                 <div class="btn" style="background-color: #e7e6e6; border: none; color:black; font-weight:bold;">
                                 <div class="col-md-2 outer" style="padding-top: 7px">
                                     <img src="<?php echo base_url() ?>assets/images/calendar.png" height="24px">
-                                </div>
-                                <div class="col-md-8" style="text-align: left; display: table-cell;vertical-align:middle; padding-right:0px">
+                                    <div class="col-md-8" style="text-align: left; display: table-cell;vertical-align:middle; padding-right:0px">
                                     <span>Per-hari </span>
                                     <input autocomplete="off" id="tanggal" name='from'> </input>
                                     <!-- <br>
                                     <span>28 Agustus 2020</span> -->
                                 </div>
+                                </div>
+                                
                                <!--  <div class="col-md-2 outer" style="padding:0px">
                                     <img style="margin-top: 15px;" src=" <?php echo base_url() ?>assets/images/down.png" height="12px">
                                 </div> -->
@@ -109,11 +110,11 @@
                                 <div class="col-md-2 outer" style="padding-top: 7px">
                                     <img src="<?php echo base_url() ?>assets/images/Doctor.png" height="24px">
                                 </div>
-                                <div class="col-md-8" style="text-align: left; display: table-cell;vertical-align:middle; padding-right:0px">
-                                    <span>Per-dokter</span>
+                                <div class="col-md-10" style="text-align: left; display: table-cell;vertical-align:middle; padding-right:0px">
+                                    <!-- <span>Per-dokter</span> -->
                                     <select id="f_dokter" class="form-control form-control-sm">
-                                <option value="" disabled selected style="display: none;">Filter Dokter</option>
-                                <option value="b.id_dokter">Perlihatkan Semua</option>
+                                <!-- <option value="" disabled selected style="display: none;">Filter Dokter</option> -->
+                                <option value="b.id_dokter">Tampilkan Semua</option>
                                 <?php foreach ($dokter->result() as $result) : ?>
                                <option value="<?php echo $result->id_dokter  ?>"><?php echo $result->nama_dokter ?></option>
                                <?php endforeach; ?>
