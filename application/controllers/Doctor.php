@@ -1251,6 +1251,167 @@ class Doctor extends CI_Controller
 
     $this->load->view('dokter/vw_laporan_perdokter', $data);
   }
+  function filter_informasi_pasien() {
+    $id_user = $this->session->userdata('id_user');
+    $this->db->select('*');
+    $this->db->from('dokter a');
+    $this->db->join('login_session b', 'a.id_user=b.id_user');
+    $this->db->where('a.id_user', $id_user);
+    $dokter = $this->db->get('')->result();
+    foreach ($dokter as $key) :
+      $id_dokter2 = $key->id_dokter;
+    endforeach;
+    if(!empty($_GET['id_dokter'])){
+      $id_dokter = $_GET['id_dokter'];
+    }else if(empty($_GET['id_dokter'])){
+      $id_dokter = $id_dokter2;
+    }
+    $tgl = $_GET['tgl'];
+
+
+    $konf = '1';
+    $this->db->select('b.tanggal_rencana,b.jam_rencana,d.nama_dokter,c.nama_depan,c.nama_belakang,c.hubungan,f.id_rekam_medis,a.status,c.id_pasien,a.id_booking,c.id_user');
+    $this->db->from('booking a');
+    $this->db->join('rencana b','a.id_booking=b.id_booking');
+    $this->db->join('pasien c','a.id_pasien=c.id_pasien');
+    $this->db->join('dokter d',' a.id_dokter=d.id_dokter');
+    $this->db->join('cabang e','a.id_cabang=e.id_cabang');
+    $this->db->join('rekam_medis f','a.id_booking=f.id_booking');
+    $this->db->join('login_session g','a.id_user=g.id_user');
+    $this->db->where('a.konfirmasi', $konf);
+
+    if ($tgl != 0) {
+      $this->db->where('b.tanggal_rencana', $tgl);
+    }
+    $this->db->where('a.id_dokter', $id_dokter);
+    $this->db->where_not_in('a.status', 3);
+    $this->db->where_not_in('a.status', 2);
+    $this->db->group_by('a.id_booking');
+    $this->db->order_by('b.tanggal_rencana', 'desc');
+    $data = $this->db->get('')->result();
+    if (!empty($data)) {
+      ?>
+                  <?php foreach ($data as $result): ?>
+            <?php $tgl = date('d F Y', strtotime($result->tanggal_rencana));?>
+            <h5><b><?php echo $tgl ?> </b></h5>
+                <div class="col-md-12 d" style="margin: 2px;">
+                  <div class="col-md-6" style="text-align: left;">
+                      <h5 style="font-weight: bold;"><?php echo $result->jam_rencana ?></h5>
+                      <h6>Drg. <?php echo $result->nama_dokter ?></h6>
+                      <br>
+                      <?php if ($result->status == 0) {?>
+                        <font style="background: #FFFF00; color: #000;" class="label label-warning">Menunggu <br> Pendaftaran</font>
+                      <?php }
+                      elseif ($result->status == 1) {?>
+                        <h6 class="label label-success">Sudah Terdaftar</h6>
+                       <?php } ?>              
+                  </div>
+                  <div class="col-md-6" style="padding-right: 10px;">
+                      <h6 style="font-weight: bold ;"><?php echo $result->nama_depan ?> <?php echo $result->nama_belakang ?></h6>
+                      <p style="font-size: 10px;">No. Rekam Medis <?php echo $result->id_rekam_medis ?></p>
+                      <p style="font-size: 10px;">
+                        <?php 
+                          if ($result->hubungan == 'Anda') {
+                              echo "Atas nama sendiri ";
+                          }
+                          elseif($result->hubungan == 'Anak'){
+                              echo $result->hubungan." "."<span id ='hubung_id'></span>";
+                          }
+                          elseif($result->hubungan == 'Ibu'){
+                              echo $result->hubungan." "."<span id ='hubung_id2'></span>";
+                          }
+                          elseif($result->hubungan == 'Ayah'){
+                              echo $result->hubungan." "."<span id ='hubung_id3'></span>";
+                          }
+                          elseif($result->hubungan == 'Istri'){
+                              echo $result->hubungan." "."<span id ='hubung_id4'></span>";
+                          }
+                          elseif($result->hubungan == 'Suami'){
+                              echo $result->hubungan." "."<span id ='hubung_id5'></span>";
+                          }
+                          elseif($result->hubungan == 'Saudara'){
+                              echo $result->hubungan." "."<span id ='hubung_id6'></span>";
+                          }
+                       ?>
+                      </p>
+                      <select hidden name="id_user" id="id_user">
+                         <option value="0" selected></option>
+                      </select>
+                      <a href="<?php echo site_url('doctor/detail_informasi_pasien/'.$result->id_pasien.'/'.$result->id_booking) ?>"class="btn btn-anim" style="height: 35px; width: 70px; background-color: #f40049; color: white; border-radius: 5px"><span> Lihat</span></a>
+                  </div>
+                </div>
+                <?php endforeach; ?>
+
+                <script>
+    $(document).ready(function(){
+        hubungan_pasien();
+    $('#id_user').change(function(){
+    // let a = $(this).val();
+    // console.log(a);
+  });
+});
+
+function hubungan_pasien(){
+  var id = $('#id_user').val();
+  $.ajax({
+    url : "<?= base_url('doctor/get_hubungan_pasien/'.$result->id_user)?>",
+    data : {id:id},
+    success:function(data){
+        // console.log(data);
+      $('#hubung_id').html(data);
+    }
+  })
+  $.ajax({
+    url : "<?= base_url('doctor/get_hubungan_pasien/'.$result->id_user)?>",
+    data : {id:id},
+    success:function(data){
+        // console.log(data);
+      $('#hubung_id2').html(data);
+    }
+  })
+  $.ajax({
+    url : "<?= base_url('doctor/get_hubungan_pasien/'.$result->id_user)?>",
+    data : {id:id},
+    success:function(data){
+        // console.log(data);
+      $('#hubung_id3').html(data);
+    }
+  })
+  $.ajax({
+    url : "<?= base_url('doctor/get_hubungan_pasien/'.$result->id_user)?>",
+    data : {id:id},
+    success:function(data){
+        // console.log(data);
+      $('#hubung_id4').html(data);
+    }
+  })
+  $.ajax({
+    url : "<?= base_url('doctor/get_hubungan_pasien/'.$result->id_user)?>",
+    data : {id:id},
+    success:function(data){
+        // console.log(data);
+      $('#hubung_id5').html(data);
+    }
+  })
+   $.ajax({
+    url : "<?= base_url('doctor/get_hubungan_pasien/'.$result->id_user)?>",
+    data : {id:id},
+    success:function(data){
+        // console.log(data);
+      $('#hubung_id6').html(data);
+    }
+  });
+}
+</script>
+          <?php
+    } else {
+      ?>
+      <font style="text-align: center;">
+        <h4>Tidak Ada Data</h4>
+      </font>
+      <?php
+    }
+  }
 
   function filter_profil()
   {

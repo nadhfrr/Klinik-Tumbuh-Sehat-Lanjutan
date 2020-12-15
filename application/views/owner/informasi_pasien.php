@@ -173,9 +173,10 @@
                     <td><?php echo $result->id_rekam_medis ?></td>
                     <td><?php echo $tgl ?></td>
                     <td>
-                        <a href="<?php echo site_url('owner/detail_informasi_pasien/'.$result->id_pasien.'/'.$result->id_booking) ?>"class="btn btn-anim" style="height: 35px; width: 70px; background-color: #f40049; color: white; border-radius: 5px"><span> Lihat</span></a>
+                        <a href="<?php echo site_url('doctor/detail_informasi_pasien/'.$result->id_pasien.'/'.$result->id_booking.'/'.$result->id_rekam_medis) ?>"class="btn btn-anim" style="height: 35px; width: 70px; background-color: #f40049; color: white; border-radius: 5px"><span> Lihat</span></a>
                     </td>
                   </tr>
+                  <input type="hidden" id="hidden_dokter_id" name="id_dokter" value="<?php echo $result->id_dokter; ?>">
                 <?php endforeach; ?> 
               </tbody>
             </table>
@@ -191,7 +192,7 @@
             <div class="form-group box2">
               <input class="form-control"rows="3" autocomplete="off" name="tanggal_informasi" placeholder="filter tanggal" id="f_tanggal_informasi">
                       <?php
-												foreach($rencana_sebelum->result_array() as $rencana_result){
+												foreach($informasi->result_array() as $rencana_result){
 													$tgl_rencana[] = $rencana_result['tanggal_rencana'];
 												}
                           $f_tgl_rencana =json_encode($tgl_rencana);
@@ -202,6 +203,7 @@
         </div>
         <div id="txtfilter" style="width: 100%; height: 700px; overflow-y: scroll; overflow-x: hidden; margin-top:30px">
         </div>
+        <input type="hidden" id="hidden">
         
     </div>
     
@@ -275,13 +277,15 @@ $(".remove").click(function(){
 
   function pasien() {
     var tgl = $('#f_tanggal_informasi').val();
+    var id_dokter = $("#hidden_dokter_id").val();
     $.ajax({
-      url: "<?= base_url('owner/filter_informasi_pasien') ?>",
+      url: "<?= base_url('doctor/filter_informasi_pasien') ?>",
       data: {
-        tgl: tgl
+        tgl: tgl, id_dokter: id_dokter
       },
       success: function(data) {
         $('#txtfilter').html(data);
+        $('#hidden').val(id_dokter);
       }
     });
   }
@@ -299,19 +303,25 @@ function enableAllTheseDays(date) {
      changeMonth: true,
      changeYear: true,
      beforeShowDay: enableAllTheseDays,
+     monthNames: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
+            'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
+  dayNamesMin: ['Min', 'Sen', 'Sel', 'Rab', 'Ka', 'Jum', 'Sab'],
+  dayNames: ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'],
     onSelect: function (dateText, inst) {
+    var id_dokter = $("#hidden").val();
     var tanggal =dateText;
     var tgl = dateText;
     $.ajax({
-      url: "<?= base_url('owner/filter_informasi_pasien') ?>",
+      url: "<?= base_url('doctor/filter_informasi_pasien') ?>",
+      async : true,
       data: {
-        tgl: tgl
+        tgl: tgl, id_dokter: id_dokter
       },
       success: function(data) {
         $('#txtfilter').html(data);
+        $('#hidden').val(id_dokter);
       }
     });
     }
      });
-
       </script>
