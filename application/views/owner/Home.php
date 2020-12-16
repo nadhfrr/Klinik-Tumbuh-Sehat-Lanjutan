@@ -954,14 +954,14 @@
           <div class="col-md-1"><b>Filter:</b></div>
           <div class="col-md-3">
             <div class="form-group box2">
-            <input id="filter_t" type="text" class="form-control" rows="3" placeholder="Filter Tanggal">
-                <?php
-												foreach($rencana_sebelum->result_array() as $rencana_result){
-													$tgl_rencana[] = $rencana_result['tanggal_rencana'];
-												}
-                          $f_tanggal_jadwal =json_encode($tgl_rencana);
-                          // echo $f_tanggal_jadwal;
-												?>
+              <input id="filter_t" type="text" class="form-control" rows="3" placeholder="Filter Tanggal">
+              <?php
+              foreach ($rencana_sebelum->result_array() as $rencana_result) {
+                $tgl_rencana[] = $rencana_result['tanggal_rencana'];
+              }
+              $f_tanggal_jadwal = json_encode($tgl_rencana);
+              // echo $f_tanggal_jadwal;
+              ?>
             </div>
           </div>
           <div class="col-md-3">
@@ -1247,56 +1247,57 @@
 </script>
 </script>
 <script>
-var enableDays = <?php echo $f_tanggal_jadwal?>;
-function enableAllTheseDays(date) {
-    var sdate = $.datepicker.formatDate( 'yy-mm-dd', date)
-    if($.inArray(sdate, enableDays) != -1) {
-        return [true];
+  var enableDays = <?php echo $f_tanggal_jadwal ?>;
+
+  function enableAllTheseDays(date) {
+    var sdate = $.datepicker.formatDate('yy-mm-dd', date)
+    if ($.inArray(sdate, enableDays) != -1) {
+      return [true];
     }
     return [false];
-}
+  }
 </script>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
   $('#filter_t').datepicker({
-     dateFormat: 'yy-mm-dd',
-     beforeShowDay: enableAllTheseDays,
-    onSelect: function (dateText, inst) {
-    var tgl = dateText;
-    var id = $('#filter_p').val();
-    $.ajax({
-      url: "<?= base_url('owner/filter_tanggal') ?>",
-      data: {
-        tgl: tgl,
-        id: id
-      },
-      success: function(data) {
-        $('#txtfilter').html(data);
-      }
-    })
-    $.ajax({
-      url: "<?= base_url('owner/filter_tanggal_2') ?>",
-      data: {
-        tgl: tgl,
-        id: id
-      },
-      success: function(data) {
-        $('#txtfilter_2').html(data);
-      }
-    })
-    $.ajax({
-      url: "<?= base_url('owner/filter_tanggal_3') ?>",
-      data: {
-        tgl: tgl,
-        id: id
-      },
-      success: function(data) {
-        $('#txtfilter_3').html(data);
-      }
-    });
+    dateFormat: 'yy-mm-dd',
+    beforeShowDay: enableAllTheseDays,
+    onSelect: function(dateText, inst) {
+      var tgl = dateText;
+      var id = $('#filter_p').val();
+      $.ajax({
+        url: "<?= base_url('owner/filter_tanggal') ?>",
+        data: {
+          tgl: tgl,
+          id: id
+        },
+        success: function(data) {
+          $('#txtfilter').html(data);
+        }
+      })
+      $.ajax({
+        url: "<?= base_url('owner/filter_tanggal_2') ?>",
+        data: {
+          tgl: tgl,
+          id: id
+        },
+        success: function(data) {
+          $('#txtfilter_2').html(data);
+        }
+      })
+      $.ajax({
+        url: "<?= base_url('owner/filter_tanggal_3') ?>",
+        data: {
+          tgl: tgl,
+          id: id
+        },
+        success: function(data) {
+          $('#txtfilter_3').html(data);
+        }
+      });
     }
-     });
+  });
 </script>
 </script>

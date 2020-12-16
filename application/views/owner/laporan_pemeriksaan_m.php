@@ -166,7 +166,7 @@
                                     <div class="col-md-2 outer" style="padding-top: 7px">
                                         <img src="<?php echo base_url() ?>assets/images/Doctor.png" height="24px">
                                     </div>
-                                    <div class="col-md-10" style="text-align: left; display: table-cell;vertical-align:middle; padding-right:0px">
+                                    <div class="col-md-10" style="text-align: left; display: table-cell;vertical-align:middle; padding-right:0px; padding-left:0px">
                                         <select id="f_dokter" class="form-control form-control-sm">
                                             <!-- <option value="" disabled selected style="display: none;">Filter Dokter</option> -->
                                             <option value="b.id_dokter">Tampilkan Semua</option>
@@ -177,20 +177,23 @@
                                     </div>
                                 </div>
                             </a>
+                        </div>
 
+                        <div style="float: right">
                             <span style="color: black; "><b>Periode :</b></span>
-                            <div href="#" class="btn" style="border: none; color:black; font-weight:bold;">
-                                <div class="col-md-2 outer" style="text-align: left; display: table-cell;vertical-align:middle; padding-right:0px">
-                                    <input autocomplete="off" id="from" name='from'> </input>
+                            <a>
+                                <div href="#" class="btn" style="border: none; color:black; font-weight:bold;">
+                                    <div class="col-md-2 outer" style="text-align: left; display: table-cell;vertical-align:middle; padding-right:0px; padding-left:0px">
+                                        <input autocomplete="off" id="from" name='from' style="width: 80px;"> </input>
+                                    </div>
                                 </div>
-                            </div>
-                            <span style="color: black; background-color: #e7e6e6;"><b>To</b></span>
-                            <div href="#" class="btn" style="border: none; color:black; font-weight:bold;">
-                                <div class="col-md-2" style="text-align: left; display: table-cell;vertical-align:middle; padding-right:0px">
-                                    <input id="to" autocomplete="off" disabled='disabled'> </input>
+                                <span style="color: black; background-color: #e7e6e6;"><b>To</b></span>
+                                <div href="#" class="btn" style="border: none; color:black; font-weight:bold;">
+                                    <div class="col-md-2" style="text-align: left; display: table-cell;vertical-align:middle; padding-right:0px; padding-left:0px">
+                                        <input id="to" autocomplete="off" disabled='disabled' style="width: 80px;"> </input>
+                                    </div>
                                 </div>
-                            </div>
-
+                            </a>
                         </div>
                     </div>
                     <div class="col-lg-12">
