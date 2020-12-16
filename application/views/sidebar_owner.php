@@ -7,7 +7,7 @@
 	.sidebar ul.nav .active>a:focus,
 	.sidebar ul.nav li.parent a.active:focus {
 		color: #fff;
-		background-color: #f40049;
+		background-color: #383434;
 		border-radius: 8px;
 	}
 
