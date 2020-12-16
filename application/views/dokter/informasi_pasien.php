@@ -191,12 +191,15 @@
           <div class="col-md-9" style="top: -7px; padding: 0">
             <div class="form-group box2">
               <input class="form-control"rows="3" autocomplete="off" name="tanggal_informasi" placeholder="filter tanggal" id="f_tanggal_informasi">
-                      <?php
-												foreach($informasi->result_array() as $rencana_result){
-													$tgl_rencana[] = $rencana_result['tanggal_rencana'];
-												}
+                        <?php
+                      $tgl_rencana = [];										
+                        foreach($informasi->result_array() as $rencana_result){
+                          if ($rencana_result != []){
+                            $tgl_rencana[] = $rencana_result['tanggal_rencana'];  
+                          }
+													
+                        }
                           $f_tgl_rencana =json_encode($tgl_rencana);
-                          // echo $f_tgl_rencana;
 												?>
             </div>
           </div>
