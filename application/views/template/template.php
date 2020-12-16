@@ -89,7 +89,7 @@
 							var today = new Date();
 							var curr_hour = today.getHours();
 							var curr_minute = today.getMinutes();
-							var curr_second = today.getSeconds();
+							// var curr_second = today.getSeconds();
 							// if (curr_hour < 12) {
 							//     a_p = "AM";
 							// } else {
@@ -103,8 +103,8 @@
 							// }
 							curr_hour = checkTime(curr_hour);
 							curr_minute = checkTime(curr_minute);
-							curr_second = checkTime(curr_second);
-							document.getElementById('clock').innerHTML = curr_hour + ":" + curr_minute + ":" + curr_second + " " + a_p;
+							// curr_second = checkTime(curr_second);
+							document.getElementById('clock').innerHTML = curr_hour + ":" + curr_minute + " " + a_p;
 						}
 
 						function checkTime(i) {
@@ -384,19 +384,19 @@
 			return 'Rp. ' + rupiah.split('', rupiah.length - 1).reverse().join('');
 		}
 		<?php
-	$total = 0;
-    foreach($harian->result() as $value) {
-        $total += $value->money;
-    }
-	$rata_rata = $total/count($harian->result());
-	$average ="Rp " .number_format((int)$rata_rata, 0, ",", ".");
-	?>
+		$total = 0;
+		foreach ($harian->result() as $value) {
+			$total += $value->money;
+		}
+		$rata_rata = $total / count($harian->result());
+		$average = "Rp " . number_format((int)$rata_rata, 0, ",", ".");
+		?>
 	</script>
 	<script type="text/javascript">
 		var change = {
 			0: 'Rp 0',
-			10.000 : 'Rp. 10.000',
-			100000 : 'Rp. 100.000',
+			10.000: 'Rp. 10.000',
+			100000: 'Rp. 100.000',
 			1000000: 'Rp. 1.000.000',
 			2500000: 'Rp. 2.500.000',
 			5000000: 'Rp. 5.000.000',
@@ -447,7 +447,7 @@
 																				echo "Jumat";
 																			} elseif ($result89->hari == 'Saturday') {
 																				echo "Sabtu";
-																			} 
+																			}
 																			?><br><?php echo $result89->tgl ?>",
 					<?php endforeach; ?>
 				],
@@ -473,18 +473,18 @@
 					}
 				},
 				plotLines: [{
-                    color: 'black',
-                    value: <?php echo (int)$rata_rata?>,
-                    width: '1',
-                    zIndex: 2,
-	                dashStyle: 'Dash', 
-                label: {
-                text: '<?php echo $average?>',
-                textAlign: 'left',
-				fontSize: '6px',
-                 x: -82
-                 }
-                }]
+					color: 'black',
+					value: <?php echo (int)$rata_rata ?>,
+					width: '1',
+					zIndex: 2,
+					dashStyle: 'Dash',
+					label: {
+						text: '<?php echo $average ?>',
+						textAlign: 'left',
+						fontSize: '6px',
+						x: -82
+					}
+				}]
 			},
 			tooltip: {
 				headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
@@ -513,17 +513,17 @@
 					},
 					data: [
 						<?php
-                    foreach($harian->result() as $key=>$value) :{  
-                    $last = count($harian->result()) - 1;
-                    echo '{y :';
-                    echo $value->money;
-                    if($key == $last){
-                    echo ",color : '#f40049'},";
-                    }else
-	                echo ",color : '#6A5C59'},";
-                    }
-                    ?>
-                    <?php endforeach ?>
+						foreach ($harian->result() as $key => $value) : {
+								$last = count($harian->result()) - 1;
+								echo '{y :';
+								echo $value->money;
+								if ($key == $last) {
+									echo ",color : '#f40049'},";
+								} else
+									echo ",color : '#6A5C59'},";
+							}
+						?>
+						<?php endforeach ?>
 					]
 
 				},
@@ -688,7 +688,7 @@
 																				echo "Jumat";
 																			} elseif ($result89->hari == 'Saturday') {
 																				echo "Sabtu";
-																			} 
+																			}
 																			?><br><?php echo $result89->tgl ?>",
 					<?php endforeach; ?>
 				],
@@ -714,18 +714,18 @@
 					}
 				},
 				plotLines: [{
-                    color: 'black',
-                    value: <?php echo (int)$rata_rata?>,
-                    width: '1',
-                    zIndex: 2,
-	                dashStyle: 'Dash', 
-                label: {
-                text: '<?php echo $average?>',
-                textAlign: 'left',
-				fontSize: '6px',
-                 x: -82
-                 }
-                }]
+					color: 'black',
+					value: <?php echo (int)$rata_rata ?>,
+					width: '1',
+					zIndex: 2,
+					dashStyle: 'Dash',
+					label: {
+						text: '<?php echo $average ?>',
+						textAlign: 'left',
+						fontSize: '6px',
+						x: -82
+					}
+				}]
 			},
 			tooltip: {
 				headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
@@ -753,21 +753,20 @@
 				},
 				data: [
 					<?php
-                    foreach($harian->result() as $key=>$value) :{  
-                    $last = count($harian->result()) - 1;
-                    echo '{y :';
-                    echo $value->money;
-                    if($key == $last){
-                    echo ",color : '#f40049'},";
-                    }else
-	                echo ",color : '#6A5C59'},";
-                    }
-                    ?>
-                    <?php endforeach ?>
+					foreach ($harian->result() as $key => $value) : {
+							$last = count($harian->result()) - 1;
+							echo '{y :';
+							echo $value->money;
+							if ($key == $last) {
+								echo ",color : '#f40049'},";
+							} else
+								echo ",color : '#6A5C59'},";
+						}
+					?>
+					<?php endforeach ?>
 				]
 			}]
 		});
-		
 	</script>
 	<script type="text/javascript">
 		var change = {
@@ -825,18 +824,18 @@
 					}
 				},
 				plotLines: [{
-                    color: 'black',
-                    value: <?php echo (int)$rata_rata?>,
-                    width: '1',
-                    zIndex: 2,
-	                dashStyle: 'Dash', 
-                label: {
-                text: '<?php echo $average?>',
-                textAlign: 'left',
-				fontSize: '6px',
-                 x: -82
-                 }
-                }]
+					color: 'black',
+					value: <?php echo (int)$rata_rata ?>,
+					width: '1',
+					zIndex: 2,
+					dashStyle: 'Dash',
+					label: {
+						text: '<?php echo $average ?>',
+						textAlign: 'left',
+						fontSize: '6px',
+						x: -82
+					}
+				}]
 			},
 			tooltip: {
 				headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
@@ -864,24 +863,23 @@
 				},
 				data: [
 					<?php
-                    foreach($harian->result() as $key=>$value) :{  
-                    $last = count($harian->result()) - 1;
-                    echo '{y :';
-                    echo $value->money;
-                    if($key == $last){
-                    echo ",color : '#f40049'},";
-                    }else
-	                echo ",color : '#6A5C59'},";
-                    }
-                    ?>
-                    <?php endforeach ?>
+					foreach ($harian->result() as $key => $value) : {
+							$last = count($harian->result()) - 1;
+							echo '{y :';
+							echo $value->money;
+							if ($key == $last) {
+								echo ",color : '#f40049'},";
+							} else
+								echo ",color : '#6A5C59'},";
+						}
+					?>
+					<?php endforeach ?>
 				]
 
 			}]
-		}
-		);
+		});
 	</script>
-		<script type="text/javascript">
+	<script type="text/javascript">
 		var change = {
 			0: '0',
 			100000: 'Rp. 100.000',
@@ -937,18 +935,18 @@
 					}
 				},
 				plotLines: [{
-                    color: 'black',
-                    value: <?php echo (int)$rata_rata?>,
-                    width: '1',
-                    zIndex: 2,
-	                dashStyle: 'Dash', 
-                label: {
-                text: '<?php echo $average?>',
-                textAlign: 'left',
-				fontSize: '6px',
-                 x: -82
-                 }
-                }]
+					color: 'black',
+					value: <?php echo (int)$rata_rata ?>,
+					width: '1',
+					zIndex: 2,
+					dashStyle: 'Dash',
+					label: {
+						text: '<?php echo $average ?>',
+						textAlign: 'left',
+						fontSize: '6px',
+						x: -82
+					}
+				}]
 			},
 			tooltip: {
 				headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
@@ -977,17 +975,17 @@
 					},
 					data: [
 						<?php
-                    foreach($harian->result() as $key=>$value) :{  
-                    $last = count($harian->result()) - 1;
-                    echo '{y :';
-                    echo $value->money;
-                    if($key == $last){
-                    echo ",color : '#f40049'},";
-                    }else
-	                echo ",color : '#6A5C59'},";
-                    }
-                    ?>
-                    <?php endforeach ?>
+						foreach ($harian->result() as $key => $value) : {
+								$last = count($harian->result()) - 1;
+								echo '{y :';
+								echo $value->money;
+								if ($key == $last) {
+									echo ",color : '#f40049'},";
+								} else
+									echo ",color : '#6A5C59'},";
+							}
+						?>
+						<?php endforeach ?>
 					]
 
 				},
@@ -1098,18 +1096,18 @@
 					}
 				},
 				plotLines: [{
-                    color: 'black',
-                    value: <?php echo (int)$rata_rata?>,
-                    width: '1',
-                    zIndex: 2,
-	                dashStyle: 'Dash', 
-                label: {
-                text: '<?php echo $average?>',
-                textAlign: 'left',
-				fontSize: '6px',
-                 x: -82
-                 }
-                }]
+					color: 'black',
+					value: <?php echo (int)$rata_rata ?>,
+					width: '1',
+					zIndex: 2,
+					dashStyle: 'Dash',
+					label: {
+						text: '<?php echo $average ?>',
+						textAlign: 'left',
+						fontSize: '6px',
+						x: -82
+					}
+				}]
 			},
 			tooltip: {
 				headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
@@ -1137,17 +1135,17 @@
 				},
 				data: [
 					<?php
-                    foreach($harian->result() as $key=>$value) :{  
-                    $last = count($harian->result()) - 1;
-                    echo '{y :';
-                    echo $value->money;
-                    if($key == $last){
-                    echo ",color : '#f40049'},";
-                    }else
-	                echo ",color : '#6A5C59'},";
-                    }
-                    ?>
-                    <?php endforeach ?>
+					foreach ($harian->result() as $key => $value) : {
+							$last = count($harian->result()) - 1;
+							echo '{y :';
+							echo $value->money;
+							if ($key == $last) {
+								echo ",color : '#f40049'},";
+							} else
+								echo ",color : '#6A5C59'},";
+						}
+					?>
+					<?php endforeach ?>
 				]
 
 			}]
@@ -1235,18 +1233,18 @@
 					}
 				},
 				plotLines: [{
-                    color: 'black',
-                    value: <?php echo (int)$rata_rata?>,
-                    width: '1',
-                    zIndex: 2,
-	                dashStyle: 'Dash', 
-                label: {
-                text: '<?php echo $average?>',
-                textAlign: 'left',
-				fontSize: '6px',
-                 x: -82
-                 }
-                }]
+					color: 'black',
+					value: <?php echo (int)$rata_rata ?>,
+					width: '1',
+					zIndex: 2,
+					dashStyle: 'Dash',
+					label: {
+						text: '<?php echo $average ?>',
+						textAlign: 'left',
+						fontSize: '6px',
+						x: -82
+					}
+				}]
 			},
 			tooltip: {
 				headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
@@ -1275,17 +1273,17 @@
 					},
 					data: [
 						<?php
-                    foreach($harian->result() as $key=>$value) :{  
-                    $last = count($harian->result()) - 1;
-                    echo '{y :';
-                    echo $value->money;
-                    if($key == $last){
-                    echo ",color : '#f40049'},";
-                    }else
-	                echo ",color : '#6A5C59'},";
-                    }
-                    ?>
-                    <?php endforeach ?>
+						foreach ($harian->result() as $key => $value) : {
+								$last = count($harian->result()) - 1;
+								echo '{y :';
+								echo $value->money;
+								if ($key == $last) {
+									echo ",color : '#f40049'},";
+								} else
+									echo ",color : '#6A5C59'},";
+							}
+						?>
+						<?php endforeach ?>
 					]
 
 				},
@@ -1369,18 +1367,18 @@
 					}
 				},
 				plotLines: [{
-                    color: 'black',
-                    value: <?php echo (int)$rata_rata?>,
-                    width: '1',
-                    zIndex: 2,
-	                dashStyle: 'Dash', 
-                label: {
-                text: '<?php echo $average?>',
-                textAlign: 'left',
-				fontSize: '6px',
-                 x: -82
-                 }
-                }]
+					color: 'black',
+					value: <?php echo (int)$rata_rata ?>,
+					width: '1',
+					zIndex: 2,
+					dashStyle: 'Dash',
+					label: {
+						text: '<?php echo $average ?>',
+						textAlign: 'left',
+						fontSize: '6px',
+						x: -82
+					}
+				}]
 			},
 			tooltip: {
 				headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
@@ -1409,17 +1407,17 @@
 					},
 					data: [
 						<?php
-                    foreach($harian->result() as $key=>$value) :{  
-                    $last = count($harian->result()) - 1;
-                    echo '{y :';
-                    echo $value->money;
-                    if($key == $last){
-                    echo ",color : '#f40049'},";
-                    }else
-	                echo ",color : '#6A5C59'},";
-                    }
-                    ?>
-                    <?php endforeach ?>
+						foreach ($harian->result() as $key => $value) : {
+								$last = count($harian->result()) - 1;
+								echo '{y :';
+								echo $value->money;
+								if ($key == $last) {
+									echo ",color : '#f40049'},";
+								} else
+									echo ",color : '#6A5C59'},";
+							}
+						?>
+						<?php endforeach ?>
 					]
 
 				},
