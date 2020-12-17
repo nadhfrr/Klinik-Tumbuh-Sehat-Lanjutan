@@ -2252,6 +2252,4 @@ class Owner extends CI_Controller
     }
   }
 }
-
-/* End of file owner.php */
-?>/* Location: ./application/controllers/owner.php */ 
+?>
