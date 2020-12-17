@@ -23,9 +23,9 @@
 				<div class="panel-body">
 					<font style="font-weight: bold; font-size: 15px; padding-left: 27px">Buat Janji Pemeriksaan <i class="fa fa-chevron-right" aria-hidden="true"></i> Buat Akun Keluarga</font><br><br>
 					<!-- <form action="<?php echo base_url('klinik/add_pasien/'); ?>" method="post"> -->
-						<div class="form-group">
-							<form action="<?php echo base_url('klinik/send_email/'); ?>" method="post">
-								<div class="col-md-12">
+					<div class="form-group">
+						<form action="<?php echo base_url('klinik/send_email/'); ?>" method="post">
+							<div class="col-md-12">
 								<div class="col-lg-12" style="margin-bottom: 15px"><b>Informasi Umum</b></div><br>
 								<div class="col-lg-2">
 									Nama Depan
@@ -102,21 +102,21 @@
 								</div> -->
 								<div class="col-lg-3" style="margin-left: 178px;">
 									<div class="form-group">
-										<!-- <a href="<?php echo base_url().'Klinik/send_email'?>" class="btn btn-anim" style="height: 50px; width: 200px; background-color: #f40049; color: white; border-radius: 15px; margin-top:10px"><span class="btn-text">Kirim Kode Verifikasi </span></a> -->
+										<!-- <a href="<?php echo base_url() . 'Klinik/send_email' ?>" class="btn btn-anim" style="height: 50px; width: 200px; background-color: #f40049; color: white; border-radius: 15px; margin-top:10px"><span class="btn-text">Kirim Kode Verifikasi </span></a> -->
 										<input type="submit" class="btn btn-anim" name="kirim" style="height: 50px; width: 200px; background-color: #f40049; color: white; border-radius: 15px; margin-top:10px" value="Kirim Kode Verifikasi"></input>
 									</div>
 								</div>
 								<div class="col-lg-4" style="margin-top:5px; margin-right:50px">
 									Kami telah mengirimkan kode verifikasi melalui SMS dan aplikasi WhatsApp kamu. Mohon dapat ditunggu dalam waktu maksimal 1 menit kedepan
 								</div><br>
-								</div>
-							</form>						
-						</div>
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>
-		</div><!-- /.col-->
-	</div>
+		</div>
+	</div><!-- /.col-->
+</div>
 <!--/.main-->
 <script>
 	function kirimVer() {
@@ -125,7 +125,7 @@
 </script>
 
 <!-- <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script src="<?php echo base_url()?>assets/kode_tel/build/js/intlTelInput.js"></script>
+<script src="<?php echo base_url() ?>assets/kode_tel/build/js/intlTelInput.js"></script>
 <script>
     $("#mobile-number").intlTelInput();
 </script> -->
