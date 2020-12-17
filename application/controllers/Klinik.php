@@ -110,45 +110,69 @@ class Klinik extends CI_Controller
 
   public function send_email()
   {
-      $this->load->library('email');
+    $this->load->library('email');
 
-      $nama_depan_u = $this->input->post('nama_depan');
-      $email = $this->input->post('email');
-      
-      $config = array();
-      $config['charset']      = 'utf-8';
-      $config['useragent']    = 'Codeigniter';
-      $config['protocol']     = "smtp";
-      $config['mailtype']     = "html";
-      $config['smtp_host']    = "ssl://smtp.gmail.com";
-      $config['smtp_port']    = "465";
-      $config['smtp_timeout'] = "400";
-      $config['smtp_user']    = "tumbuhsehat7@gmail.com";
-      $config['smtp_pass']    = "tumbuhsehat789";
-      $config['crlf']         = "\r\n";
-      $config['newline']      = "\r\n";
-      $config['wordwrap']     = TRUE;
+    $nama_depan_u = $this->input->post('nama_depan');
+    $email = $this->input->post('email');
 
-      // Memanggil library email dengan set konfigurasi untuk pengiriman email
-      $this->email->initialize($config);
+    $data_login = array(
+      'nama_depan_u' => $this->input->post('nama_depan'),
+      'nama_belakang_u' => $this->input->post('nama_belakang'),
+      'tanggal_lahir' => $this->input->post('tanggal_lahir'),
+      'jenis_kelamin' => $this->input->post('jenis_kelamin'),
+      'email' => $this->input->post('email'),
+      'no_hp' => $this->input->post('no_hp'),
+      'level' => 'Pasien',
+    );
 
-      $this->email->from($config['smtp_user']);
-      $this->email->to($email);
-      $this->email->subject('Verifikasi Akun');
-      $this->email->message(
-        "<h2>Terima kasih $nama_depan_u, telah melakukan registrasi.<br></h2>".
-        "<p>Berikut kode verifikasi akun Anda : </p>".
+    $this->Klinik_model->insert_login($data_login);
+    $data = $this->Klinik_model->get_iduser($this->input->post('nama_depan'), $this->input->post('tanggal_lahir'), $this->input->post('nama_belakang'));
+    $data_pasien = array(
+      'id_user' => $data->id_user,
+      'nama_depan' => $this->input->post('nama_depan'),
+      'nama_belakang' => $this->input->post('nama_belakang'),
+      'tanggal_lahir' => $this->input->post('tanggal_lahir'),
+      'jenis_kelamin' => $this->input->post('jenis_kelamin'),
+      'email' => $this->input->post('email'),
+      'no_hp' => $this->input->post('no_hp'),
+      'hubungan' => 'Anda',
+    );
+
+    $config = array();
+    $config['charset']      = 'utf-8';
+    $config['useragent']    = 'Codeigniter';
+    $config['protocol']     = "smtp";
+    $config['mailtype']     = "html";
+    $config['smtp_host']    = "ssl://smtp.gmail.com";
+    $config['smtp_port']    = "465";
+    $config['smtp_timeout'] = "400";
+    $config['smtp_user']    = "tumbuhsehat7@gmail.com";
+    $config['smtp_pass']    = "tumbuhsehat789";
+    $config['crlf']         = "\r\n";
+    $config['newline']      = "\r\n";
+    $config['wordwrap']     = TRUE;
+
+    // Memanggil library email dengan set konfigurasi untuk pengiriman email
+    $this->email->initialize($config);
+
+    $this->email->from($config['smtp_user']);
+    $this->email->to($email);
+    $this->email->subject('Verifikasi Akun');
+    $this->email->message(
+      "<h2>Terima kasih $nama_depan_u, telah melakukan registrasi.<br></h2>" .
+        "<p>Berikut kode verifikasi akun Anda : </p>" .
         random_string('numeric', 6)
-      );
+    );
 
-      //send mail
-      if($this->email->send()){
-        $this->session->set_flashdata("notif","Email berhasil terkirim."); 
-      }else {
-        $this->session->set_flashdata("notif","Email gagal dikirim."); 
-      } 
+    //send mail
+    if ($this->email->send()) {
+      $this->session->set_flashdata("notif", "Email berhasil terkirim.");
+      $this->Klinik_model->insert_pasien($data_pasien);
+    } else {
+      $this->session->set_flashdata("notif", "Email gagal dikirim.");
+    }
 
-      redirect('klinik/konfirm_pasien');
+    redirect('klinik/konfirm_pasien');
   }
 
   function konfirm_pasien()
@@ -162,24 +186,23 @@ class Klinik extends CI_Controller
   public function add_pasien2()
   {
     // $data_login = array();
-      $nama_depan_u = $this->input->post('nama_depan');
-      $nama_belakang_u = $this->input->post('nama_belakang');
-      $tanggal_lahir = $this->input->post('tanggal_lahir');
-      $jenis_kelamin = $this->input->post('jenis_kelamin');
-      $email = $this->input->post('email');
-      $no_hp = $this->input->post('no_hp');
-   
-      $data_login = array
-      (
-        'nama_depan_u' => $nama_depan_u,
-        'nama_belakang_u' => $nama_belakang_u,
-        'tanggal_lahir' => $tanggal_lahir,
-        'jenis_kelamin' => $jenis_kelamin,
-        'email' => $email,
-        'no_hp' => $no_hp,
-        'level' => 'Pasien',
-        // 'active' => 0
-      );
+    $nama_depan_u = $this->input->post('nama_depan');
+    $nama_belakang_u = $this->input->post('nama_belakang');
+    $tanggal_lahir = $this->input->post('tanggal_lahir');
+    $jenis_kelamin = $this->input->post('jenis_kelamin');
+    $email = $this->input->post('email');
+    $no_hp = $this->input->post('no_hp');
+
+    $data_login = array(
+      'nama_depan_u' => $nama_depan_u,
+      'nama_belakang_u' => $nama_belakang_u,
+      'tanggal_lahir' => $tanggal_lahir,
+      'jenis_kelamin' => $jenis_kelamin,
+      'email' => $email,
+      'no_hp' => $no_hp,
+      'level' => 'Pasien',
+      // 'active' => 0
+    );
 
     // $this->Klinik_model->insert_login($data_login);
     $this->load->model('Klinik_model');
@@ -211,25 +234,24 @@ class Klinik extends CI_Controller
     $this->email->to($email);
     $this->email->subject("Verifikasi Akun");
     $this->email->message(
-      "<h2>Terima kasih telah melakukan registrasi.<br></h2>".
-      "Nama   : ".$nama_depan_u."<br>".
-      "Email  : ".$email."<br>".
-      "Kode Verifikasi : ".random_string('numeric', 6)."<br><br>"
+      "<h2>Terima kasih telah melakukan registrasi.<br></h2>" .
+        "Nama   : " . $nama_depan_u . "<br>" .
+        "Email  : " . $email . "<br>" .
+        "Kode Verifikasi : " . random_string('numeric', 6) . "<br><br>"
       // "Klik tautan dibawah ini untuk verifikasi akun Anda<br>".
 
       // site_url("klinik/verification/$encrypted_id")
     );
 
-    if($this->email->send())
-    {
+    if ($this->email->send()) {
       echo "Berhasil melakukan registrasi, silakan cek email kamu";
-    }else{
+    } else {
       echo "Berhasil melakukan registrasi, namun gagal mengirim verifikasi email";
     }
 
 
     $data = $this->Klinik_model->get_iduser($this->input->post('nama_depan'), $this->input->post('tanggal_lahir'), $this->input->post('nama_belakang'));
-    
+
     $data_pasien = array(
       'id_user' => $data->id_user,
       'nama_depan' => $this->input->post('nama_depan'),
@@ -239,9 +261,9 @@ class Klinik extends CI_Controller
       'email' => $this->input->post('email'),
       'no_hp' => $this->input->post('no_hp'),
       'hubungan' => 'Anda',
-      
+
     );
-    
+
     $this->Klinik_model->insert_pasien($data_pasien);
     $this->session->set_flashdata('notif', '<div class="alert alert-success alert-dismissible"> Data Mahasiswa berhasil ditambah.
     </div>');
@@ -249,7 +271,7 @@ class Klinik extends CI_Controller
     redirect(site_url('klinik/home'));
   }
 
-  
+
   // function asli sebelum ada verifikasi email
   public function add_pasien()
   {
@@ -287,7 +309,7 @@ class Klinik extends CI_Controller
     $this->load->model('Klinik_model');
     $this->Klinik_model->changeActiveState($key);
     echo "Selamat kamu telah memverifikasi akun kamu";
-    echo "<a href='".site_url("index")."'>Kembali ke menu login</a>";
+    echo "<a href='" . site_url("index") . "'>Kembali ke menu login</a>";
   }
 
   public function add_pasien_2()
@@ -883,12 +905,12 @@ class Klinik extends CI_Controller
 
   public function laporan_harian()
   {
-    if(empty($_GET['id_dokter']) && empty($_GET['endDate'])){
-      $currentDate= date('Y-m-d');
+    if (empty($_GET['id_dokter']) && empty($_GET['endDate'])) {
+      $currentDate = date('Y-m-d');
       $endDate = $currentDate;
-      $id_dokter= 0;
+      $id_dokter = 0;
       $interval = 6;
-      $data['harian'] = $this->Klinik_model->get_harian($id_dokter,$endDate,$interval);
+      $data['harian'] = $this->Klinik_model->get_harian($id_dokter, $endDate, $interval);
     }
     $laporan = $this->Klinik_model->get_laporan();
     $dokter = $this->Data_pasien_model->get_dokter_filter();
@@ -900,28 +922,31 @@ class Klinik extends CI_Controller
   }
   function filter_laporan_harian()
   {
-    if(empty($_GET['id_dokter']) && empty($_GET['endDate'])){
-      $currentDate= date('Y-m-d');
+    if (empty($_GET['id_dokter']) && empty($_GET['endDate'])) {
+      $currentDate = date('Y-m-d');
       $endDate = $currentDate;
-      $id_dokter= 0;
+      $id_dokter = 0;
       $interval = 6;
-      $data['harian2'] = $this->Klinik_model->get_harian($id_dokter,$endDate,$interval);
-    }if(!empty($_GET['id_dokter']) && empty($_GET['endDate'])){
-      $currentDate= date('Y-m-d');
+      $data['harian2'] = $this->Klinik_model->get_harian($id_dokter, $endDate, $interval);
+    }
+    if (!empty($_GET['id_dokter']) && empty($_GET['endDate'])) {
+      $currentDate = date('Y-m-d');
       $endDate = $currentDate;
-      $id_dokter= $_GET['id_dokter'];
+      $id_dokter = $_GET['id_dokter'];
       $interval = 6;
-      $data['harian2'] = $this->Klinik_model->get_harian($id_dokter,$endDate,$interval);
-    }if(empty($_GET['id_dokter']) && !empty($_GET['endDate'])){
+      $data['harian2'] = $this->Klinik_model->get_harian($id_dokter, $endDate, $interval);
+    }
+    if (empty($_GET['id_dokter']) && !empty($_GET['endDate'])) {
       $endDate = $_GET['endDate'];
-      $id_dokter= 0;
+      $id_dokter = 0;
       $interval = 6;
-      $data['harian2'] = $this->Klinik_model->get_harian($id_dokter,$endDate,$interval);
-    }if(!empty($_GET['id_dokter']) && !empty($_GET['endDate'])){
+      $data['harian2'] = $this->Klinik_model->get_harian($id_dokter, $endDate, $interval);
+    }
+    if (!empty($_GET['id_dokter']) && !empty($_GET['endDate'])) {
       $endDate = $_GET['endDate'];
-      $id_dokter= $_GET['id_dokter'];
+      $id_dokter = $_GET['id_dokter'];
       $interval = 6;
-      $data['harian2'] = $this->Klinik_model->get_harian($id_dokter,$endDate,$interval);
+      $data['harian2'] = $this->Klinik_model->get_harian($id_dokter, $endDate, $interval);
     }
     $this->load->view('template/filter_laporan_harian_chart_klinik', $data);
   }

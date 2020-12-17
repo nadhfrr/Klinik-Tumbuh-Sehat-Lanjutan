@@ -251,6 +251,24 @@ class Owner extends CI_Controller
     $this->load->view('template/template', $data);
   }
 
+  function show_jadwal_dokter($id_booking, $id_dokter, $tgl)
+  {
+    $html = '';
+    $dokter = $this->Data_pasien_model->get_dokter_id($id_booking);
+
+    $html .= '<select class="form-control" name="jam_rencana" id="jam_rencana">';
+    foreach ($dokter->result() as $result) :
+      $jam = $result->jam_mulai . '-' . $result->jam_tutup;
+      $jadwal = $this->Data_pasien_model->jmlh_booking($id_dokter, $tgl, $jam);
+      $html .= '<option value="" disabled selected style="display: none;">--- Pilih Waktu ---</option>';
+      $html .= '<option value="' . $jam . '" ' . ($jadwal >= 10 ? "disabled" : "") . '>' . $jam . '</option>';
+    endforeach;
+    $html .= '</select>';
+
+    $output = ["output" => $html];
+    echo json_encode($html);
+  }
+
   public function informasi_pasien()
   {
     $laporan = $this->Informasi_pasien_model->get_laporan_pemeriksaan_all();
@@ -729,14 +747,14 @@ class Owner extends CI_Controller
     var_dump($this->Klinik_model->get_graph_day_in_week());
   }
 
- public function laporan_pemeriksaan()
+  public function laporan_pemeriksaan()
   {
-    if (empty($_GET['id_dokter']) && empty($_GET['endDate'])){
-      $id_dokter= 0;
-      $currentDate= date('Y-m-d');
+    if (empty($_GET['id_dokter']) && empty($_GET['endDate'])) {
+      $id_dokter = 0;
+      $currentDate = date('Y-m-d');
       $endDate = $currentDate;
       $interval = 6;
-      $data['harian'] = $this->Klinik_model->get_harian($id_dokter,$endDate,$interval);
+      $data['harian'] = $this->Klinik_model->get_harian($id_dokter, $endDate, $interval);
     }
     $laporan = $this->Klinik_model->get_laporan();
     $dokter = $this->Data_pasien_model->get_dokter_filter();
@@ -748,32 +766,32 @@ class Owner extends CI_Controller
   }
   public function filter_laporan_pemeriksaan()
   {
-    if (!empty($_GET['id_dokter']) && !empty($_GET['endDate'])){
-      $id_dokter= $_GET['id_dokter'];
-      $endDate= $_GET['endDate'];
+    if (!empty($_GET['id_dokter']) && !empty($_GET['endDate'])) {
+      $id_dokter = $_GET['id_dokter'];
+      $endDate = $_GET['endDate'];
       $interval = $_GET['interval'];
-      $data['harian2'] = $this->Klinik_model->get_harian($id_dokter,$endDate,$interval);
-    }else if(empty($_GET['id_dokter']) && empty($_GET['endDate'])){
-      $id_dokter= 0;
+      $data['harian2'] = $this->Klinik_model->get_harian($id_dokter, $endDate, $interval);
+    } else if (empty($_GET['id_dokter']) && empty($_GET['endDate'])) {
+      $id_dokter = 0;
       $endDate = $_GET['startDate'];
       $interval = 0;
-      $data['harian2'] = $this->Klinik_model->get_harian($id_dokter,$endDate,$interval);
-    }else if (!empty($_GET['id_dokter']) && empty($_GET['endDate']) && empty($_GET['startDate'])){
-      $currentDate= date('Y-m-d');
+      $data['harian2'] = $this->Klinik_model->get_harian($id_dokter, $endDate, $interval);
+    } else if (!empty($_GET['id_dokter']) && empty($_GET['endDate']) && empty($_GET['startDate'])) {
+      $currentDate = date('Y-m-d');
       $endDate = $currentDate;
       $interval = 6;
-      $id_dokter= $_GET['id_dokter'];
-      $data['harian2'] = $this->Klinik_model->get_harian($id_dokter,$endDate,$interval);
-    }else if (!empty($_GET['id_dokter']) && empty($_GET['endDate']) && !empty($_GET['startDate'])){
+      $id_dokter = $_GET['id_dokter'];
+      $data['harian2'] = $this->Klinik_model->get_harian($id_dokter, $endDate, $interval);
+    } else if (!empty($_GET['id_dokter']) && empty($_GET['endDate']) && !empty($_GET['startDate'])) {
       $endDate = $_GET['startDate'];
       $interval = 0;
-      $id_dokter= $_GET['id_dokter'];
-      $data['harian2'] = $this->Klinik_model->get_harian($id_dokter,$endDate,$interval);
-    }else if (empty($_GET['id_dokter']) && !empty($_GET['endDate'])){
-      $id_dokter= 0;
-      $endDate= $_GET['endDate'];
-      $interval= $_GET['interval'];
-      $data['harian2'] = $this->Klinik_model->get_harian($id_dokter,$endDate,$interval);
+      $id_dokter = $_GET['id_dokter'];
+      $data['harian2'] = $this->Klinik_model->get_harian($id_dokter, $endDate, $interval);
+    } else if (empty($_GET['id_dokter']) && !empty($_GET['endDate'])) {
+      $id_dokter = 0;
+      $endDate = $_GET['endDate'];
+      $interval = $_GET['interval'];
+      $data['harian2'] = $this->Klinik_model->get_harian($id_dokter, $endDate, $interval);
     }
     $this->load->view('template/filter_harian_chart_owner', $data);
   }
@@ -791,32 +809,32 @@ class Owner extends CI_Controller
   }
   public function filter_laporan_pemeriksaan_m()
   {
-    if (!empty($_GET['id_dokter']) && !empty($_GET['endDate'])){
-      $id_dokter= $_GET['id_dokter'];
-      $endDate= $_GET['endDate'];
+    if (!empty($_GET['id_dokter']) && !empty($_GET['endDate'])) {
+      $id_dokter = $_GET['id_dokter'];
+      $endDate = $_GET['endDate'];
       $interval = $_GET['interval'];
-      $data['harian2'] = $this->Klinik_model->filter_laporan_pendapatan_m($id_dokter,$endDate,$interval);
-    }else if(empty($_GET['id_dokter']) && empty($_GET['endDate'])){
-      $id_dokter= 0;
+      $data['harian2'] = $this->Klinik_model->filter_laporan_pendapatan_m($id_dokter, $endDate, $interval);
+    } else if (empty($_GET['id_dokter']) && empty($_GET['endDate'])) {
+      $id_dokter = 0;
       $endDate = $_GET['startDate'];
       $interval = 0;
-      $data['harian2'] = $this->Klinik_model->filter_laporan_pendapatan_m($id_dokter,$endDate,$interval);
-    }else if (!empty($_GET['id_dokter']) && empty($_GET['endDate']) && empty($_GET['startDate'])){
-      $currentDate= date('Y-m-d');
+      $data['harian2'] = $this->Klinik_model->filter_laporan_pendapatan_m($id_dokter, $endDate, $interval);
+    } else if (!empty($_GET['id_dokter']) && empty($_GET['endDate']) && empty($_GET['startDate'])) {
+      $currentDate = date('Y-m-d');
       $endDate = $currentDate;
       $interval = 49;
-      $id_dokter= $_GET['id_dokter'];
-      $data['harian2'] = $this->Klinik_model->filter_laporan_pendapatan_m($id_dokter,$endDate,$interval);
-    }else if (!empty($_GET['id_dokter']) && empty($_GET['endDate']) && !empty($_GET['startDate'])){
+      $id_dokter = $_GET['id_dokter'];
+      $data['harian2'] = $this->Klinik_model->filter_laporan_pendapatan_m($id_dokter, $endDate, $interval);
+    } else if (!empty($_GET['id_dokter']) && empty($_GET['endDate']) && !empty($_GET['startDate'])) {
       $endDate = $_GET['startDate'];
       $interval = 0;
-      $id_dokter= $_GET['id_dokter'];
-      $data['harian2'] = $this->Klinik_model->filter_laporan_pendapatan_m($id_dokter,$endDate,$interval);
-    }else if (empty($_GET['id_dokter']) && !empty($_GET['endDate'])){
-      $id_dokter= 0;
-      $endDate= $_GET['endDate'];
-      $interval= $_GET['interval'];
-      $data['harian2'] = $this->Klinik_model->filter_laporan_pendapatan_m($id_dokter,$endDate,$interval);
+      $id_dokter = $_GET['id_dokter'];
+      $data['harian2'] = $this->Klinik_model->filter_laporan_pendapatan_m($id_dokter, $endDate, $interval);
+    } else if (empty($_GET['id_dokter']) && !empty($_GET['endDate'])) {
+      $id_dokter = 0;
+      $endDate = $_GET['endDate'];
+      $interval = $_GET['interval'];
+      $data['harian2'] = $this->Klinik_model->filter_laporan_pendapatan_m($id_dokter, $endDate, $interval);
     }
     $this->load->view('template/filter_mingguan_chart_owner', $data);
   }
@@ -834,32 +852,32 @@ class Owner extends CI_Controller
   }
   public function filter_laporan_pemeriksaan_b()
   {
-    if (!empty($_GET['id_dokter']) && !empty($_GET['endDate'])){
-      $id_dokter= $_GET['id_dokter'];
-      $endDate= $_GET['endDate'];
+    if (!empty($_GET['id_dokter']) && !empty($_GET['endDate'])) {
+      $id_dokter = $_GET['id_dokter'];
+      $endDate = $_GET['endDate'];
       $interval = $_GET['interval'];
-      $data['harian2'] = $this->Klinik_model->filter_laporan_pendapatan_b($id_dokter,$endDate,$interval);
-    }else if(empty($_GET['id_dokter']) && empty($_GET['endDate'])){
-      $id_dokter= 0;
+      $data['harian2'] = $this->Klinik_model->filter_laporan_pendapatan_b($id_dokter, $endDate, $interval);
+    } else if (empty($_GET['id_dokter']) && empty($_GET['endDate'])) {
+      $id_dokter = 0;
       $endDate = $_GET['startDate'];
       $interval = 0;
-      $data['harian2'] = $this->Klinik_model->filter_laporan_pendapatan_b($id_dokter,$endDate,$interval);
-    }else if (!empty($_GET['id_dokter']) && empty($_GET['endDate']) && empty($_GET['startDate'])){
-      $currentDate= date('Y-m-d');
+      $data['harian2'] = $this->Klinik_model->filter_laporan_pendapatan_b($id_dokter, $endDate, $interval);
+    } else if (!empty($_GET['id_dokter']) && empty($_GET['endDate']) && empty($_GET['startDate'])) {
+      $currentDate = date('Y-m-d');
       $endDate = $currentDate;
       $interval = 364;
-      $id_dokter= $_GET['id_dokter'];
-      $data['harian2'] = $this->Klinik_model->filter_laporan_pendapatan_b($id_dokter,$endDate,$interval);
-    }else if (!empty($_GET['id_dokter']) && empty($_GET['endDate']) && !empty($_GET['startDate'])){
+      $id_dokter = $_GET['id_dokter'];
+      $data['harian2'] = $this->Klinik_model->filter_laporan_pendapatan_b($id_dokter, $endDate, $interval);
+    } else if (!empty($_GET['id_dokter']) && empty($_GET['endDate']) && !empty($_GET['startDate'])) {
       $endDate = $_GET['startDate'];
       $interval = 0;
-      $id_dokter= $_GET['id_dokter'];
-      $data['harian2'] = $this->Klinik_model->filter_laporan_pendapatan_b($id_dokter,$endDate,$interval);
-    }else if (empty($_GET['id_dokter']) && !empty($_GET['endDate'])){
-      $id_dokter= 0;
-      $endDate= $_GET['endDate'];
-      $interval= $_GET['interval'];
-      $data['harian2'] = $this->Klinik_model->filter_laporan_pendapatan_b($id_dokter,$endDate,$interval);
+      $id_dokter = $_GET['id_dokter'];
+      $data['harian2'] = $this->Klinik_model->filter_laporan_pendapatan_b($id_dokter, $endDate, $interval);
+    } else if (empty($_GET['id_dokter']) && !empty($_GET['endDate'])) {
+      $id_dokter = 0;
+      $endDate = $_GET['endDate'];
+      $interval = $_GET['interval'];
+      $data['harian2'] = $this->Klinik_model->filter_laporan_pendapatan_b($id_dokter, $endDate, $interval);
     }
     $this->load->view('template/filter_bulanan_chart_owner', $data);
   }
@@ -877,32 +895,32 @@ class Owner extends CI_Controller
   }
   public function filter_laporan_pemeriksaan_t()
   {
-    if (!empty($_GET['id_dokter']) && !empty($_GET['endDate'])){
-      $id_dokter= $_GET['id_dokter'];
-      $endDate= $_GET['endDate'];
+    if (!empty($_GET['id_dokter']) && !empty($_GET['endDate'])) {
+      $id_dokter = $_GET['id_dokter'];
+      $endDate = $_GET['endDate'];
       $interval = $_GET['interval'];
-      $data['harian2'] = $this->Klinik_model->filter_laporan_pendapatan_t($id_dokter,$endDate,$interval);
-    }else if(empty($_GET['id_dokter']) && empty($_GET['endDate'])){
-      $id_dokter= 0;
+      $data['harian2'] = $this->Klinik_model->filter_laporan_pendapatan_t($id_dokter, $endDate, $interval);
+    } else if (empty($_GET['id_dokter']) && empty($_GET['endDate'])) {
+      $id_dokter = 0;
       $endDate = $_GET['startDate'];
       $interval = 0;
-      $data['harian2'] = $this->Klinik_model->filter_laporan_pendapatan_t($id_dokter,$endDate,$interval);
-    }else if (!empty($_GET['id_dokter']) && empty($_GET['endDate']) && empty($_GET['startDate'])){
-      $currentDate= date('Y-m-d');
+      $data['harian2'] = $this->Klinik_model->filter_laporan_pendapatan_t($id_dokter, $endDate, $interval);
+    } else if (!empty($_GET['id_dokter']) && empty($_GET['endDate']) && empty($_GET['startDate'])) {
+      $currentDate = date('Y-m-d');
       $endDate = $currentDate;
       $interval = 4379;
-      $id_dokter= $_GET['id_dokter'];
-      $data['harian2'] = $this->Klinik_model->filter_laporan_pendapatan_t($id_dokter,$endDate,$interval);
-    }else if (!empty($_GET['id_dokter']) && empty($_GET['endDate']) && !empty($_GET['startDate'])){
+      $id_dokter = $_GET['id_dokter'];
+      $data['harian2'] = $this->Klinik_model->filter_laporan_pendapatan_t($id_dokter, $endDate, $interval);
+    } else if (!empty($_GET['id_dokter']) && empty($_GET['endDate']) && !empty($_GET['startDate'])) {
       $endDate = $_GET['startDate'];
       $interval = 0;
-      $id_dokter= $_GET['id_dokter'];
-      $data['harian2'] = $this->Klinik_model->filter_laporan_pendapatan_t($id_dokter,$endDate,$interval);
-    }else if (empty($_GET['id_dokter']) && !empty($_GET['endDate'])){
-      $id_dokter= 0;
-      $endDate= $_GET['endDate'];
-      $interval= $_GET['interval'];
-      $data['harian2'] = $this->Klinik_model->filter_laporan_pendapatan_t($id_dokter,$endDate,$interval);
+      $id_dokter = $_GET['id_dokter'];
+      $data['harian2'] = $this->Klinik_model->filter_laporan_pendapatan_t($id_dokter, $endDate, $interval);
+    } else if (empty($_GET['id_dokter']) && !empty($_GET['endDate'])) {
+      $id_dokter = 0;
+      $endDate = $_GET['endDate'];
+      $interval = $_GET['interval'];
+      $data['harian2'] = $this->Klinik_model->filter_laporan_pendapatan_t($id_dokter, $endDate, $interval);
     }
     $this->load->view('template/filter_tahunan_chart_owner', $data);
   }
@@ -2252,6 +2270,4 @@ class Owner extends CI_Controller
     }
   }
 }
-
-/* End of file owner.php */
-/* Location: ./application/controllers/owner.php */ ?>
+?>

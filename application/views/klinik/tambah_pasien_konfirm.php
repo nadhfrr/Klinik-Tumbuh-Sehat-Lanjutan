@@ -22,7 +22,7 @@
 			<div class="panel panel-default">
 				<div class="panel-body">
 					<font style="font-weight: bold; font-size: 15px; padding-left: 27px">Buat Janji Pemeriksaan <i class="fa fa-chevron-right" aria-hidden="true"></i> Buat Akun Keluarga</font><br><br>
-					<form action="<?php echo base_url('klinik/add_pasien/'); ?>" method="post">
+					<form action="<?php echo base_url('klinik/home/'); ?>" method="post">
 						<div class="form-group">
 							<div class="div">
 								<div>
@@ -64,7 +64,7 @@
 </script>
 
 <!-- <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script src="<?php echo base_url()?>assets/kode_tel/build/js/intlTelInput.js"></script>
+<script src="<?php echo base_url() ?>assets/kode_tel/build/js/intlTelInput.js"></script>
 <script>
     $("#mobile-number").intlTelInput();
 </script> -->

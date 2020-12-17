@@ -108,11 +108,6 @@
 </style>
 
 <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main" style="">
-    <div class="row">
-        <div class="col-lg-12">
-        </div>
-    </div>
-    <br>
     <div class="panel panel-default">
         <div class="panel-body">
             <div class="row">
@@ -126,25 +121,18 @@
                     </div>
                     <div class="col-md-12" style="border: 1px solid #e0e0e0; margin-top: 15px;">
                         <div style="float: left">
-                            <div class="col-lg-12 nav-menu-lap">
-                                <ul>
-                                    <li class="border-lap stileone">
-                                        <div data-toggle="tab" href="#">
-                                            <center>
-                                                <font>Total Transaksi</font>
-                                            </center>
-                                        </div>
-                                    </li>
-
-                                    <li class="border-lap stileone1">
-                                        <div data-toggle="tab" href="#">
-                                            <center>
-                                                <font>Doctor Sharing Fee</font>
-                                            </center>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
+                            <a href="<?php echo base_url('owner/laporan_harian_dokter') ?>">
+                                <div href="#" class="btn" style="background-color: #e7e6e6; border: none; color:black; font-weight:bold;">
+                                    <div class="col-md-8" style="text-align: left; display: table-cell;vertical-align:middle; padding-right:0px">
+                                        <span>Total Transaksi</span>
+                                    </div>
+                                </div>
+                                <div href="#" class="btn" style="background-color: #e7e6e6; border: none; color:black; font-weight:bold;">
+                                    <div class="col-md-8" style="text-align: left; display: table-cell;vertical-align:middle; padding-right:0px">
+                                        <span>Doctor Sharing Fee</span>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
                     </div>
 
@@ -156,7 +144,7 @@
                                     <div class="col-md-2 outer" style="padding-top: 7px">
                                         <img src="<?php echo base_url() ?>assets/images/Doctor.png" height="24px">
                                     </div>
-                                    <div class="col-md-10" style="text-align: left; display: table-cell;vertical-align:middle; padding-right:0px">
+                                    <div class="col-md-10" style="text-align: left; display: table-cell;vertical-align:middle; padding-right:0px; padding-left:0px">
                                         <select id="f_dokter" class="form-control form-control-sm">
                                             <!-- <option value="" disabled selected style="display: none;">Filter Dokter</option> -->
                                             <option value="b.id_dokter">Tampilkan Semua</option>
@@ -167,21 +155,26 @@
                                     </div>
                                 </div>
                             </a>
+                        </div>
 
+                        <div style="float: right">
                             <span style="color: black; "><b>Periode :</b></span>
-                            <div href="#" class="btn" style="border: none; color:black; font-weight:bold;">
-                                <div class="col-md-2 outer" style="text-align: left; display: table-cell;vertical-align:middle; padding-right:0px">
-                                    <input autocomplete="off" id="from" name='from'> </input>
+                            <a>
+                                <div href="#" class="btn" style="border: none; color:black; font-weight:bold;">
+                                    <div class="col-md-2 outer" style="text-align: left; display: table-cell;vertical-align:middle; padding-right:0px; padding-left:0px">
+                                        <input autocomplete="off" id="from" name='from' style="width: 80px;"> </input>
+                                    </div>
                                 </div>
-                            </div>
-                            <span style="color: black; background-color: #e7e6e6;"><b>To</b></span>
-                            <div href="#" class="btn" style="border: none; color:black; font-weight:bold;">
-                                <div class="col-md-2" style="text-align: left; display: table-cell;vertical-align:middle; padding-right:0px">
-                                    <input id="to" autocomplete="off" disabled='disabled'> </input>
+                                <span style="color: black; background-color: #e7e6e6;"><b>To</b></span>
+                                <div href="#" class="btn" style="border: none; color:black; font-weight:bold;">
+                                    <div class="col-md-2" style="text-align: left; display: table-cell;vertical-align:middle; padding-right:0px; padding-left:0px">
+                                        <input id="to" autocomplete="off" disabled='disabled' style="width: 80px;"> </input>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                     </div>
+
                     <div class="col-lg-12">
                         <div class="col-lg-2 lap-mb">
                             <a href="<?php echo site_url('owner/laporan_pemeriksaan_t') ?>" type="button" class="btn col-md-12">Tahunan</a>

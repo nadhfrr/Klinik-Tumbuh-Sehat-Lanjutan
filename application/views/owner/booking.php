@@ -1901,5 +1901,32 @@
 	$('#datepicker').datepicker({
 		maxDate: 0
 	});
+
+	$(document).ready(function() {
+		let tgl = $("#tanggal_rencana").val();
+		cek_waktu_booking(tgl);
+	});
+
+	$("#tanggal_rencana").on("change", function() {
+		cek_waktu_booking($(this).val());
+	});
+
+	function cek_waktu_booking(val) {
+		let split_format = val.split(", ");
+		let split_tgl = split_format[1].split("-");
+		let tgl = split_tgl[2] + "-" + split_tgl[1] + "-" + split_tgl[0];
+
+		let id_booking = "<?= $this->uri->segment(4) ?>";
+		let id_dokter = "<?= $dokter2->row()->id_dokter ?>";
+
+		$.ajax({
+			url: "<?= base_url() ?>" + "index.php/owner/show_jadwal_dokter/" + id_booking + "/" + id_dokter + "/" + tgl,
+			dataType: "JSON",
+			success: function(data) {
+				$("#waktu_dokter").html(data);
+				console.log(data);
+			}
+		});
+	}
 </script>
 <!--/.main-->
