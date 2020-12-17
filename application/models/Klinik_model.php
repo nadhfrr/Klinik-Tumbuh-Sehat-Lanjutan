@@ -329,8 +329,9 @@ class Klinik_model extends CI_Model
 		$this->db->where('f.status', $stat2);
 		return $this->db->get();
 	}
-	function get_harian($id_dokter,$endDate,$interval){
-		$sql ="SELECT
+	function get_harian($id_dokter, $endDate, $interval)
+	{
+		$sql = "SELECT
 		tgl,IFNULL(SUM(u.grandtotal),0)AS money,nama_dokter,spesialis,DAYNAME(tgl) as hari,tanggal_periksa
 	FROM
 		(
@@ -434,13 +435,14 @@ class Klinik_model extends CI_Model
 		dr.tgl = DATE(u.tanggal_periksa)
 	GROUP BY
 		dr.tgl";
-	   return $this->db->query($sql, array($endDate, $interval, $endDate, $endDate, $interval, $id_dokter, $id_dokter));
+		return $this->db->query($sql, array($endDate, $interval, $endDate, $endDate, $interval, $id_dokter, $id_dokter));
 	}
 	function get_perdokter()
 	{
 		return $this->db->query("select nama_dokter, spesialis, tanggal_rencana,SUM(rekam_medis.grandtotal) AS money FROM rencana join rekam_medis on rencana.id_booking= rekam_medis.id_booking JOIN booking on booking.id_booking=rencana.id_booking join dokter on dokter.id_dokter = booking.id_dokter where rekam_medis.status = 3  GROUP by booking.id_dokter");
 	}
-	function get_laporan_pendapatan_m(){
+	function get_laporan_pendapatan_m()
+	{
 		return $this->db->query('SELECT
 		tgl as startDate,IFNULL(SUM(u.grandtotal),0)AS money,DAYNAME(tgl) as hari,(tgl+INTERVAL 6 DAY) as endDate,DAYNAME(tgl+INTERVAL 6 DAY) as hari2
 	FROM
@@ -548,8 +550,9 @@ class Klinik_model extends CI_Model
 ORDER BY tgl ASC LIMIT 8 OFFSET 1');
 	}
 	//Untuk filter laporan mingguan
-	function filter_laporan_pendapatan_m($id_dokter,$endDate,$interval){
-		$sql="SELECT
+	function filter_laporan_pendapatan_m($id_dokter, $endDate, $interval)
+	{
+		$sql = "SELECT
 		tgl as startDate,IFNULL(SUM(u.grandtotal),0)AS money,DAYNAME(tgl) as hari,(tgl+INTERVAL 6 DAY) as endDate,DAYNAME(tgl+INTERVAL 6 DAY) as hari2
 	FROM
 		(
@@ -654,10 +657,11 @@ ORDER BY tgl ASC LIMIT 8 OFFSET 1');
 	GROUP BY
 		YEARWEEK(dr.tgl)
 ORDER BY tgl ASC";
-return $this->db->query($sql, array($endDate, $interval, $endDate, $endDate, $interval, $id_dokter, $id_dokter));
+		return $this->db->query($sql, array($endDate, $interval, $endDate, $endDate, $interval, $id_dokter, $id_dokter));
 	}
 	//Fungsi untuk laporan bulanan
-	function get_laporan_pendapatan_b(){
+	function get_laporan_pendapatan_b()
+	{
 		return $this->db->query('SELECT
 		t1.month as bulan,
 		t1.md,t1.year as year,
@@ -688,9 +692,10 @@ return $this->db->query($sql, array($endDate, $interval, $endDate, $endDate, $in
 		on t2.md = t1.md 
 		group by t1.md
 		order by t1.md LIMIT 12 OFFSET 1');
-	}	
-	function filter_laporan_pendapatan_b($id_dokter, $endDate, $interval){
-		$sql ="SELECT
+	}
+	function filter_laporan_pendapatan_b($id_dokter, $endDate, $interval)
+	{
+		$sql = "SELECT
 		t1.month as bulan,
 		t1.md,t1.year as year,
 		coalesce(SUM(t1.amount+t2.amount), 0) AS money
@@ -720,9 +725,10 @@ return $this->db->query($sql, array($endDate, $interval, $endDate, $endDate, $in
 		on t2.md = t1.md 
 		group by t1.md
 		order by t1.md";
-	    return $this->db->query($sql, array($endDate, $endDate, $endDate, $interval ,$id_dokter, $id_dokter ,$endDate, $endDate, $interval));
-	}	
-	function get_laporan_pendapatan_t(){
+		return $this->db->query($sql, array($endDate, $endDate, $endDate, $interval, $id_dokter, $id_dokter, $endDate, $endDate, $interval));
+	}
+	function get_laporan_pendapatan_t()
+	{
 		return $this->db->query('SELECT
 		t1.year as tahun,
 		t1.md,
@@ -754,8 +760,9 @@ return $this->db->query($sql, array($endDate, $interval, $endDate, $endDate, $in
 		group by t1.md
 		order by t1.md LIMIT 12 OFFSET 1');
 	}
-	function filter_laporan_pendapatan_t($id_dokter, $endDate, $interval){
-		$sql ='SELECT
+	function filter_laporan_pendapatan_t($id_dokter, $endDate, $interval)
+	{
+		$sql = 'SELECT
 		t1.year as tahun,
 		t1.md,
 		coalesce(SUM(t1.amount+t2.amount), 0) AS money
@@ -785,6 +792,6 @@ return $this->db->query($sql, array($endDate, $interval, $endDate, $endDate, $in
 		on t2.md = t1.md 
 		group by t1.md
 		order by t1.md';
-		 return $this->db->query($sql, array($endDate, $endDate, $endDate, $interval ,$id_dokter, $id_dokter ,$endDate, $endDate, $interval));
+		return $this->db->query($sql, array($endDate, $endDate, $endDate, $interval, $id_dokter, $id_dokter, $endDate, $endDate, $interval));
 	}
 }
