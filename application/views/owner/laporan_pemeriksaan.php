@@ -133,9 +133,9 @@
                                     </div>
                                 </div>
                             </a>
+
                         </div>
                     </div>
-
                     <div class="col-md-12" style="border: 1px solid #e0e0e0; margin-top: 15px;">
                         <div style="float: left">
                             <span style="color: black; "><b>Filter :</b></span>
