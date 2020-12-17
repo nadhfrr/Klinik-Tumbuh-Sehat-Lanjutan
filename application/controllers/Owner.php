@@ -251,6 +251,24 @@ class Owner extends CI_Controller
     $this->load->view('template/template', $data);
   }
 
+  function show_jadwal_dokter($id_booking, $id_dokter, $tgl)
+  {
+    $html = '';
+    $dokter = $this->Data_pasien_model->get_dokter_id($id_booking);
+
+    $html .= '<select class="form-control" name="jam_rencana" id="jam_rencana">';
+    foreach ($dokter->result() as $result) :
+      $jam = $result->jam_mulai . '-' . $result->jam_tutup;
+      $jadwal = $this->Data_pasien_model->jmlh_booking($id_dokter, $tgl, $jam);
+      $html .= '<option value="" disabled selected style="display: none;">--- Pilih Waktu ---</option>';
+      $html .= '<option value="' . $jam . '" ' . ($jadwal >= 10 ? "disabled" : "") . '>' . $jam . '</option>';
+    endforeach;
+    $html .= '</select>';
+
+    $output = ["output" => $html];
+    echo json_encode($html);
+  }
+
   public function informasi_pasien()
   {
     $laporan = $this->Informasi_pasien_model->get_laporan_pemeriksaan_all();

@@ -124,15 +124,17 @@ class Data_pasien_model extends CI_Model
         return $query;
     }
     //Model untuk mendapatkan jam praktek dokter sesuai hari dan id_dokter
-      function get_jam_praktek($hari,$id_dokter){
+    function get_jam_praktek($hari, $id_dokter)
+    {
         $this->db->select('*');
         $this->db->from('jadwal_dokter');
         $this->db->where('id_dokter', $id_dokter);
-        $this->db->where('hari',$hari);
+        $this->db->where('hari', $hari);
         $query = $this->db->get();
         return $query;
     }
-    function get_dokter_filter(){
+    function get_dokter_filter()
+    {
         $this->db->select('*');
         $this->db->from('dokter');
         $query = $this->db->get();
@@ -347,6 +349,23 @@ class Data_pasien_model extends CI_Model
             return true;
         } else {
             return false;
+        }
+    }
+
+    function jmlh_booking($id_dokter, $tgl_rencana, $jam_rencana)
+    {
+        $sql = $this->db->query("
+        SELECT IFNULL(COUNT(b.id_booking),0) AS jml_booking
+        FROM rencana r
+        JOIN booking b ON r.id_booking = b.id_booking
+        WHERE b.status = 0 AND b.konfirmasi = 0 AND b.id_dokter = $id_dokter 
+        AND r.tanggal_rencana = '$tgl_rencana' AND r.jam_rencana = '$jam_rencana'
+        GROUP BY r.jam_rencana");
+
+        if ($sql->row() == NULL) {
+            return 0;
+        } else {
+            return $sql->row()->jml_booking;
         }
     }
 }
