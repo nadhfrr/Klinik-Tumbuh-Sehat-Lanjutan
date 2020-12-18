@@ -107,7 +107,7 @@
 									</div>
 								</div>
 								<div class="col-lg-4" style="margin-top:5px; margin-right:50px">
-									Kami telah mengirimkan kode verifikasi melalui SMS dan aplikasi WhatsApp kamu. Mohon dapat ditunggu dalam waktu maksimal 1 menit kedepan
+									Kami telah mengirimkan kode verifikasi melalui Email anda. Mohon dapat menunggu dalam waktu beberapa menit.
 								</div><br>
 							</div>
 						</form>
