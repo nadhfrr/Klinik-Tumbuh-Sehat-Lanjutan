@@ -158,6 +158,27 @@
                             Download
                         </a>
                     </div>
+
+                    <div class="col-md-12" style="border: 1px solid #e0e0e0; margin-top: 15px;">
+                        <div style="float: left">
+                            <a href="<?php echo base_url('owner/laporan_harian_dokter') ?>">
+                                <div href="#" class="btn" style="background-color: #e7e6e6; border: none; color:black; font-weight:bold;">
+                                    <div class="col-md-8" style="text-align: left; display: table-cell;vertical-align:middle; padding-right:0px">
+                                        <span>Total Transaksi</span>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#">
+                                <div href="#" class="btn" style="background-color: #e7e6e6; border: none; color:black; font-weight:bold;">
+                                    <div class="col-md-8" style="text-align: left; display: table-cell;vertical-align:middle; padding-right:0px">
+                                        <span>Doctor Sharing Fee</span>
+                                    </div>
+                                </div>
+                            </a>
+
+                        </div>
+                    </div>
+
                     <div class="col-md-12" style="border: 1px solid #e0e0e0; margin-top: 15px;">
                         <div style="float: left">
                             <span style="color: black; "><b>Filter :</b></span>
