@@ -954,7 +954,7 @@
           <div class="col-md-1"><b>Filter:</b></div>
           <div class="col-md-3">
             <div class="form-group box2">
-              <input id="filter_t" type="text" class="form-control" rows="3" placeholder="Filter Tanggal">
+              <input id="filter_t" type="text" class="form-control" rows="3" placeholder="Tanggal">
               <?php
               foreach ($rencana_sebelum->result_array() as $rencana_result) {
                 $tgl_rencana[] = $rencana_result['tanggal_rencana'];
@@ -966,7 +966,7 @@
           </div>
           <div class="col-md-3">
             <div class="form-group box2">
-              <select id="filter_p" class="form-control">
+              <select id="filter_p" class="form-control" type="text" placeholder="Filter Dokter">
                 <option value="" disabled selected style="display: none;">Filter Dokter</option>
                 <option>Perlihatkan Semua</option>
                 <?php foreach ($dokter->result() as $result) : ?>
