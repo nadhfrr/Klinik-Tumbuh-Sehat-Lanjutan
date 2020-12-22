@@ -1094,20 +1094,6 @@
   var linke = "<?php echo base_url() ?>";
 
   function pilih_pasien(id) {
-
-    // console.log("---------", id)
-    // $.ajax({
-    //    url : linke+"pasien/ajax_get_pasien/"+id,
-    //    type: "GET",
-    //    dataType: "JSON",
-    //    success: function(result) {  
-    //        $('#id_pasien2').html(result.nama_depan+result.nama_belakang);
-    //    //  $('[name="fc_docno2"]').val(result.no_nota);
-
-    //    }, error: function (jqXHR, textStatus, errorThrown) {
-    //        alert('Error get data from ajax');
-    //    }
-    // });
     $.get(linke + "Pasien/ajax_get_pasien/" + id, $(this).serialize())
       .done(function(data) {
         $('#id_pasien2').html(data);
@@ -1142,8 +1128,6 @@
   $(document).ready(function() {
     profil();
     $('#filter_p').change(function() {
-      // let a = $(this).val();
-      // console.log(a);
       profil();
     });
   });
@@ -1186,8 +1170,6 @@
   $(document).ready(function() {
     tgl();
     $('#filter_t').change(function() {
-      // let a = $(this).val();
-      // console.log(a);
       tgl();
     });
   });
@@ -1232,7 +1214,6 @@
       // '<button class="btn red col-sm-6" style="float: right; width: 100px" type="button" href="<?php echo base_url(); ?>owner/home_keluarga/'+value+'">Pilih</button>'+
       '<a href="<?php echo base_url(); ?>owner/home_keluarga/' + value + '" class="btn red" style="background-color:#f40049; color:white">&nbsp;&nbsp; Pilih &nbsp;&nbsp;</a>' +
       '</div>';
-    // onclick="pilih_user('+value+')"
   }
 </script>
 </script>
