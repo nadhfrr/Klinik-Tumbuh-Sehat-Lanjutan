@@ -46,7 +46,8 @@
 								</div>
 								<div class="col-lg-12" style="margin-bottom: 20px; margin-top: 20px; margin-left: 80px">Dengan menekan tombol dibawah, maka pastikan pasien Anda telah menyetujui <a style="color:red" href="#"> Perjanjian User</a>,<a style="color:red" href="#">Kebijakan Privasi</a> dan <a style="color:red" href="#"> Kebijakan Cookie</a></div>
 								<div class="form-group">
-									<button onclick="kirimNotif()" id="kirim-verif" class="btn salmon col-sm-4" style="float: center; height: 50px; width: 30%; background-color: #f40049; color: white; border-radius: 15px; margin-left:35%" type="submit" href="#">Buat Akun Keluarga</button>
+									<!-- <button class="btn salmon col-sm-4" style="float: center; height: 50px; width: 30%; background-color: #f40049; color: white; border-radius: 15px; margin-left:35%" type="submit" href="#">Buat Akun Keluarga</button> -->
+									<a onclick="kirimNotif()" data-toogle="tooltip" data-placement="bottom" class="btn salmon col-sm-4" style="float: center; height: 50px; width: 30%; background-color: #f40049; color: white; border-radius: 15px; margin-left:35%" type="submit" href="#">Buat Akun Keluarga</a>
 								</div>
 							</div>
 						</div>
