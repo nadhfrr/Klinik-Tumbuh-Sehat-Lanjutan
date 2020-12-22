@@ -821,16 +821,10 @@
                         </font><span class="glyphicon glyphicon-chevron-down pull-right"></span>
                       </a>
                       <!--  <ul class="dropdown-menu mega-dropdown-menu row">
-                  <?php foreach ($pasien->result() as $result1) : ?>
-                    <li class="col-sm-6" style="list-style-type: none;">
-                      <div class="col-sm-6">          
+                  <?php foreach ($pasien->result() as $result1) : ?>         
                         <?php echo $result1->nama_depan  ?> - <?php echo $result1->hubungan  ?><br></b>
                         <?php echo $result1->alamat ?><br>
-                      </div>
-                      <button class="btn red col-sm-6" style="float: right; width: 100px" type="button" onclick="pilih_pasien('<?php echo $result1->id_pasien ?>')">Pilih</button>
-                      <input type="hidden" name="id_pasien" value="<?php echo $result1->id_pasien ?>">
-                      <div class="col-sm-12"> <hr> </div>
-                    </li>
+                      
                   <?php endforeach; ?>
                 </ul> -->
                     </li>
@@ -872,7 +866,6 @@
                             </div>
                             <div class="modal-footer">
                               <center><button class="btn salmon remove hidden" onclick="popUpBatalKonfirmasi()" type="submit" style="background-color:#F40049; color:white; margin-top:50px"> Ya, Kirim Konfirmasi Penolakan</button></center>
-                              <!-- <button type="button" class="btn btn-warning" data-dismiss="modal"> Batal</button>  -->
                             </div>
                           </div>
                         </div>
@@ -919,7 +912,6 @@
                             </div>
                             <div class="modal-footer">
                               <center><button class="btn salmon remove hidden" onclick="popUpBatalKonfirmasi()" type="submit" style="background-color:#F40049; color:white; margin-top:50px"> Ya, Kirim Konfirmasi Penolakan</button></center>
-                              <!-- <button type="button" class="btn btn-warning" data-dismiss="modal"> Batal</button>  -->
                             </div>
                           </div>
                         </div>
@@ -949,7 +941,6 @@
       <div class="panel panel-default">
         <div class="panel-body">
           <div class="col-md-12">
-            <!-- <h3 class="mb-20 weight-500">Jadwal yang akan datang</h3><br> -->
           </div>
           <div class="col-md-1"><b>Filter:</b></div>
           <div class="col-md-3">
@@ -960,7 +951,6 @@
                 $tgl_rencana[] = $rencana_result['tanggal_rencana'];
               }
               $f_tanggal_jadwal = json_encode($tgl_rencana);
-              // echo $f_tanggal_jadwal;
               ?>
             </div>
           </div>
