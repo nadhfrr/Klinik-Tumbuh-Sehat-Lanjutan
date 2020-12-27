@@ -351,14 +351,14 @@ class Data_pasien_model extends CI_Model
             return false;
         }
     }
-
+    //  b.status = 0 AND b.konfirmasi = 0 AND
     function jmlh_booking($id_dokter, $tgl_rencana, $jam_rencana)
     {
         $sql = $this->db->query("
         SELECT IFNULL(COUNT(b.id_booking),0) AS jml_booking
         FROM rencana r
         JOIN booking b ON r.id_booking = b.id_booking
-        WHERE b.status = 0 AND b.konfirmasi = 0 AND b.id_dokter = $id_dokter 
+        WHERE b.id_dokter = $id_dokter 
         AND r.tanggal_rencana = '$tgl_rencana' AND r.jam_rencana = '$jam_rencana'
         GROUP BY r.jam_rencana");
 
