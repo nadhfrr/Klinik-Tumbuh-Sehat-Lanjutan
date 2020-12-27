@@ -1304,8 +1304,8 @@
 
 											<input type="hidden" name="id_dokter" value="<?php echo $result->id_dokter; ?>">
 											<select class="form-control" name="jam_rencana" id="jam_rencana">
+												<option value="" disabled selected style="display: none;">--- Pilih Waktu ---</option>
 												<?php foreach ($dokter->result() as $result) : ?>
-													<option value="" disabled selected style="display: none;">--- Pilih Waktu ---</option>
 													<option value="<?php echo $result->jam_mulai; ?>-<?php echo $result->jam_tutup; ?>"><?php echo $result->jam_mulai; ?>-<?php echo $result->jam_tutup; ?></option>
 												<?php endforeach; ?>
 											</select>
@@ -1912,9 +1912,8 @@
 	});
 
 	function cek_waktu_booking(val) {
-		let split_format = val.split(", ");
-		let split_tgl = split_format[1].split("-");
-		let tgl = split_tgl[2] + "-" + split_tgl[1] + "-" + split_tgl[0];
+		let split_tgl = val.split("/");
+		let tgl = split_tgl[2] + "-" + split_tgl[0] + "-" + split_tgl[1];
 
 		let id_booking = "<?= $this->uri->segment(4) ?>";
 		let id_dokter = "<?= $dokter2->row()->id_dokter ?>";
@@ -1923,7 +1922,7 @@
 			url: "<?= base_url() ?>" + "index.php/owner/show_jadwal_dokter/" + id_booking + "/" + id_dokter + "/" + tgl,
 			dataType: "JSON",
 			success: function(data) {
-				$("#waktu_dokter").html(data);
+				$("#jam_rencana").html(data.output);
 				console.log(data);
 			}
 		});

@@ -255,18 +255,19 @@ class Owner extends CI_Controller
   {
     $html = '';
     $dokter = $this->Data_pasien_model->get_dokter_id($id_booking);
+    $output = [];
 
     $html .= '<select class="form-control" name="jam_rencana" id="jam_rencana">';
+    $html .= '<option value="" disabled selected style="display: none;">--- Pilih Waktu ---</option>';
     foreach ($dokter->result() as $result) :
       $jam = $result->jam_mulai . '-' . $result->jam_tutup;
       $jadwal = $this->Data_pasien_model->jmlh_booking($id_dokter, $tgl, $jam);
-      $html .= '<option value="" disabled selected style="display: none;">--- Pilih Waktu ---</option>';
       $html .= '<option value="' . $jam . '" ' . ($jadwal >= 10 ? "disabled" : "") . '>' . $jam . '</option>';
     endforeach;
     $html .= '</select>';
 
     $output = ["output" => $html];
-    echo json_encode($html);
+    echo json_encode($output);
   }
 
   public function informasi_pasien()
