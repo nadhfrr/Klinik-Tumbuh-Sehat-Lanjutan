@@ -128,7 +128,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <a href="#">
+                            <a href="<?php echo base_url('owner/sharingfee_dokter') ?>">
                                 <div href="#" class="btn" style="background-color: #e7e6e6; border: none; color:black; font-weight:bold;">
                                     <div class="col-md-8" style="text-align: left; display: table-cell;vertical-align:middle; padding-right:0px">
                                         <span>Doctor Sharing Fee</span>

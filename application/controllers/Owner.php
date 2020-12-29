@@ -925,12 +925,21 @@ class Owner extends CI_Controller
     }
     $this->load->view('template/filter_tahunan_chart_owner', $data);
   }
+
   public function laporan_harian_dokter()
   {
     $laporan = $this->Klinik_model->get_laporan();
     $data['laporan'] = $laporan;
     $data['harian'] = $this->Klinik_model->get_perdokter();
     $data['_laporan_transaksi'] = 1;
+    $data['content'] = 'owner/laporan_pemeriksaan_d';
+    $this->load->view('template/template', $data);
+  }
+
+  public function sharingfee_dokter()
+  {
+    $laporan = $this->Klinik_model->get_feedokter();
+    $data['laporan'] = $laporan;
     $data['content'] = 'owner/laporan_pemeriksaan_d';
     $this->load->view('template/template', $data);
   }
