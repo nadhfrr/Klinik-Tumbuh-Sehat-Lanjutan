@@ -262,7 +262,7 @@ class Owner extends CI_Controller
     foreach ($dokter->result() as $result) :
       $jam = $result->jam_mulai . '-' . $result->jam_tutup;
       $jadwal = $this->Data_pasien_model->jmlh_booking($id_dokter, $tgl, $jam);
-      $html .= '<option value="' . $jam . '" ' . ($jadwal >= 10 ? "disabled" : "") . '>' . $jam . '</option>';
+      $html .= '<option value="' . $jam . '" ' . ($jadwal >= 1 ? "disabled" : "") . '>' . $jam . '</option>';
     endforeach;
     $html .= '</select>';
 
