@@ -454,9 +454,19 @@ class Klinik_model extends CI_Model
 		dr.tgl";
 		return $this->db->query($sql, array($endDate, $interval, $endDate, $endDate, $interval, $id_dokter, $id_dokter));
 	}
+	
+	// function get_sharingfee()
+	// {
+
+	// }
 	function get_perdokter()
 	{
-		return $this->db->query("select nama_dokter, spesialis, tanggal_rencana,SUM(rekam_medis.grandtotal) AS money FROM rencana join rekam_medis on rencana.id_booking= rekam_medis.id_booking JOIN booking on booking.id_booking=rencana.id_booking join dokter on dokter.id_dokter = booking.id_dokter where rekam_medis.status = 3  GROUP by booking.id_dokter");
+		return $this->db->query("select nama_dokter, spesialis, 
+		tanggal_rencana,SUM(rekam_medis.grandtotal) 
+		AS money FROM rencana join rekam_medis on 
+		rencana.id_booking= rekam_medis.id_booking JOIN booking on 
+		booking.id_booking=rencana.id_booking join dokter on 
+		dokter.id_dokter = booking.id_dokter where rekam_medis.status = 3  GROUP by booking.id_dokter");
 	}
 	function get_laporan_pendapatan_m()
 	{
