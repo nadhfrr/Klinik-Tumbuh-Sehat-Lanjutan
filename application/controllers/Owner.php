@@ -747,7 +747,7 @@ class Owner extends CI_Controller
     // $this->load->view('template/template', $data);
     var_dump($this->Klinik_model->get_graph_day_in_week());
   }
-  
+
   public function laporan_sharingfee()
   {
     if (empty($_GET['id_dokter']) && empty($_GET['endDate'])) {
@@ -765,7 +765,7 @@ class Owner extends CI_Controller
     $data['content'] = 'owner/laporan_pemeriksaan';
     $this->load->view('template/template', $data);
   }
-  
+
   public function laporan_pemeriksaan()
   {
     if (empty($_GET['id_dokter']) && empty($_GET['endDate'])) {
@@ -815,7 +815,7 @@ class Owner extends CI_Controller
     }
     $this->load->view('template/filter_harian_chart_owner', $data);
   }
-  
+
   public function filter_laporan_pemeriksaan()
   {
     if (!empty($_GET['id_dokter']) && !empty($_GET['endDate'])) {
@@ -989,12 +989,13 @@ class Owner extends CI_Controller
 
   public function sharingfee_dokter()
   {
-    $laporan = $this->Klinik_model->get_feedokter();
+    $lap_sf = $this->Klinik_model->get_feedokter();
     $laporan = $this->Klinik_model->get_laporan();
     $data['harian'] = $this->Klinik_model->get_perdokter();
     $data['laporan'] = $laporan;
+    $data['lap_sf'] = $lap_sf;
     $data['_laporan_transaksi'] = 1;
-    $data['content'] = 'owner/laporan_pemeriksaan_d';
+    $data['content'] = 'owner/laporan_sharingfee';
     $this->load->view('template/template', $data);
   }
 

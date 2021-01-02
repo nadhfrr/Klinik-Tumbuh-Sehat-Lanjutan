@@ -332,7 +332,7 @@ class Klinik_model extends CI_Model
 
 	function get_feedokter()
 	{
-		$this->db->query('SELECT b.id_dokter, rm.tanggal_periksa, SUM(rm.grandtotal) AS total_pendapatan, 
+		$sql = $this->db->query('SELECT d.nama_dokter, b.id_dokter, rm.tanggal_periksa, SUM(rm.grandtotal) AS total_pendapatan, 
 		SUM(
 			CASE 
 				WHEN rm.grandtotal = 0 THEN 0
@@ -342,8 +342,8 @@ class Klinik_model extends CI_Model
 		FROM rekam_medis rm
 		JOIN booking b ON rm.id_booking = b.id_booking
 		JOIN dokter d ON b.id_dokter = d.id_dokter
-		WHERE b.id_dokter = 2
-		GROUP BY rm.tanggal_periksa');
+		GROUP BY b.id_dokter');
+		return $sql->result();
 	}
 
 	function get_harian($id_dokter, $endDate, $interval)
@@ -454,7 +454,7 @@ class Klinik_model extends CI_Model
 		dr.tgl";
 		return $this->db->query($sql, array($endDate, $interval, $endDate, $endDate, $interval, $id_dokter, $id_dokter));
 	}
-	
+
 	// function get_sharingfee()
 	// {
 

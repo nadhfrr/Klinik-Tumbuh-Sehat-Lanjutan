@@ -644,6 +644,99 @@
 			}]
 		});
 	</script>
+
+	<script type="text/javascript">
+		var change = {
+			0: '0',
+			1000000: 'Rp. 1.000.000',
+			2500000: 'Rp. 2.500.000',
+			5000000: 'Rp. 5.000.000',
+			7500000: 'Rp. 7.500.000',
+			10000000: 'Rp. 10.500.000'
+		};
+		Highcharts.chart('chart_sharingfee', {
+			chart: {
+				height: 500,
+				borderRadius: 10,
+				borderColor: '#969696',
+				borderWidth: 1,
+				backgroundColor: '#e7e6e6',
+				type: 'column'
+			},
+			title: {
+				text: 'Pendapatan',
+				align: 'left',
+				style: {
+					color: '#f4004a',
+					fontWeight: 'bold',
+					fontSize: "15px"
+				},
+
+
+			},
+			xAxis: {
+				categories: [
+					<?php foreach ($lap_sf->result() as $lap) : ?> "<?php echo $lap->nama_dokter ?>",
+					<?php endforeach; ?>
+				],
+				labels: {
+					style: {
+						color: 'black',
+						fontWeight: 'bold'
+					}
+				},
+				title: {
+					enabled: true,
+					text: '------ Rata2 pendapatan ------',
+					style: {
+						fontWeight: 'normal'
+					}
+				}
+			},
+			yAxis: {
+				labels: {
+					formatter: function() {
+						var value = change[this.value];
+						return value !== 'undefined' ? value : this.value;
+					}
+				}
+			},
+			tooltip: {
+				headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+				pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+					'<td style="padding:0"><b> Rp. {point.y:.1f},-</b></td></tr>',
+				footerFormat: '</table>',
+				shared: true,
+				useHTML: true
+			},
+			plotOptions: {
+				column: {
+					pointPadding: 0.2,
+					borderWidth: 0,
+					borderRadius: 10,
+					pointWidth: 20
+				}
+			},
+			series: [{
+				name: '',
+				showInLegend: false,
+				states: {
+					hover: {
+						color: '#f40049'
+					}
+				},
+				data: [
+					<?php foreach ($lap_sf->result() as $lap) : ?> {
+							color: '#f40049',
+							y: <?php echo $lap->total_pendapatan_fee ?>
+						},
+					<?php endforeach; ?>
+				]
+
+			}]
+		});
+	</script>
+
 	<script type="text/javascript">
 		var change = {
 			0: 'Rp .0',
