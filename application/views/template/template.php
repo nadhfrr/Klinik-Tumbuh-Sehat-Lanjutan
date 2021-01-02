@@ -433,20 +433,25 @@
 			},
 			xAxis: {
 				categories: [
-					<?php foreach ($harian->result() as $result89) : ?> "<?php if ($result89->hari == 'Sunday') {
-																				echo "Minggu";
-																			} elseif ($result89->hari == 'Monday') {
-																				echo "Senin";
-																			} elseif ($result89->hari == 'Tuesday') {
-																				echo "Selasa";
-																			} elseif ($result89->hari == 'Wednesday') {
-																				echo "Rabu";
-																			} elseif ($result89->hari == 'Thursday') {
-																				echo "Kamis";
-																			} elseif ($result89->hari == 'Friday') {
-																				echo "Jumat";
-																			} elseif ($result89->hari == 'Saturday') {
-																				echo "Sabtu";
+					<?php foreach ($harian->result() as $result89) : ?> "<?php
+																			if (empty($result89->hari)) {
+																				echo "";
+																			} else {
+																				if ($result89->hari == 'Sunday') {
+																					echo "Minggu";
+																				} elseif ($result89->hari == 'Monday') {
+																					echo "Senin";
+																				} elseif ($result89->hari == 'Tuesday') {
+																					echo "Selasa";
+																				} elseif ($result89->hari == 'Wednesday') {
+																					echo "Rabu";
+																				} elseif ($result89->hari == 'Thursday') {
+																					echo "Kamis";
+																				} elseif ($result89->hari == 'Friday') {
+																					echo "Jumat";
+																				} elseif ($result89->hari == 'Saturday') {
+																					echo "Sabtu";
+																				}
 																			}
 																			?><br><?php echo $result89->tgl ?>",
 					<?php endforeach; ?>
@@ -676,7 +681,7 @@
 			},
 			xAxis: {
 				categories: [
-					<?php foreach ($lap_sf->result() as $lap) : ?> "<?php echo $lap->nama_dokter ?>",
+					<?php foreach ($lap_sf as $lap) : ?> "<?php echo $lap->nama_dokter ?>",
 					<?php endforeach; ?>
 				],
 				labels: {
@@ -726,7 +731,7 @@
 					}
 				},
 				data: [
-					<?php foreach ($lap_sf->result() as $lap) : ?> {
+					<?php foreach ($lap_sf as $lap) : ?> {
 							color: '#f40049',
 							y: <?php echo $lap->total_pendapatan_fee ?>
 						},
