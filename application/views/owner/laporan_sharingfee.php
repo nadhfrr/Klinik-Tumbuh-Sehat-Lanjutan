@@ -179,7 +179,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-lg-12">
+                    <!-- <div class="col-lg-12">
                         <div class="col-lg-2 lap-mb">
                             <a href="<?php echo site_url('owner/laporan_pemeriksaan_t') ?>" type="button" class="btn col-md-12">Tahunan</a>
                         </div>
@@ -192,7 +192,7 @@
                         <div class="col-lg-2 lap-mb active">
                             <a href="<?php echo site_url('owner/laporan_pemeriksaan') ?>" type="button" class="btn col-md-12">Harian</a>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="col-md-12" style="margin-top: 70px;">
                         <div id="chart_sharingfee"></div>
                     </div>
