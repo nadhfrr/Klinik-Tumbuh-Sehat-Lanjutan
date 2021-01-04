@@ -197,7 +197,7 @@
                             <a href="<?php echo site_url('owner/laporan_pemeriksaan') ?>" type="button" class="btn col-md-12">Harian</a>
                         </div>
                     </div> -->
-                    <div class="col-md-12" style="margin-top: 70px;">
+                    <div class="col-md-12" style="margin-top: 20px;">
                         <div id="chart_sharingfee"></div>
                         <div id="chart_sharingfee2"></div>
                     </div>
