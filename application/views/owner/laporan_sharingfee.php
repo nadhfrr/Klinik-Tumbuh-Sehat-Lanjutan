@@ -148,15 +148,19 @@
                     <div class="col-md-12" style="border: 1px solid #e0e0e0; margin-top: 15px;">
                         <div style="float: left">
                             <span style="color: black; "><b>Filter :</b></span>
-                            <a href="<?php echo base_url('owner/laporan_harian_dokter') ?>">
-                                <div href="#" class="btn" style="background-color: #e7e6e6; border: none; color:black; font-weight:bold;">
+                            <a>
+                                <div href="#" class="btn" style="border: none; color:black; font-weight:bold;">
                                     <div class="col-md-2 outer" style="padding-top: 7px">
                                         <img src="<?php echo base_url() ?>assets/images/Doctor.png" height="24px">
                                     </div>
-                                    <div class="col-md-8" style="text-align: left; display: table-cell;vertical-align:middle; padding-right:0px">
-                                        <span>Per-dokter</span>
-                                        <!-- <br>
-                                        <span> Dokter Gigi</span> -->
+                                    <div class="col-md-10" style="text-align: left; display: table-cell;vertical-align:middle; padding-right:0px; padding-left:0px">
+                                        <select id="f_dokter" class="form-control form-control-sm">
+                                            <!-- <option value="" disabled selected style="display: none;">Filter Dokter</option> -->
+                                            <option value="b.id_dokter">Tampilkan Semua</option>
+                                            <?php foreach ($dokter->result() as $result) : ?>
+                                                <option value="<?php echo $result->id_dokter  ?>"><?php echo $result->nama_dokter ?></option>
+                                            <?php endforeach; ?>
+                                        </select>
                                     </div>
                                 </div>
                             </a>

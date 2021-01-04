@@ -979,7 +979,16 @@ class Owner extends CI_Controller
 
   public function laporan_harian_dokter()
   {
+    if (empty($_GET['id_dokter']) && empty($_GET['endDate'])) {
+      $id_dokter = 0;
+      $currentDate = date('Y-m-d');
+      $endDate = $currentDate;
+      $interval = 6;
+      $data['harian'] = $this->Klinik_model->get_harian($id_dokter, $endDate, $interval);
+    }
     $laporan = $this->Klinik_model->get_laporan();
+    $dokter = $this->Data_pasien_model->get_dokter_filter();
+    $data['dokter'] = $dokter;
     $data['laporan'] = $laporan;
     $data['harian'] = $this->Klinik_model->get_perdokter();
     $data['_laporan_transaksi'] = 1;
@@ -989,9 +998,18 @@ class Owner extends CI_Controller
 
   public function sharingfee_dokter()
   {
+    if (empty($_GET['id_dokter']) && empty($_GET['endDate'])) {
+      $id_dokter = 0;
+      $currentDate = date('Y-m-d');
+      $endDate = $currentDate;
+      $interval = 6;
+      $data['harian'] = $this->Klinik_model->get_harian($id_dokter, $endDate, $interval);
+    }
     $lap_sf = $this->Klinik_model->get_feedokter();
     $laporan = $this->Klinik_model->get_laporan();
-    $data['harian'] = $this->Klinik_model->get_perdokter();
+    // $data['harian'] = $this->Klinik_model->get_perdokter();
+    $dokter = $this->Data_pasien_model->get_dokter_filter();
+    $data['dokter'] = $dokter;
     $data['laporan'] = $laporan;
     $data['lap_sf'] = $lap_sf;
     $data['_laporan_transaksi'] = 1;
