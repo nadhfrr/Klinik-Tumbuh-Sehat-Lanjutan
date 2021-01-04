@@ -455,6 +455,14 @@ class Klinik_model extends CI_Model
 		return $this->db->query($sql, array($endDate, $interval, $endDate, $endDate, $interval, $id_dokter, $id_dokter));
 	}
 
+	function get_dokter_filter()
+	{
+		$this->db->select('*');
+		$this->db->from('dokter');
+		$query = $this->db->get();
+		return $query;
+	}
+
 	function get_perdokter()
 	{
 		return $this->db->query("select nama_dokter, spesialis, 

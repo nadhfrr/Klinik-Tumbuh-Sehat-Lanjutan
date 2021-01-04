@@ -813,7 +813,7 @@ class Owner extends CI_Controller
       $interval = $_GET['interval'];
       $data['harian2'] = $this->Klinik_model->get_feedokter($id_dokter, $endDate, $interval);
     }
-    $this->load->view('template/filter_harian_chart_owner', $data);
+    $this->load->view('template/filter_sharingfee_chart_owner', $data);
   }
 
   public function filter_laporan_pemeriksaan()
@@ -987,7 +987,7 @@ class Owner extends CI_Controller
       $data['harian'] = $this->Klinik_model->get_harian($id_dokter, $endDate, $interval);
     }
     $laporan = $this->Klinik_model->get_laporan();
-    $dokter = $this->Data_pasien_model->get_dokter_filter();
+    $dokter = $this->Klinik_model->get_dokter_filter();
     $data['dokter'] = $dokter;
     $data['laporan'] = $laporan;
     $data['harian'] = $this->Klinik_model->get_perdokter();
@@ -1008,7 +1008,7 @@ class Owner extends CI_Controller
     $lap_sf = $this->Klinik_model->get_feedokter();
     $laporan = $this->Klinik_model->get_laporan();
     // $data['harian'] = $this->Klinik_model->get_perdokter();
-    $dokter = $this->Data_pasien_model->get_dokter_filter();
+    $dokter = $this->Klinik_model->get_dokter_filter();
     $data['dokter'] = $dokter;
     $data['laporan'] = $laporan;
     $data['lap_sf'] = $lap_sf;

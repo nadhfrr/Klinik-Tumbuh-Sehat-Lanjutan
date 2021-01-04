@@ -438,7 +438,7 @@
             var timeDifferenceInDays = timeDifferenceInHours / 24;
             var interval = timeDifferenceInDays;
             $.ajax({
-                url: "<?= base_url('owner/filter_laporan_pemeriksaan') ?>",
+                url: "<?= base_url('owner/filter_sharingfee') ?>",
                 data: {
                     id_dokter: id_dokter,
                     interval: interval,
@@ -473,7 +473,7 @@
             var timeDifferenceInDays = timeDifferenceInHours / 24;
             var interval = timeDifferenceInDays;
             $.ajax({
-                url: "<?= base_url('owner/filter_laporan_pemeriksaan') ?>",
+                url: "<?= base_url('owner/filter_sharingfee') ?>",
                 data: {
                     id_dokter: id_dokter,
                     interval: interval,
@@ -516,7 +516,7 @@
                     var timeDifferenceInDays = timeDifferenceInHours / 24;
                     var interval = timeDifferenceInDays;
                     $.ajax({
-                        url: "<?= base_url('owner/filter_laporan_pemeriksaan') ?>",
+                        url: "<?= base_url('owner/filter_sharingfee') ?>",
                         data: {
                             id_dokter: id_dokter,
                             interval: interval,
@@ -579,7 +579,7 @@
             var timeDifferenceInDays = timeDifferenceInHours / 24;
             var interval = timeDifferenceInDays;
             $.ajax({
-                url: "<?= base_url('owner/filter_laporan_pemeriksaan') ?>",
+                url: "<?= base_url('owner/filter_sharingfee') ?>",
                 data: {
                     id_dokter: id_dokter,
                     interval: interval,
