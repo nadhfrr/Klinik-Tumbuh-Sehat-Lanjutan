@@ -193,8 +193,9 @@
                             <a href="<?php echo site_url('owner/laporan_pemeriksaan') ?>" type="button" class="btn col-md-12">Harian</a>
                         </div>
                     </div> -->
-                    <div class="col-md-12" style="margin-top: 70px;">
+                    <div class="col-md-12" style="margin-top: 20px;">
                         <div id="chart"></div>
+                        <div id="chart2"></div>
                     </div>
                     <div class="row">
                         <div class="col" style="margin: 30px;border:1px solid #969696;border-radius:10px">
@@ -405,6 +406,292 @@
             //   }
             // });
         }
+    </script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        //Script ini digunakan untuk filter
+        $(document).ready(function() {
+            $('#f_dokter').change(function() {
+                filter_dokter();
+            });
+        });
+
+        function filter_dokter() {
+            var id_dokter = $('#f_dokter').val();
+            var startDate = $('#from').val();
+            var endDate = $('#to').val();
+            //Mendapatkan Interval Hari untuk filter periode
+            date1 = startDate.split('-');
+            date2 = endDate.split('-');
+            date1 = new Date(date1[0], date1[1], date1[2]);
+            date2 = new Date(date2[0], date2[1], date2[2]);
+            date1_unixtime = parseInt(date1.getTime() / 1000);
+            date2_unixtime = parseInt(date2.getTime() / 1000);
+            var timeDifference = date2_unixtime - date1_unixtime;
+            var timeDifferenceInHours = timeDifference / 60 / 60;
+            var timeDifferenceInDays = timeDifferenceInHours / 24;
+            var interval = timeDifferenceInDays;
+            $.ajax({
+                url: "<?= base_url('owner/filter_laporan_pemeriksaan') ?>",
+                data: {
+                    id_dokter: id_dokter,
+                    interval: interval,
+                    endDate: endDate,
+                    startDate: startDate
+                },
+                success: function(data) {
+                    $('#chart').empty();
+                    $('#chart2').html(data);
+                },
+                error: function(request, status, error) {
+                    alert(request.responseText);
+                }
+            });
+        }
+
+        function enableEnd() {
+            var date = new Date(this.value);
+            date.setDate(date.getDate() + 13);
+            var id_dokter = $('#f_dokter').val();
+            var startDate = $('#from').val();
+            var endDate = $('#to').val();
+            //Mendapatkan Interval Hari untuk filter periode
+            date1 = startDate.split('-');
+            date2 = endDate.split('-');
+            date1 = new Date(date1[0], date1[1], date1[2]);
+            date2 = new Date(date2[0], date2[1], date2[2]);
+            date1_unixtime = parseInt(date1.getTime() / 1000);
+            date2_unixtime = parseInt(date2.getTime() / 1000);
+            var timeDifference = date2_unixtime - date1_unixtime;
+            var timeDifferenceInHours = timeDifference / 60 / 60;
+            var timeDifferenceInDays = timeDifferenceInHours / 24;
+            var interval = timeDifferenceInDays;
+            $.ajax({
+                url: "<?= base_url('owner/filter_laporan_pemeriksaan') ?>",
+                data: {
+                    id_dokter: id_dokter,
+                    interval: interval,
+                    startDate: startDate,
+                    endDate: endDate
+                },
+                success: function(data) {
+                    $('#chart').empty();
+                    $('#chart2').html(data);
+                },
+                error: function(request, status, error) {
+                    alert(request.responseText);
+                }
+            });
+            end.attr('disabled', !this.value.length).
+            datepicker('option', {
+                minDate: this.value,
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: 'yy-mm-dd',
+                monthNames: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
+                    'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
+                ],
+                dayNamesMin: ['Min', 'Sen', 'Sel', 'Rab', 'Ka', 'Jum', 'Sab'],
+                dayNames: ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'],
+                maxDate: date,
+                onSelect: function(dateText) {
+                    var id_dokter = $('#f_dokter').val();
+                    var startDate = $('#from').val();
+                    var endDate = $('#to').val();
+                    //Mendapatkan Interval Hari untuk filter periode
+                    date1 = startDate.split('-');
+                    date2 = endDate.split('-');
+                    date1 = new Date(date1[0], date1[1], date1[2]);
+                    date2 = new Date(date2[0], date2[1], date2[2]);
+                    date1_unixtime = parseInt(date1.getTime() / 1000);
+                    date2_unixtime = parseInt(date2.getTime() / 1000);
+                    var timeDifference = date2_unixtime - date1_unixtime;
+                    var timeDifferenceInHours = timeDifference / 60 / 60;
+                    var timeDifferenceInDays = timeDifferenceInHours / 24;
+                    var interval = timeDifferenceInDays;
+                    $.ajax({
+                        url: "<?= base_url('owner/filter_laporan_pemeriksaan') ?>",
+                        data: {
+                            id_dokter: id_dokter,
+                            interval: interval,
+                            endDate: endDate,
+                            starDate: startDate
+                        },
+                        success: function(data) {
+                            $('#chart').empty();
+                            $('#chart2').html(data);
+                        },
+                        error: function(request, status, error) {
+                            alert(request.responseText);
+                        },
+                    });
+                },
+                onClose: function(selectedDate) {
+                    var date = new Date(selectedDate);
+                    date.setDate(date.getDate() - 13);
+                    $("#from").datepicker('option', {
+                        minDate: date,
+                        maxDate: selectedDate
+                    });
+                }
+            });
+        }
+        var end = $('#to').datepicker();
+        $('#from').datepicker({
+            onSelect: enableEnd,
+            changeMonth: true,
+            changeYear: true,
+            defaultDate: 0,
+            dateFormat: 'yy-mm-dd',
+            monthNames: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
+                'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
+            ],
+            dayNamesMin: ['Min', 'Sen', 'Sel', 'Rab', 'Ka', 'Jum', 'Sab'],
+            dayNames: ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu']
+        }).bind('input', enableEnd);
+
+        //Script ini digunakan untuk filter
+        $(document).ready(function() {
+            $('#f_dokter').change(function() {
+                filter_dokter();
+            });
+        });
+
+        function filter_dokter() {
+            var id_dokter = $('#f_dokter').val();
+            var startDate = $('#from').val();
+            var endDate = $('#to').val();
+            //Mendapatkan Interval Hari untuk filter periode
+            date1 = startDate.split('-');
+            date2 = endDate.split('-');
+            date1 = new Date(date1[0], date1[1], date1[2]);
+            date2 = new Date(date2[0], date2[1], date2[2]);
+            date1_unixtime = parseInt(date1.getTime() / 1000);
+            date2_unixtime = parseInt(date2.getTime() / 1000);
+            var timeDifference = date2_unixtime - date1_unixtime;
+            var timeDifferenceInHours = timeDifference / 60 / 60;
+            var timeDifferenceInDays = timeDifferenceInHours / 24;
+            var interval = timeDifferenceInDays;
+            $.ajax({
+                url: "<?= base_url('owner/filter_laporan_pemeriksaan') ?>",
+                data: {
+                    id_dokter: id_dokter,
+                    interval: interval,
+                    endDate: endDate,
+                    startDate: startDate
+                },
+                success: function(data) {
+                    $('#chart').empty();
+                    $('#chart2').html(data);
+                },
+                error: function(request, status, error) {
+                    alert(request.responseText);
+                }
+            });
+        }
+
+        function enableEnd() {
+            var date = new Date(this.value);
+            date.setDate(date.getDate() + 13);
+            var id_dokter = $('#f_dokter').val();
+            var startDate = $('#from').val();
+            var endDate = $('#to').val();
+            //Mendapatkan Interval Hari untuk filter periode
+            date1 = startDate.split('-');
+            date2 = endDate.split('-');
+            date1 = new Date(date1[0], date1[1], date1[2]);
+            date2 = new Date(date2[0], date2[1], date2[2]);
+            date1_unixtime = parseInt(date1.getTime() / 1000);
+            date2_unixtime = parseInt(date2.getTime() / 1000);
+            var timeDifference = date2_unixtime - date1_unixtime;
+            var timeDifferenceInHours = timeDifference / 60 / 60;
+            var timeDifferenceInDays = timeDifferenceInHours / 24;
+            var interval = timeDifferenceInDays;
+            $.ajax({
+                url: "<?= base_url('owner/filter_sharingfee') ?>",
+                data: {
+                    id_dokter: id_dokter,
+                    interval: interval,
+                    startDate: startDate,
+                    endDate: endDate
+                },
+                success: function(data) {
+                    $('#chart').empty();
+                    $('#chart2').html(data);
+                },
+                error: function(request, status, error) {
+                    alert(request.responseText);
+                }
+            });
+            end.attr('disabled', !this.value.length).
+            datepicker('option', {
+                minDate: this.value,
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: 'yy-mm-dd',
+                monthNames: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
+                    'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
+                ],
+                dayNamesMin: ['Min', 'Sen', 'Sel', 'Rab', 'Ka', 'Jum', 'Sab'],
+                dayNames: ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'],
+                maxDate: date,
+                onSelect: function(dateText) {
+                    var id_dokter = $('#f_dokter').val();
+                    var startDate = $('#from').val();
+                    var endDate = $('#to').val();
+                    //Mendapatkan Interval Hari untuk filter periode
+                    date1 = startDate.split('-');
+                    date2 = endDate.split('-');
+                    date1 = new Date(date1[0], date1[1], date1[2]);
+                    date2 = new Date(date2[0], date2[1], date2[2]);
+                    date1_unixtime = parseInt(date1.getTime() / 1000);
+                    date2_unixtime = parseInt(date2.getTime() / 1000);
+                    var timeDifference = date2_unixtime - date1_unixtime;
+                    var timeDifferenceInHours = timeDifference / 60 / 60;
+                    var timeDifferenceInDays = timeDifferenceInHours / 24;
+                    var interval = timeDifferenceInDays;
+                    $.ajax({
+                        url: "<?= base_url('owner/filter_sharingfee') ?>",
+                        data: {
+                            id_dokter: id_dokter,
+                            interval: interval,
+                            endDate: endDate,
+                            starDate: startDate
+                        },
+                        success: function(data) {
+                            $('#chart').empty();
+                            $('#chart2').html(data);
+                        },
+                        error: function(request, status, error) {
+                            alert(request.responseText);
+                        },
+                    });
+                },
+                onClose: function(selectedDate) {
+                    var date = new Date(selectedDate);
+                    date.setDate(date.getDate() - 13);
+                    $("#from").datepicker('option', {
+                        minDate: date,
+                        maxDate: selectedDate
+                    });
+                }
+            });
+        }
+        var end = $('#to').datepicker();
+        $('#from').datepicker({
+            onSelect: enableEnd,
+            changeMonth: true,
+            changeYear: true,
+            defaultDate: 0,
+            dateFormat: 'yy-mm-dd',
+            monthNames: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
+                'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
+            ],
+            dayNamesMin: ['Min', 'Sen', 'Sel', 'Rab', 'Ka', 'Jum', 'Sab'],
+            dayNames: ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu']
+        }).bind('input', enableEnd);
     </script>
 
 
