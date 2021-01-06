@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 25, 2020 at 06:26 AM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 5.6.40
+-- Waktu pembuatan: 06 Jan 2021 pada 06.19
+-- Versi server: 10.1.38-MariaDB
+-- Versi PHP: 5.6.40
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `antrian`
+-- Struktur dari tabel `antrian`
 --
 
 CREATE TABLE `antrian` (
@@ -37,7 +37,7 @@ CREATE TABLE `antrian` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `antrian`
+-- Dumping data untuk tabel `antrian`
 --
 
 INSERT INTO `antrian` (`no_antrian`, `id_booking`, `id_pasien`, `id_dokter`, `id_rekam_medis`) VALUES
@@ -70,12 +70,32 @@ INSERT INTO `antrian` (`no_antrian`, `id_booking`, `id_pasien`, `id_dokter`, `id
 (90, 'MGZmMzliYmJm', 25, 3, 'MGU0NWE4N2Q2'),
 (91, 'MDEwZTQwNmRm', 26, 3, 'Y2NlYTE2MzUz'),
 (92, 'YzhmN2U4Y2Y0', 27, 1, 'MTFkODY3Nzk2'),
-(93, 'YWE0NzU2MDQ2', 27, 2, 'ZmY3MGVhNDFi');
+(93, 'YWE0NzU2MDQ2', 27, 2, 'ZmY3MGVhNDFi'),
+(94, 'MGMwMTg3ZTRh', 28, 3, 'ZGY1NjY1ZGYw'),
+(95, 'YjZkNDhiNzNi', 43, 3, 'YjRiYWFmZjBl'),
+(96, 'ZDRmNjlmYWY0', 40, 1, 'OGI2Y2MzZWU1'),
+(97, 'MzgxYTRjM2Ux', 26, 1, 'MGMwNGMwM2Fk'),
+(98, 'YjQ5YzIxZTMy', 26, 1, 'MmYwOTI4YzI1'),
+(99, 'MTg0NjU2OGQ1', 39, 1, 'N2VkY2NjNjYx'),
+(100, 'MGMwMTg3ZTRh', 28, 3, 'MDlmMmVlZTNh'),
+(101, 'MDEwZTQwNmRm', 26, 3, 'NzgyODhjNzg5'),
+(102, 'Njg2ZGZiNjYx', 24, 3, 'OGFmZmYyMjIy'),
+(103, 'ZjIzMDc3YjYw', 24, 3, 'Mjg5MGY2NDhi'),
+(104, 'ZjI2YmRjYmEz', 26, 3, 'MzU4MTY0NTAw'),
+(105, 'ODYzMTdhMzI2', 25, 3, 'ODc1NWUwYTky'),
+(106, 'NjcwNWQ3N2Yy', 27, 3, 'NGY1ZjRjNDJi'),
+(107, 'M2Q3NzljYWUy', 39, 3, 'YWJmZmJkNjE4'),
+(108, 'MzYzMDM5MWQy', 40, 3, 'ZDY5YWVkMmJl'),
+(109, 'OWFhZGUyMmQz', 41, 3, 'OGI5MzIyYThk'),
+(110, 'ZWQxZjY1YTE2', 42, 3, 'NjhmZjBjNmVl'),
+(111, 'Nzk1YTg3ZWEz', 43, 3, 'M2Q4ZDIyMjA0'),
+(112, 'MDI1MWExNTUy', 44, 3, 'NTcxOTYyYTY5'),
+(113, 'MTIzNjUwZGQw', 45, 3, 'ZTU5YmEzODk3');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `apotik`
+-- Struktur dari tabel `apotik`
 --
 
 CREATE TABLE `apotik` (
@@ -84,7 +104,7 @@ CREATE TABLE `apotik` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `apotik`
+-- Dumping data untuk tabel `apotik`
 --
 
 INSERT INTO `apotik` (`id`, `waktu`) VALUES
@@ -757,7 +777,7 @@ INSERT INTO `apotik` (`id`, `waktu`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `asuransi`
+-- Struktur dari tabel `asuransi`
 --
 
 CREATE TABLE `asuransi` (
@@ -773,7 +793,7 @@ CREATE TABLE `asuransi` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `booking`
+-- Struktur dari tabel `booking`
 --
 
 CREATE TABLE `booking` (
@@ -788,74 +808,140 @@ CREATE TABLE `booking` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `booking`
+-- Dumping data untuk tabel `booking`
 --
 
 INSERT INTO `booking` (`id_booking`, `id_user`, `id_pasien`, `id_cabang`, `id_dokter`, `konfirmasi`, `alasan_tolak`, `status`) VALUES
-('M2Q4NGRiZjE3', 22, 28, 2, 3, 0, NULL, 0),
+('M2Q3NzljYWUy', 34, 39, 1, 3, 1, NULL, 3),
+('M2Q4NGRiZjE3', 22, 28, 0, 0, 0, NULL, 0),
+('M2RkOTdlZTVl', 16, 24, 1, 3, 0, NULL, 0),
 ('MDEwZTQwNmRm', 16, 26, 2, 3, 1, NULL, 1),
+('MDI1MWExNTUy', 43, 44, 1, 3, 1, NULL, 3),
 ('MDQ3YTRhNzU5', 44, 45, 1, 1, 0, NULL, 0),
+('MDRmMmE0MTQw', 16, 24, 1, 1, 0, NULL, 0),
 ('MGMwM2NlNGNi', 16, 24, 0, 0, 0, NULL, 0),
-('MGMwMTg3ZTRh', 22, 28, 1, 3, 1, NULL, 0),
-('MGZmMzliYmJm', 16, 25, 1, 3, 1, NULL, 1),
+('MGMwMTg3ZTRh', 22, 28, 1, 3, 1, NULL, 3),
+('MGQ3YTM5ZTQ0', 16, 24, 1, 1, 0, NULL, 0),
+('MGZmMzliYmJm', 16, 25, 1, 3, 1, NULL, 3),
+('MjFmOGQzNGVk', 16, 24, 1, 1, 0, NULL, 0),
 ('Mjg4NTQ5NDEy', 16, 24, 2, 1, 1, NULL, 3),
+('MmM5YWFiZGE4', 16, 24, 1, 2, 0, NULL, 0),
 ('MTBmYzY3YTM0', 35, 41, 1, 1, 1, NULL, 3),
 ('MTExM2Q3YTc2', 16, 27, 2, 2, 1, '', 3),
-('MTMwZGUyN2Uz', 35, 41, 2, 1, 1, NULL, 1),
+('MTg0NjU2OGQ1', 34, 39, 1, 1, 1, NULL, 1),
+('MTIzNjUwZGQw', 44, 45, 1, 3, 1, NULL, 3),
+('MTMwZGUyN2Uz', 35, 41, 2, 1, 1, NULL, 3),
+('MTQ3ZTE0MWVj', 16, 24, 0, 1, 0, NULL, 0),
 ('MTY5NmE3ZThh', 44, 45, 1, 3, 1, NULL, 3),
 ('MTZjYmEwMWUw', 34, 40, 1, 3, 0, NULL, 0),
+('MWRmNThlNjM4', 16, 24, 1, 1, 0, NULL, 0),
+('MWY4N2EzZjlh', 16, 24, 1, 1, 0, NULL, 0),
 ('MzcxM2JkZGE3', 16, 26, 2, 3, 0, NULL, 0),
-('MzJiZDQwMzYy', 34, 40, 2, 3, 1, NULL, 1),
-('MzMwMjhlMzQz', 16, 24, 2, 2, 1, NULL, 1),
+('MzgxYTRjM2Ux', 16, 26, 1, 1, 1, NULL, 3),
+('MzJiZDQwMzYy', 34, 40, 2, 3, 1, NULL, 3),
+('MzlkMzUyYjAz', 34, 40, 1, 1, 0, NULL, 0),
+('MzMwMjhlMzQz', 16, 24, 2, 2, 1, NULL, 3),
 ('MzMyM2ZlMTFl', 16, 24, 1, 1, 1, '', 3),
 ('MzNmZDgyZDNk', 35, 42, 1, 1, 0, NULL, 0),
 ('MzQ1OGE5MGUy', 34, 39, 1, 2, 0, NULL, 0),
-('N2ZjYmZmMzJi', 34, 39, 1, 2, 1, NULL, 1),
+('MzY4MmNjYTM1', 16, 24, 1, 1, 0, NULL, 0),
+('MzYzMDM5MWQy', 34, 40, 1, 3, 1, NULL, 3),
+('MzZjMjFiNmRi', 16, 24, 1, 1, 0, NULL, 0),
+('N2ZjYmZmMzJi', 34, 39, 1, 2, 1, NULL, 3),
 ('NDcxYzk2YWZi', 16, 25, 0, 0, 0, NULL, 0),
 ('NDE2NGY4NDFi', 16, 24, 0, 2, 0, NULL, 0),
 ('NDgxMjYzODU0', 16, 26, 0, 0, 0, NULL, 0),
+('NDhlNzAwMGM5', 16, 24, 1, 1, 0, NULL, 0),
+('NDJhN2U4MDE3', 34, 39, 2, 1, 0, NULL, 0),
+('NDJiNWNlOWQy', 16, 24, 1, 1, 0, NULL, 0),
 ('NDQ5NmJkOTI5', 35, 41, 0, 0, 0, NULL, 0),
+('NDU0MGRlNGM4', 16, 24, 1, 1, 0, NULL, 0),
+('NDVkNjYzN2I3', 16, 24, 1, 1, 0, NULL, 0),
+('NGI1ZTEwNGFm', 16, 25, 2, 2, 0, NULL, 0),
+('NGJiZDJkNTQx', 44, 45, 1, 3, 0, NULL, 0),
+('NjcwNWQ3N2Yy', 16, 27, 1, 3, 1, NULL, 1),
+('Njg2ZGZiNjYx', 16, 24, 1, 3, 1, NULL, 1),
+('Njg5MDQxYzJi', 22, 28, 1, 1, 0, NULL, 0),
+('NjViODk1ZjMy', 16, 26, 1, 1, 0, NULL, 0),
+('NjZlZjYxZTI5', 16, 24, 1, 1, 0, NULL, 0),
 ('NmFhNzA0ZWNj', 43, 44, 1, 3, 1, NULL, 3),
 ('NTk0MmIwNTk4', 35, 41, 1, 1, 1, NULL, 3),
+('NTU1ZWQ5ZGU5', 16, 24, 2, 2, 0, NULL, 0),
 ('NzFkZDliNDhm', 22, 28, 1, 2, 2, 'Penuh', 4),
-('NzI1MjE1ZWQ4', 35, 42, 1, 1, 1, NULL, 1),
+('NzI1MjE1ZWQ4', 35, 42, 1, 1, 1, NULL, 3),
 ('NzIwMGJlMTY2', 16, 27, 1, 1, 0, NULL, 0),
+('Nzk1YTg3ZWEz', 40, 43, 1, 3, 1, NULL, 3),
 ('NzMxNTdmY2Ew', 34, 40, 1, 2, 1, NULL, 3),
+('NzU3Zjg0M2Ex', 16, 24, 1, 1, 0, NULL, 0),
+('ODAxMzViNmQ3', 16, 24, 1, 2, 0, NULL, 0),
+('ODJmODI2NDRi', 16, 24, 1, 1, 0, NULL, 0),
 ('ODQ2NmY5YWNl', 16, 26, 1, 1, 0, NULL, 0),
+('ODYzMTdhMzI2', 16, 25, 1, 3, 1, NULL, 1),
 ('OGNmZWRmZjg2', 34, 39, 2, 2, 1, NULL, 3),
 ('OGQ3MjM3YzY4', 44, 45, 1, 2, 1, NULL, 3),
 ('OGY3Y2I4MzI4', 35, 42, 1, 1, 0, NULL, 0),
 ('OTA3N2NlNTVi', 35, 41, 0, 0, 0, NULL, 0),
 ('OTVmMmI4NGRl', 16, 24, 1, 1, 0, NULL, 0),
+('OWFhZGUyMmQz', 35, 41, 1, 3, 1, NULL, 3),
+('OWNjMDNjZTVj', 16, 26, 1, 1, 0, NULL, 0),
+('OWQyNTNhY2U3', 16, 24, 1, 1, 0, NULL, 0),
 ('OWY2ODQ5NGI4', 16, 26, 1, 1, 0, NULL, 0),
-('OWY4MjBhZGY4', 35, 41, 1, 1, 1, NULL, 1),
+('OWY4MjBhZGY4', 35, 41, 1, 1, 1, NULL, 3),
 ('YjE4MjMyOTdh', 16, 24, 1, 3, 0, NULL, 0),
 ('YjIzZjUyMjAy', 16, 24, 1, 2, 0, NULL, 0),
 ('YjQ2MGNmNmIw', 16, 27, 1, 3, 0, NULL, 0),
+('YjQ5YzIxZTMy', 16, 26, 1, 1, 1, NULL, 1),
 ('YjQwNjdmOGFh', 16, 26, 1, 1, 1, NULL, 3),
 ('YjU5Nzk3NmMz', 16, 24, 1, 2, 0, NULL, 0),
-('YjY3ZDAyYmEx', 35, 42, 2, 3, 1, NULL, 2),
-('YjZkNDhiNzNi', 40, 43, 1, 3, 1, NULL, 0),
+('YjVlZGViNzg4', 16, 24, 1, 1, 0, NULL, 0),
+('YjY3ZDAyYmEx', 35, 42, 2, 3, 1, NULL, 3),
+('YjYzZTUxYWFh', 16, 24, 1, 1, 0, NULL, 0),
+('YjZkNDhiNzNi', 40, 43, 1, 3, 1, NULL, 3),
+('YmIwNGFmMGY3', 16, 26, 2, 1, 0, NULL, 0),
+('YmY1NmExYjM3', 35, 42, 1, 1, 0, NULL, 0),
 ('YTgzNDVjM2Ji', 16, 24, 1, 2, 1, NULL, 3),
+('YTliOTRlMmU5', 16, 26, 2, 2, 0, NULL, 0),
 ('YTliZDc4ZDJm', 24, 30, 1, 3, 1, NULL, 3),
-('YWE0NzU2MDQ2', 16, 27, 1, 2, 1, NULL, 1),
+('YTYyOTI2Njhi', 16, 24, 2, 1, 0, NULL, 0),
+('YWE0NzU2MDQ2', 16, 27, 1, 2, 1, NULL, 3),
+('YWI4OGIxNTcz', 16, 24, 1, 1, 0, NULL, 0),
 ('YWRjNGI1MWI0', 16, 24, 1, 1, 1, '', 3),
-('YzhmN2U4Y2Y0', 16, 27, 2, 1, 1, NULL, 1),
+('YWU0NTAzZWMz', 34, 40, 1, 2, 0, NULL, 0),
+('YzhmN2U4Y2Y0', 16, 27, 2, 1, 1, NULL, 3),
+('YzI0Y2Q3NmUx', 16, 24, 1, 1, 0, NULL, 0),
+('YzUzNWUzYTdm', 16, 24, 0, 0, 0, NULL, 0),
+('YzVlNjA5Y2Y5', 16, 26, 1, 1, 0, NULL, 0),
+('YzY5OWEzOGQ4', 16, 24, 1, 1, 0, NULL, 0),
 ('ZDc0MGRlMWU3', 16, 27, 1, 1, 0, NULL, 0),
 ('ZDc3MzE0YjVj', 35, 41, 1, 1, 0, NULL, 0),
 ('ZDFhMzQyYmIz', 16, 27, 2, 1, 0, NULL, 0),
 ('ZDgzMzBmODU3', 16, 24, 1, 1, 0, NULL, 0),
 ('ZDJlNDA0YjU0', 16, 26, 0, 3, 0, NULL, 0),
-('ZDRmNjlmYWY0', 34, 40, 1, 1, 1, NULL, 0),
+('ZDRmNjlmYWY0', 34, 40, 1, 1, 1, NULL, 3),
 ('ZDU2MWQyMTMw', 35, 41, 1, 2, 1, NULL, 3),
+('ZDZkNDZhODUy', 16, 24, 1, 1, 0, NULL, 0),
+('ZGIxZjZhMGZj', 16, 24, 1, 1, 0, NULL, 0),
+('ZGY3YzJiM2Mz', 16, 24, 1, 1, 0, NULL, 0),
+('ZjA0OGUzMDhl', 16, 24, 1, 1, 0, NULL, 0),
+('ZjAyYjMxNTNi', 16, 24, 1, 1, 0, NULL, 0),
+('ZjdlMmIyYjc1', 16, 24, 1, 1, 0, NULL, 0),
 ('Zjg5N2QxZTFm', 22, 28, 1, 1, 0, NULL, 0),
+('ZjhiZGNjNjdi', 16, 26, 1, 1, 2, 'terlambat', 4),
+('ZjI2OWNiNzc5', 34, 40, 1, 1, 0, NULL, 0),
+('ZjI2YmRjYmEz', 16, 26, 1, 3, 1, NULL, 1),
+('ZjIzMDc3YjYw', 16, 24, 1, 3, 1, NULL, 3),
 ('ZmM5OGQ3MmE2', 40, 43, 2, 3, 1, NULL, 3),
-('ZTYyNThiOTU2', 16, 26, 1, 1, 0, NULL, 0);
+('ZmQ5ODJmM2Zh', 16, 24, 1, 1, 0, NULL, 0),
+('ZTEwMjFkNDM5', 16, 24, 1, 1, 0, NULL, 0),
+('ZTRiNmJlOTU1', 16, 26, 1, 1, 0, NULL, 0),
+('ZTYyNThiOTU2', 16, 26, 1, 1, 0, NULL, 0),
+('ZWQxZjY1YTE2', 35, 42, 1, 3, 1, NULL, 3),
+('ZWViN2VlYmJi', 16, 26, 0, 0, 0, NULL, 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cabang`
+-- Struktur dari tabel `cabang`
 --
 
 CREATE TABLE `cabang` (
@@ -865,7 +951,7 @@ CREATE TABLE `cabang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `cabang`
+-- Dumping data untuk tabel `cabang`
 --
 
 INSERT INTO `cabang` (`id_cabang`, `nama_cabang`, `alamat`) VALUES
@@ -875,7 +961,7 @@ INSERT INTO `cabang` (`id_cabang`, `nama_cabang`, `alamat`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cabang_dokter`
+-- Struktur dari tabel `cabang_dokter`
 --
 
 CREATE TABLE `cabang_dokter` (
@@ -885,7 +971,7 @@ CREATE TABLE `cabang_dokter` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `cabang_dokter`
+-- Dumping data untuk tabel `cabang_dokter`
 --
 
 INSERT INTO `cabang_dokter` (`id_cbdokter`, `id_dokter`, `id_cabang`) VALUES
@@ -899,7 +985,7 @@ INSERT INTO `cabang_dokter` (`id_cbdokter`, `id_dokter`, `id_cabang`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ci_sessions`
+-- Struktur dari tabel `ci_sessions`
 --
 
 CREATE TABLE `ci_sessions` (
@@ -912,7 +998,7 @@ CREATE TABLE `ci_sessions` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `detail_apotik`
+-- Struktur dari tabel `detail_apotik`
 --
 
 CREATE TABLE `detail_apotik` (
@@ -924,7 +1010,7 @@ CREATE TABLE `detail_apotik` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `detail_apotik`
+-- Dumping data untuk tabel `detail_apotik`
 --
 
 INSERT INTO `detail_apotik` (`id`, `id_apotik`, `id_obat`, `jumlah`, `harga_satuan`) VALUES
@@ -7890,7 +7976,7 @@ INSERT INTO `detail_apotik` (`id`, `id_apotik`, `id_obat`, `jumlah`, `harga_satu
 -- --------------------------------------------------------
 
 --
--- Table structure for table `detail_layanan`
+-- Struktur dari tabel `detail_layanan`
 --
 
 CREATE TABLE `detail_layanan` (
@@ -7901,7 +7987,7 @@ CREATE TABLE `detail_layanan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `detail_layanan`
+-- Dumping data untuk tabel `detail_layanan`
 --
 
 INSERT INTO `detail_layanan` (`id`, `id_rekam_medis`, `id_layanan`, `harga_layanan`) VALUES
@@ -8871,7 +8957,7 @@ INSERT INTO `detail_layanan` (`id`, `id_rekam_medis`, `id_layanan`, `harga_layan
 -- --------------------------------------------------------
 
 --
--- Table structure for table `detail_obat`
+-- Struktur dari tabel `detail_obat`
 --
 
 CREATE TABLE `detail_obat` (
@@ -8883,7 +8969,7 @@ CREATE TABLE `detail_obat` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `detail_obat`
+-- Dumping data untuk tabel `detail_obat`
 --
 
 INSERT INTO `detail_obat` (`id`, `id_rekam_medis`, `id_obat`, `jumlah`, `harga_satuan_obat`) VALUES
@@ -10353,7 +10439,7 @@ INSERT INTO `detail_obat` (`id`, `id_rekam_medis`, `id_obat`, `jumlah`, `harga_s
 -- --------------------------------------------------------
 
 --
--- Table structure for table `detail_sisa_stok_obat`
+-- Struktur dari tabel `detail_sisa_stok_obat`
 --
 
 CREATE TABLE `detail_sisa_stok_obat` (
@@ -10366,7 +10452,7 @@ CREATE TABLE `detail_sisa_stok_obat` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `detail_sisa_stok_obat`
+-- Dumping data untuk tabel `detail_sisa_stok_obat`
 --
 
 INSERT INTO `detail_sisa_stok_obat` (`tgl_transaksi`, `id_obat`, `jumlah_sisa`, `id_apotik`, `waktu`, `id_detail_sisa_stok_obat`) VALUES
@@ -13584,7 +13670,7 @@ INSERT INTO `detail_sisa_stok_obat` (`tgl_transaksi`, `id_obat`, `jumlah_sisa`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `detail_stok_obat`
+-- Struktur dari tabel `detail_stok_obat`
 --
 
 CREATE TABLE `detail_stok_obat` (
@@ -13596,7 +13682,7 @@ CREATE TABLE `detail_stok_obat` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `detail_stok_obat`
+-- Dumping data untuk tabel `detail_stok_obat`
 --
 
 INSERT INTO `detail_stok_obat` (`id`, `id_obat`, `tanggal_expired`, `jumlah`, `tgl_masuk`) VALUES
@@ -13704,7 +13790,7 @@ INSERT INTO `detail_stok_obat` (`id`, `id_obat`, `tanggal_expired`, `jumlah`, `t
 -- --------------------------------------------------------
 
 --
--- Table structure for table `diskon`
+-- Struktur dari tabel `diskon`
 --
 
 CREATE TABLE `diskon` (
@@ -13715,7 +13801,7 @@ CREATE TABLE `diskon` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `diskon`
+-- Dumping data untuk tabel `diskon`
 --
 
 INSERT INTO `diskon` (`id_diskon`, `nama_diskon`, `status_diskon`, `nilai_diskon`) VALUES
@@ -13726,7 +13812,7 @@ INSERT INTO `diskon` (`id_diskon`, `nama_diskon`, `status_diskon`, `nilai_diskon
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dokter`
+-- Struktur dari tabel `dokter`
 --
 
 CREATE TABLE `dokter` (
@@ -13735,22 +13821,23 @@ CREATE TABLE `dokter` (
   `nama_dokter` text NOT NULL,
   `spesialis` varchar(50) NOT NULL,
   `pengalaman` int(12) NOT NULL,
-  `foto` varchar(50) NOT NULL
+  `foto` varchar(50) NOT NULL,
+  `sharingfee_pers` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `dokter`
+-- Dumping data untuk tabel `dokter`
 --
 
-INSERT INTO `dokter` (`id_dokter`, `id_user`, `nama_dokter`, `spesialis`, `pengalaman`, `foto`) VALUES
-(1, 5, 'Lila Asri', 'Gigi', 3, '1.jpg'),
-(2, 6, 'Mifta Mustafa', 'Gigi', 4, '3.jpg'),
-(3, 7, 'Sarah Saraswati', 'Gigi', 4, '2.png');
+INSERT INTO `dokter` (`id_dokter`, `id_user`, `nama_dokter`, `spesialis`, `pengalaman`, `foto`, `sharingfee_pers`) VALUES
+(1, 5, 'Lila Asri', 'Gigi', 3, '1.jpg', 40),
+(2, 6, 'Mifta Mustafa', 'Gigi', 4, '3.jpg', 50),
+(3, 7, 'Sarah Saraswati', 'Gigi', 4, '2.png', 60);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `info_orang_terdekat`
+-- Struktur dari tabel `info_orang_terdekat`
 --
 
 CREATE TABLE `info_orang_terdekat` (
@@ -13774,7 +13861,7 @@ CREATE TABLE `info_orang_terdekat` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `info_orang_terdekat`
+-- Dumping data untuk tabel `info_orang_terdekat`
 --
 
 INSERT INTO `info_orang_terdekat` (`id_iot`, `id_pasien`, `id_booking`, `nama_depan_dekat`, `nama_belakang_dekat`, `tempat_lahir_dekat`, `tanggal_lahir_dekat`, `jenis_kelamin_dekat`, `hubungan_dekat`, `jenis_id_dekat`, `no_id_dekat`, `alamat_dekat`, `kota_kab_dekat`, `provinsi_dekat`, `kode_pos_dekat`, `email_dekat`, `no_hp_dekat`) VALUES
@@ -13813,12 +13900,31 @@ INSERT INTO `info_orang_terdekat` (`id_iot`, `id_pasien`, `id_booking`, `nama_de
 (95, 26, 'MDEwZTQwNmRm', 'Pasha', 'Anisa', 'Malang', '1999-02-23', 'Perempuan', 'Saudara', 'Umum', '8765', 'Jl. Mawar', 'Malang', 'Jawa Timur', '567', 'pashaneesa0901@gmail.com', '081252405242'),
 (96, 27, 'YzhmN2U4Y2Y0', 'Yurike', 'Wardani', 'Malang', '1997-06-16', 'Perempuan', 'Saudara', 'Umum', '8765', 'Jl. Mawar', 'Malang', 'Jawa Timur', '567', 'yurike@gmail.com', '09876545'),
 (97, 27, 'YWE0NzU2MDQ2', 'Yurike', 'Wardani', 'Malang', '1997-06-16', 'Perempuan', 'Saudara', 'Umum', '8765', 'Jl. Mawar', 'Malang', 'Jawa Timur', '567', 'yurike@gmail.com', '09876545'),
-(98, 24, 'NDE2NGY4NDFi', 'Yurike', 'Wardani', 'Malang', '1997-06-16', 'Perempuan', 'Saudara', 'Umum', '8765', 'Jl. Mawar', 'Malang', 'Jawa Timur', '567', 'yurike@gmail.com', '09876545');
+(98, 24, 'NDE2NGY4NDFi', 'Yurike', 'Wardani', 'Malang', '1997-06-16', 'Perempuan', 'Saudara', 'Umum', '8765', 'Jl. Mawar', 'Malang', 'Jawa Timur', '567', 'yurike@gmail.com', '09876545'),
+(99, 26, 'MzgxYTRjM2Ux', 'Pasha', 'Anisa', 'Malang', '1999-06-23', 'Perempuan', 'Saudara', 'Umum', '8765', 'Jl. Mawar', 'Malang', 'Jawa Timur', '567', 'pashaneesa0901@gmail.com', '081252405242'),
+(100, 24, 'YzUzNWUzYTdm', 'Nigel', 'Alessandro', 'Malang', '2020-12-04', 'Laki-Laki', 'Saudara', 'Umum', '8765', 'Jl. Mawar', 'Malang', 'Jawa Timur', '567', 'nigel@gmail.com', '081252405242'),
+(101, 26, 'ZWViN2VlYmJi', 'Pasha', 'Anisa', 'Malang', '1999-06-23', 'Perempuan', 'Saudara', 'Umum', '8765', 'Jl. Mawar', 'Malang', 'Jawa Timur', '567', 'pashaneesa0901@gmail.com', '081252405242'),
+(102, 26, 'YjQ5YzIxZTMy', 'Pasha', 'Anisa', 'Malang', '1999-06-23', 'Perempuan', 'Saudara', 'Umum', '8765', 'Jl. Mawar', 'Malang', 'Jawa Timur', '567', 'pashaneesa0901@gmail.com', '081252405242'),
+(103, 39, 'MTg0NjU2OGQ1', 'Sesil', 'Asmi', 'Surabaya', '2000-07-15', 'Perempuan', 'Saudara', 'Umum', '09809', 'Jln. Anggur', 'Malang', 'Jawa Timur', '23423', 'sesil@gmail.com', '09876545'),
+(104, 26, 'ZjhiZGNjNjdi', 'Pasha', 'Anisa', 'Malang', '2020-12-03', 'Laki-Laki', 'Saudara', 'VIP', '77', 'Jl. Mawar', 'Malang', 'Jawa Timur', '567', 'pashaneesa0901@gmail.com', '081252405242'),
+(105, 24, 'Njg2ZGZiNjYx', 'Nigel', 'Alessandro', 'Malang', '2001-06-11', 'Laki-Laki', 'Saudara', 'VIP', '567890', 'Jl. Nakula', 'Malang', 'Jawa Timur', '5678', 'nigel@gmail.com', '567890'),
+(106, 24, 'ZjIzMDc3YjYw', 'Nigel', 'Alessandro', 'Malang', '2001-06-11', 'Laki-Laki', 'anak', 'KTP', '567890', 'Jl. Mawar', 'Malang', 'Jawa Timur', '567', 'nigel@gmail.com', '09876545'),
+(107, 26, 'ZjI2YmRjYmEz', 'Pasha', 'Anisa', 'Malang', '1999-06-23', 'Perempuan', 'ayah', 'KTP', '8765', 'Jl. Mawar', 'Malang', 'Jawa Timur', '8765', 'pashaneesa0901@gmail.com', '081252405242'),
+(108, 25, 'ODYzMTdhMzI2', 'Pasha', 'Anisa', 'Malang', '1999-06-23', 'Perempuan', 'ibu', 'KTP', '8765', 'Jl. Mawar', 'Malang', 'Jawa Timur', '8765', 'pashaneesa0901@gmail.com', '081252405242'),
+(109, 27, 'NjcwNWQ3N2Yy', 'Pasha', 'Anisa', 'Malang', '1999-06-23', 'Perempuan', 'ibu', 'KTP', '8765', 'Jl. Mawar', 'Malang', 'Jawa Timur', '567', 'pashaneesa0901@gmail.com', '081252405242'),
+(110, 39, 'M2Q3NzljYWUy', 'Sesil', 'Asmi', 'Surabaya', '2000-07-15', 'Perempuan', 'saudara', 'KTP', '09809', 'Jln. Anggur', 'Malang', 'Jawa Timur', '23423', 'sesil@gmail.com', '09876545'),
+(111, 40, 'MzYzMDM5MWQy', 'Immanuel', 'Tahniah', 'Semarang', '1999-07-20', 'Laki-Laki', 'saudara', 'KTP', '324', 'Jalan Nakula NO.53/VI', 'Surabaya', 'Jawa Timur', '12', 'snwyuuki@gmail.com', '1234567890'),
+(112, 41, 'OWFhZGUyMmQz', 'Luis', 'Devvi', 'Malang', '2001-08-17', 'Perempuan', 'anak', 'KTP', '0987', 'Jln. Salak', 'Malang', 'Jawa Timur', '6571', 'luis@gmail.com', '089999888777'),
+(113, 42, 'ZWQxZjY1YTE2', 'Lila', 'Andana', 'Malang', '1999-08-17', 'Perempuan', 'ibu', 'KTP', '1245', 'Jln. Salak', 'Malang', 'Jawa Timur', '65471', 'lila@gmail.com', '0819999888777'),
+(114, 43, 'Nzk1YTg3ZWEz', 'Ahmad', 'Fajr', 'Malang', '2015-01-04', 'Laki-Laki', 'anak', 'KTP', '2563', 'Jln. Salak', 'Malang', 'Jawa Timur', '123', 'ahmadf@gmail.com', '5566321'),
+(115, 44, 'MDI1MWExNTUy', 'Yeni', 'Lumi', 'Malang', '2013-02-12', 'Perempuan', 'saudara', 'KTP', '895', 'Jl. Jaya Srani', 'Malang', 'Jawa Timur', '963', 'yeni@gmail.com', '632147859'),
+(116, 24, 'MTQ3ZTE0MWVj', 'Nigel', 'Alessandro', 'Malang', '2001-06-11', 'Laki-Laki', 'Saudara', 'VIP', '567890', 'Jl. Mawar', 'Malang', 'Jawa Timur', '567', 'nigel@gmail.com', '56789'),
+(117, 45, 'MTIzNjUwZGQw', 'Eko', 'Pro', 'Malang', '1980-03-06', 'Laki-Laki', 'ayah', 'KTP', '3573', 'Jl. Kelengkeng', 'Malang', 'Jawa Timur', '632', 'eko@gmail.com', '021345697845');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `jadwal_dokter`
+-- Struktur dari tabel `jadwal_dokter`
 --
 
 CREATE TABLE `jadwal_dokter` (
@@ -13831,7 +13937,7 @@ CREATE TABLE `jadwal_dokter` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `jadwal_dokter`
+-- Dumping data untuk tabel `jadwal_dokter`
 --
 
 INSERT INTO `jadwal_dokter` (`id_jadwal`, `hari`, `jam_mulai`, `jam_tutup`, `id_dokter`, `kuota`) VALUES
@@ -13846,7 +13952,7 @@ INSERT INTO `jadwal_dokter` (`id_jadwal`, `hari`, `jam_mulai`, `jam_tutup`, `id_
 -- --------------------------------------------------------
 
 --
--- Table structure for table `layanan`
+-- Struktur dari tabel `layanan`
 --
 
 CREATE TABLE `layanan` (
@@ -13857,7 +13963,7 @@ CREATE TABLE `layanan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `layanan`
+-- Dumping data untuk tabel `layanan`
 --
 
 INSERT INTO `layanan` (`id_layanan`, `layanan`, `harga`, `status`) VALUES
@@ -13869,7 +13975,7 @@ INSERT INTO `layanan` (`id_layanan`, `layanan`, `harga`, `status`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `login_session`
+-- Struktur dari tabel `login_session`
 --
 
 CREATE TABLE `login_session` (
@@ -13887,7 +13993,7 @@ CREATE TABLE `login_session` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `login_session`
+-- Dumping data untuk tabel `login_session`
 --
 
 INSERT INTO `login_session` (`id_user`, `nama_depan_u`, `nama_belakang_u`, `tanggal_lahir`, `jenis_kelamin`, `alamat`, `email`, `no_hp`, `password`, `view_password`, `level`) VALUES
@@ -13902,12 +14008,27 @@ INSERT INTO `login_session` (`id_user`, `nama_depan_u`, `nama_belakang_u`, `tang
 (35, 'Lila', 'Andana', '17/08/1999', 'Perempuan', 'Jln. Salak ', 'lila@gmail.com', '081999888777', 'fda6ef9f6ba8382c875468cd70d33ecf', 'lila', 'Pasien'),
 (40, 'Fajar', 'Ali', '1999-08-04', 'Laki-Laki', '', 'fajar@gmail.com', '081999888777', '', '', 'Pasien'),
 (43, 'Yunia', 'Mila', '1998-07-28', 'Perempuan', '', 'mila@gmail.com', '089977665543', '', '', 'Pasien'),
-(44, 'Yeni', 'Febrianti', '1999-07-29', 'Perempuan', '', 'yeni@gmail.com', '089977665543', '', '', 'Pasien');
+(44, 'Yeni', 'Febrianti', '1999-07-29', 'Perempuan', '', 'yeni@gmail.com', '089977665543', '', '', 'Pasien'),
+(45, 'ahmad', 'rio', '12/01/1995', 'Laki-Laki', 'Jl. Merdeka', 'rio@gmail.com', '08961234', 'd5ed38fdbf28bc4e58be142cf5a17cf5', 'rio', 'Pasien'),
+(46, 'Heli', 'Kopter', '2014-10-01', 'Laki-Laki', '', 'yeuneka49@gmail.com', '087856944565', '', '', 'Pasien'),
+(47, 'Heli', 'Kopter', '2014-10-01', 'Laki-Laki', '', 'ynarnd23@gmail.com', '087856944565', '', '', 'Pasien'),
+(48, 'Heli', 'Kopter', '2020-12-01', 'Laki-Laki', '', 'yeuneka49@gmail.com', '087856944565', '', '', 'Pasien'),
+(49, 'Heli', 'Kopter', '2020-12-01', 'Laki-Laki', '', '181221012@mhs.stiki.ac.id', '087856944565', '', '', 'Pasien'),
+(50, 'ahmad', 'Kopter', '2020-12-04', 'Laki-Laki', '', '181221012@mhs.stiki.ac.id', '08961234', '', '', 'Pasien'),
+(51, 'Heli', 'Gug', '1545-10-01', 'Laki-Laki', '', '181221024@mhs.stiki.ac.id', '08546321459', '', '', 'Pasien'),
+(52, 'ahmad', 'robi', '2020-12-21', 'Laki-Laki', '', '181221012@mhs.stiki.ac.id', '087856944565', '', '', 'Pasien'),
+(53, 'kojo', 'rio', '2020-12-01', 'Perempuan', '', '181221012@mhs.stiki.ac.id', '087856944565', '', '', 'Pasien'),
+(54, 'fifin', 'mini', '2020-11-30', 'Perempuan', '', '181221012@mhs.stiki.ac.id', '087856944565', '', '', 'Pasien'),
+(55, 'fifin', 'Gug', '2020-11-30', 'Perempuan', '', '181221012@mhs.stiki.ac.id', '087856944565', '', '', 'Pasien'),
+(56, 's', 'ss', '2020-11-29', 'Perempuan', '', 'yeuneka49@gmail.com', '087856944565', '', '', 'Pasien'),
+(57, 'fgh', 'fhd', '2020-11-01', 'Perempuan', '', '181221012@mhs.stiki.ac.id', '087856944565', '', '', 'Pasien'),
+(58, 'Aba', 'Roni', '2002-02-20', 'Laki-Laki', '', 'yeuneka49@gmail.com', '087856944565', '', '', 'Pasien'),
+(59, 'Abeng', 'Nani', '2020-11-29', 'Perempuan', '', 'yeuneka49@gmail.com', '087856944565', '', '', 'Pasien');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `metode_pembayaran`
+-- Struktur dari tabel `metode_pembayaran`
 --
 
 CREATE TABLE `metode_pembayaran` (
@@ -13916,7 +14037,7 @@ CREATE TABLE `metode_pembayaran` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `metode_pembayaran`
+-- Dumping data untuk tabel `metode_pembayaran`
 --
 
 INSERT INTO `metode_pembayaran` (`id_metode`, `nama_metode`) VALUES
@@ -13927,7 +14048,7 @@ INSERT INTO `metode_pembayaran` (`id_metode`, `nama_metode`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `obat`
+-- Struktur dari tabel `obat`
 --
 
 CREATE TABLE `obat` (
@@ -13939,7 +14060,7 @@ CREATE TABLE `obat` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `obat`
+-- Dumping data untuk tabel `obat`
 --
 
 INSERT INTO `obat` (`id`, `nama`, `harga_satuan`, `jumlah`, `kode_krim`) VALUES
@@ -14021,7 +14142,7 @@ INSERT INTO `obat` (`id`, `nama`, `harga_satuan`, `jumlah`, `kode_krim`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pasien`
+-- Struktur dari tabel `pasien`
 --
 
 CREATE TABLE `pasien` (
@@ -14050,7 +14171,7 @@ CREATE TABLE `pasien` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `pasien`
+-- Dumping data untuk tabel `pasien`
 --
 
 INSERT INTO `pasien` (`id_pasien`, `id_user`, `hubungan`, `nama_depan`, `nama_belakang`, `tanggal_lahir`, `tempat_lahir`, `jenis_kelamin`, `status_nikah`, `pekerjaan`, `pendidikan`, `jenis_id`, `no_id`, `alamat`, `kota_kab`, `provinsi`, `kode_pos`, `email`, `no_hp`, `gol_darah`, `alergi`, `riwayat_penyakit`) VALUES
@@ -14063,15 +14184,16 @@ INSERT INTO `pasien` (`id_pasien`, `id_user`, `hubungan`, `nama_depan`, `nama_be
 (39, 34, 'Anda', 'Immanuel', 'Tahniah', '1999-07-20', 'Semarang', 'Laki-Laki', 'Belum Menikah', 'Swasta', 'S1/S2/S3', 'Umum', '324', 'Jalan Nakula NO.53/VI', 'Surabaya', 'Jawa Timur', '12', 'snwyuuki@gmail.com', '1234567890', 'AB', 'ghjk', 'yuu'),
 (40, 34, 'Saudara', 'Sesil', 'Asmi', '2000-07-15', 'Surabaya', 'Perempuan', 'Balum Menikah', 'Swasta', 'SMA/setaranya', 'Umum', '09809', 'Jln. Anggur', 'Malang', 'Jawa Timur', '23423', 'sesil@gmail.com', '09876545', 'O', 'Kacang', 'Panas'),
 (41, 35, 'Anda', 'Lila', 'Andana', '1999-08-17', 'Malang', 'Perempuan', 'Menikah', 'Swasta', 'S1/S2/S3', 'Umum', '1245', 'Jln. Salak', 'Malang', 'Jawa Timur', '65471', 'lila@gmail.com', '081999888777', 'B', 'Kacang', 'Flu'),
-(42, 35, 'Anak', 'Luis', 'Devvi', '2001-08-17', 'Malang', 'Perempuan', 'Belum Menikah', 'Tidak Bekerja', 'SMA/setaranya', 'Umum', '0987', 'Jln. Salak', 'Malang', 'Jawa Timur', '6571', 'luis@gmail.com', '089999888777', 'B', 'Kacang', 'Flu'),
+(42, 35, 'Anak', 'Luis', 'Devvi', '2001-08-17', 'Malang', 'Perempuan', 'Belum Menikah', 'Tidak Bekerja', 'SMA/setaranya', 'Umum', '0987', 'Jln. Salak', 'Malang', 'Jawa Timur', '6571', 'luis@gmail.com', '089999888777', 'B', 'jamur', 'jantung bocor'),
 (43, 40, 'Anda', 'Fajar', 'Ali', '1999-08-04', 'Surabaya', 'Laki-Laki', 'Menikah', 'Pegawai Negeri Sipil', 'S1/S2/S3', 'VIP', '123', 'Jln. Salak', 'Malang', 'Jawa Timur', '123', 'fajar@gmail.com', '081999888777', 'O', 'Kacang', 'Flu'),
 (44, 43, 'Anda', 'Yunia', 'Mila', '1998-07-28', 'Surabaya', 'Perempuan', 'Menikah', 'Pegawai Negeri Sipil', 'S1/S2/S3', 'VIP', '123123', 'Jln. Manggis ', 'Surabaya', 'Jawa Timur', '0989', 'mila@gmail.com', '089977665543', 'A', 'Kacang', 'lio'),
-(45, 44, 'Anda', 'Yeni', 'Febrianti', '1999-07-29', 'Malang', 'Perempuan', 'Belum Menikah', 'Swasta', 'S1/S2/S3', 'Umum', '123123', 'Jln. Kelengkeng ', 'Malang', 'Jawa Timur', '123', 'yeni@gmail.com', '089977665543', 'A', 'Kacang', 'Flu');
+(45, 44, 'Anda', 'Yeni', 'Febrianti', '1999-07-29', 'Malang', 'Perempuan', 'Belum Menikah', 'Swasta', 'S1/S2/S3', 'Umum', '123123', 'Jln. Kelengkeng ', 'Malang', 'Jawa Timur', '123', 'yeni@gmail.com', '089977665543', 'A', 'Kacang', 'Flu'),
+(46, 45, 'Anda', 'ahmad', 'rio', '12/01/1995', '', 'Laki-Laki', '', '', '', '', '', 'Jl. Merdeka', '', '', '', 'rio@gmail.com', '08961234', '', '', '');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pemasukan`
+-- Struktur dari tabel `pemasukan`
 --
 
 CREATE TABLE `pemasukan` (
@@ -14083,7 +14205,7 @@ CREATE TABLE `pemasukan` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pemeriksaan_klinis_khusus`
+-- Struktur dari tabel `pemeriksaan_klinis_khusus`
 --
 
 CREATE TABLE `pemeriksaan_klinis_khusus` (
@@ -14095,7 +14217,7 @@ CREATE TABLE `pemeriksaan_klinis_khusus` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `pemeriksaan_klinis_khusus`
+-- Dumping data untuk tabel `pemeriksaan_klinis_khusus`
 --
 
 INSERT INTO `pemeriksaan_klinis_khusus` (`id_pemeriksaan_khusus`, `id_pasien`, `id_rekam_medis`, `id_booking`, `keterangan`) VALUES
@@ -14114,12 +14236,34 @@ INSERT INTO `pemeriksaan_klinis_khusus` (`id_pemeriksaan_khusus`, `id_pasien`, `
 (15, '41', 'Mzc1OWJmZGU4', 'MTBmYzY3YTM0', 'uhuy'),
 (16, '42', 'ZmJkOWU3ZDYw', 'YjY3ZDAyYmEx', 'Ulalalala'),
 (17, '45', 'ZGUyYTFhMzQ5', 'OGQ3MjM3YzY4', 'alskdjasd'),
-(18, '24', 'Njc2ZTc2ODU2', 'YTgzNDVjM2Ji', 'lololo');
+(18, '24', 'Njc2ZTc2ODU2', 'YTgzNDVjM2Ji', 'lololo'),
+(19, '43', 'YjRiYWFmZjBl', 'YjZkNDhiNzNi', 'Yah Sudahlah'),
+(20, '28', 'ZGY1NjY1ZGYw', 'MGMwMTg3ZTRh', 'zxaXZ'),
+(21, '40', 'OGI2Y2MzZWU1', 'ZDRmNjlmYWY0', 'kjhkhkjhk'),
+(22, '41', 'OTc3ZjhiMzNk', 'OWY4MjBhZGY4', 'uhuy'),
+(23, '26', 'MGMwNGMwM2Fk', 'MzgxYTRjM2Ux', 'asdfghjkl'),
+(24, '42', 'Y2RkYWE2ZTFh', 'NzI1MjE1ZWQ4', 'asnhjjsaadsd'),
+(25, '41', 'ZDhhZmJlM2Yw', 'MTMwZGUyN2Uz', 'uhuy'),
+(26, '27', 'MTFkODY3Nzk2', 'YzhmN2U4Y2Y0', 'qwerty'),
+(27, '40', 'MjJlOWQ2YjEy', 'MzJiZDQwMzYy', 'kjhkhkjhk'),
+(28, '26', 'Y2NlYTE2MzUz', 'MDEwZTQwNmRm', 'asdfghjkl'),
+(29, '25', 'MGU0NWE4N2Q2', 'MGZmMzliYmJm', ''),
+(30, '39', 'M2NiNzgyMGYz', 'N2ZjYmZmMzJi', 'Ini Sakit'),
+(31, '27', 'ZmY3MGVhNDFi', 'YWE0NzU2MDQ2', 'qwerty'),
+(32, '24', 'NDVlNzIwMGJk', 'MzMwMjhlMzQz', 'lololo'),
+(33, '45', 'ZTU5YmEzODk3', 'MTIzNjUwZGQw', 'alskdjasd'),
+(34, '44', 'NTcxOTYyYTY5', 'MDI1MWExNTUy', 'mnbbvccxzcxzdsadaewqe'),
+(35, '43', 'M2Q4ZDIyMjA0', 'Nzk1YTg3ZWEz', 'Yah Sudahlah'),
+(36, '42', 'NjhmZjBjNmVl', 'ZWQxZjY1YTE2', 'asnhjjsaadsd'),
+(37, '41', 'OGI5MzIyYThk', 'OWFhZGUyMmQz', 'uhuy'),
+(38, '40', 'ZDY5YWVkMmJl', 'MzYzMDM5MWQy', 'kjhkhkjhk'),
+(39, '39', 'YWJmZmJkNjE4', 'M2Q3NzljYWUy', 'Ini Sakitv'),
+(40, '24', 'Mjg5MGY2NDhi', 'ZjIzMDc3YjYw', 'lololo');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pemeriksaan_klinis_umum`
+-- Struktur dari tabel `pemeriksaan_klinis_umum`
 --
 
 CREATE TABLE `pemeriksaan_klinis_umum` (
@@ -14147,7 +14291,7 @@ CREATE TABLE `pemeriksaan_klinis_umum` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `pemeriksaan_klinis_umum`
+-- Dumping data untuk tabel `pemeriksaan_klinis_umum`
 --
 
 INSERT INTO `pemeriksaan_klinis_umum` (`id_pemeriksaan_umum`, `id_pasien`, `id_booking`, `id_rekam_medis`, `wajah`, `bibir`, `submandibula_kanan`, `subkanan_kondisi`, `submandibula_kiri`, `subkiri_kondisi`, `lainnya`, `gingiva`, `debris`, `stain`, `kalkulus`, `mukosa`, `palatum`, `lidah`, `dasar_mulut`, `hubungan_rahang`, `kelainan_gigi_geligi`) VALUES
@@ -14166,12 +14310,34 @@ INSERT INTO `pemeriksaan_klinis_umum` (`id_pemeriksaan_umum`, `id_pasien`, `id_b
 (15, '41', 'MTBmYzY3YTM0', 'Mzc1OWJmZGU4', 'Asimetri', 'Normal', 'Teraba,Sakit', 'lunak', 'Teraba,Tidak Sakit', 'lunak', 'hoho', 'Normal', 'Normal', 'Ada', 'Tidak Ada', 'Normal', 'Ada Kelainan', 'Normal', 'Normal', '', ''),
 (16, '42', 'YjY3ZDAyYmEx', 'ZmJkOWU3ZDYw', 'Asimetri', 'Normal', 'Teraba,Sakit', 'Lunak', 'Teraba,Tidak Sakit', 'Keras', 'Tidak Ada', 'Normal', 'Normal', 'Tidak Ada', 'Subgingiva', 'Normal', 'Normal', 'Normal', 'Normal', '', ''),
 (17, '45', 'OGQ3MjM3YzY4', 'ZGUyYTFhMzQ5', 'Asimetri', 'Normal', 'Tidak Teraba,Sakit', 'Keras', 'Teraba,Sakit', 'Lunak', 'Tidak Ada', 'Normal', 'Normal', 'Ada', 'Tidak Ada', 'Normal', 'Normal', 'Normal', 'Normal', '', ''),
-(18, '24', 'YTgzNDVjM2Ji', 'Njc2ZTc2ODU2', 'Asimetri', 'Normal', 'Tidak Teraba,Sakit', 'Lunak', 'Teraba,Tidak Sakit', 'Keras', 'ffxgvdx', 'Normal', 'Normal', 'Tidak Ada', 'Subgingiva', 'Normal', 'Normal', 'nc zxmn zxcn', 'c nsac as a', 'Ortognati', '');
+(18, '24', 'YTgzNDVjM2Ji', 'Njc2ZTc2ODU2', 'Asimetri', 'Normal', 'Tidak Teraba,Sakit', 'Lunak', 'Teraba,Tidak Sakit', 'Keras', 'ffxgvdx', 'Normal', 'Normal', 'Tidak Ada', 'Subgingiva', 'Normal', 'Normal', 'nc zxmn zxcn', 'c nsac as a', 'Ortognati', ''),
+(19, '43', 'YjZkNDhiNzNi', 'YjRiYWFmZjBl', 'Simetri', 'Normal', 'Tidak Teraba,Sakit', 'Keras', 'Tidak Teraba,Tidak Sakit', 'Keras', '', 'Normal', 'Normal', 'Ada', 'Supragingiva', 'Normal', 'Normal', 'Normal', 'Normal', 'Ortognati', ''),
+(20, '28', 'MGMwMTg3ZTRh', 'ZGY1NjY1ZGYw', 'Asimetri', 'Normal', 'Tidak Teraba,Sakit', '', 'Tidak Teraba,Sakit', '', '', 'Normal', 'Normal', 'Tidak Ada', 'Subgingiva', 'Normal', 'Normal', 'Normal', 'Normal', 'Prognati', 'Normal'),
+(21, '40', 'ZDRmNjlmYWY0', 'OGI2Y2MzZWU1', 'Simetri', 'Normal', 'Teraba,Sakit', 'Lunak', 'Teraba,Tidak Sakit', 'Keras', '', 'Normal', 'Normal', 'Tidak Ada', 'Subgingiva', 'Normal', 'Normal', 'Normal', 'Normal', 'Ortognati', ''),
+(22, '41', 'OWY4MjBhZGY4', 'OTc3ZjhiMzNk', 'Asimetri', 'Normal', 'Teraba,Sakit', 'lunak', 'Teraba,Tidak Sakit', 'lunak', '', 'Normal', 'Normal', 'Ada', 'Tidak Ada', 'Normal', 'Ada Kelainan', 'Normal', 'Normal', 'Ortognati', ''),
+(23, '26', 'MzgxYTRjM2Ux', 'MGMwNGMwM2Fk', 'Asimetri', 'Normal', 'Sakit', 'Keras', 'Teraba', 'Keras', '', 'Normal', 'Tidak normal ada kelainan', 'Ada', 'Subgingiva', 'Normal', 'Ada Kelainan', 'Normal', 'zxcvbn', 'Prognati', 'Tidak'),
+(24, '42', 'NzI1MjE1ZWQ4', 'Y2RkYWE2ZTFh', 'Asimetri', 'Normal', 'Teraba,Sakit', 'keras', 'Teraba,Tidak Sakit', 'Keras', '', 'hdjsajd', 'Normal', 'Tidak Ada', 'Supragingiva', 'Normal', 'Normal', 'Normal', 'Normal', 'Ortognati', ''),
+(25, '41', 'MTMwZGUyN2Uz', 'ZDhhZmJlM2Yw', 'Asimetri', 'Normal', 'Teraba,Sakit', 'lunak', 'Teraba,Tidak Sakit', 'lunak', '', 'Normal', 'Normal', 'Ada', 'Tidak Ada', 'Normal', 'Ada Kelainan', 'Normal', 'Normal', 'Ortognati', ''),
+(26, '27', 'YzhmN2U4Y2Y0', 'MTFkODY3Nzk2', 'Simetri', 'Normal', 'Sakit', 'Keras', 'Tidak Teraba', 'Keras', '', 'Normal', 'Tidak normal ada kelainan', 'Tidak Ada', 'Supragingiva', 'qwerty', 'Ada Kelainan', 'Normal', 'Normal', 'Ortognati', 'Tidak'),
+(27, '40', 'MzJiZDQwMzYy', 'MjJlOWQ2YjEy', 'Simetri', 'Normal', 'Teraba,Sakit', 'Lunak', 'Teraba,Tidak Sakit', 'Keras', '', 'Normal', 'Normal', 'Tidak Ada', 'Supragingiva', 'Normal', 'Normal', 'Normal', 'Normal', 'Ortognati', ''),
+(28, '26', 'MDEwZTQwNmRm', 'Y2NlYTE2MzUz', 'Asimetri', 'Normal', 'Sakit', 'Keras', 'Teraba', 'Keras', '', 'Normal', 'Tidak normal ada kelainan', 'Ada', 'Subgingiva', 'Normal', 'Ada Kelainan', 'Normal', 'zxcvbn', 'Prognati', 'Tidak'),
+(29, '25', 'MGZmMzliYmJm', 'MGU0NWE4N2Q2', 'Asimetri', 'Normal', 'Teraba,Sakit', 'keras', 'Teraba,Tidak Sakit', '', '', 'Normal', 'Normal', 'Tidak Ada', 'Subgingiva', 'Normal', 'Normal', 'Normal', 'Normal', 'Prognati', 'Normal'),
+(30, '39', 'N2ZjYmZmMzJi', 'M2NiNzgyMGYz', 'Simetri', 'Normal', 'Teraba,Sakit', 'lunak', 'Teraba', 'keras', '', 'Normal', 'Tidak normal ada kelainan', 'Ada', 'Subgingiva', 'Normal', 'Ada Kelainan', 'Normal', 'Normal', 'Ortognati', 'tidak'),
+(31, '27', 'YWE0NzU2MDQ2', 'ZmY3MGVhNDFi', 'Simetri', 'Normal', 'Teraba,Sakit', 'Keras', 'Tidak Teraba', 'Keras', '', 'Normal', 'Tidak normal ada kelainan', 'Tidak Ada', 'Supragingiva', 'qwerty', 'Ada Kelainan', 'Normal', 'Normal', 'Ortognati', 'Tidak'),
+(32, '24', 'MzMwMjhlMzQz', 'NDVlNzIwMGJk', 'Asimetri', 'Normal', 'Tidak Teraba,Sakit', 'Lunak', 'Teraba,Tidak Sakit', 'Keras', '', 'Normal', 'Normal', 'Tidak Ada', 'Subgingiva', 'Normal', 'Normal', 'nc zxmn zxcn', 'c nsac as a', 'Ortognati', ''),
+(33, '45', 'MTIzNjUwZGQw', 'ZTU5YmEzODk3', 'Asimetri', 'Normal', 'Tidak Teraba,Sakit', 'Keras', 'Teraba,Sakit', 'Lunak', 'et', 'Normal', 'Normal', 'Ada', 'Supragingiva', 'Normal', 'Normal', 'Normal', 'Normal', 'Retrognati', ''),
+(34, '44', 'MDI1MWExNTUy', 'NTcxOTYyYTY5', 'Simetri', 'Normal', 'Teraba,Sakit', 'Lunak', 'Tidak Teraba', 'Keras', 'jhn', 'Normal', 'Normal', 'Tidak Ada', 'Subgingiva', 'Normal', 'Lainnya', 'Normal', 'Lainnya', 'Ortognati', ''),
+(35, '43', 'Nzk1YTg3ZWEz', 'M2Q4ZDIyMjA0', 'Simetri', 'Normal', 'Tidak Teraba,Sakit', 'Keras', 'Teraba,Tidak Sakit', 'Keras', 'et', 'Normal', 'Normal', 'Ada', 'Tidak Ada', 'Normal', 'Normal', 'Normal', 'Normal', 'Prognati', ''),
+(36, '42', 'ZWQxZjY1YTE2', 'NjhmZjBjNmVl', 'Simetri', 'Normal', 'Teraba,Sakit', 'keras', 'Teraba,Tidak Sakit', 'Keras', 'et', 'hdjsajd', 'Normal', 'Tidak Ada', 'Subgingiva', 'Normal', 'Normal', 'Normal', 'Normal', 'Ortognati', ''),
+(37, '41', 'OWFhZGUyMmQz', 'OGI5MzIyYThk', 'Asimetri', 'Normal', 'Teraba,Sakit', 'lunak', 'Teraba,Tidak Sakit', 'lunak', 'ffxgvdx', 'Normal', 'Normal', 'Ada', 'Tidak Ada', 'Normal', 'Ada Kelainan', 'Normal', 'Normal', 'Prognati', ''),
+(38, '40', 'MzYzMDM5MWQy', 'ZDY5YWVkMmJl', 'Simetri', 'Normal', 'Teraba,Sakit', 'Lunak', 'Teraba,Tidak Sakit', 'Keras', 'sdcdf', 'Normal', 'Normal', 'Tidak Ada', 'Subgingiva', 'Normal', 'Normal', 'Normal', 'Normal', 'Ortognati', ''),
+(39, '39', 'M2Q3NzljYWUy', 'YWJmZmJkNjE4', 'Simetri', 'Normal', 'Teraba,Sakit', 'lunak', 'Teraba', 'keras', 'jhn', 'Normal', 'Tidak normal ada kelainan', 'Ada', 'Tidak Ada', 'Normal', 'Ada Kelainan', 'Normal', 'Normal', 'Ortognati', 'tidak'),
+(40, '24', 'ZjIzMDc3YjYw', 'Mjg5MGY2NDhi', 'Simetri', 'Normal', 'Tidak Teraba,Sakit', 'Lunak', 'Teraba,Tidak Sakit', 'Keras', 'vhtht', 'Normal', 'Normal', 'Tidak Ada', 'Supragingiva', 'Normal', 'Normal', 'nc zxmn zxcn', 'c nsac as a', 'Ortognati', '');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pemeriksaan_penunjang`
+-- Struktur dari tabel `pemeriksaan_penunjang`
 --
 
 CREATE TABLE `pemeriksaan_penunjang` (
@@ -14189,7 +14355,7 @@ CREATE TABLE `pemeriksaan_penunjang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `pemeriksaan_penunjang`
+-- Dumping data untuk tabel `pemeriksaan_penunjang`
 --
 
 INSERT INTO `pemeriksaan_penunjang` (`id_pemeriksaan_penunjang`, `id_pasien`, `id_booking`, `id_rekam_medis`, `radiologi`, `gigi`, `keterangan_radiologi`, `foto_radiologi`, `laboratorium`, `keterangan_laboratorium`, `foto_laboratorium`) VALUES
@@ -14208,12 +14374,34 @@ INSERT INTO `pemeriksaan_penunjang` (`id_pemeriksaan_penunjang`, `id_pasien`, `i
 (15, '41', 'MTBmYzY3YTM0', 'Mzc1OWJmZGU4', 'Transcranial,Dental Regio', 45, 'Tampak gambaran radiopak ada oklusal gigi 49 hingga dentin dalam. Tampak gambaran radiolusensi berbatas diffuse pada apical seluas kurang lebih 4 mm.', 'KTP1.jpg', 'Darah Rutin', 'poip', 'KTP3.jpg'),
 (16, '42', 'YjY3ZDAyYmEx', 'ZmJkOWU3ZDYw', 'Panoramik,Transcranial', 45, 'Tampak 45 gigi menjuntai - juntai 5mm', 'FOTO3.jpg', 'Darah Rutin', 'Only You', 'KTP31.jpg'),
 (17, '45', 'OGQ3MjM3YzY4', 'ZGUyYTFhMzQ5', 'Panoramik,Transcranial,Dental Regio', 43, 'sadlkasjdlk', 'KTP2.jpg', 'Darah Rutin', 'kasjdkajshd', 'FOTO2.jpg'),
-(18, '24', 'YTgzNDVjM2Ji', 'Njc2ZTc2ODU2', 'Sefalometri,Transcranial,Dental Regio', 43, ' Tampak gambaran radiopak ada oklusal gigi 43 hingga dentin dalam. Tampak gambaran radiolusensi berbatas diffuse pada apical seluas kurang lebih 4 mm.', '', 'poi', 'Tidak Ada lll', '');
+(18, '24', 'YTgzNDVjM2Ji', 'Njc2ZTc2ODU2', 'Sefalometri,Transcranial,Dental Regio', 43, ' Tampak gambaran radiopak ada oklusal gigi 43 hingga dentin dalam. Tampak gambaran radiolusensi berbatas diffuse pada apical seluas kurang lebih 4 mm.', '', 'poi', 'Tidak Ada lll', ''),
+(19, '43', 'YjZkNDhiNzNi', 'YjRiYWFmZjBl', 'Panoramik,Transcranial', 45, 'Tampak dkk 46 lebih 33mm', '', 'Darah Rutin', 'Addaaa', ''),
+(20, '28', 'MGMwMTg3ZTRh', 'ZGY1NjY1ZGYw', 'Sefalometri,Dental Regio', 0, '', '', 'Darah Rutin', '', ''),
+(21, '40', 'ZDRmNjlmYWY0', 'OGI2Y2MzZWU1', 'Panoramik,Transcranial,Dental Regio', 43, 'uiyiuuitrt43 5mm', '', 'Darah Rutin', 'kjhkjh', ''),
+(22, '41', 'OWY4MjBhZGY4', 'OTc3ZjhiMzNk', 'Transcranial,Dental Regio', 45, 'Tampak gambaran radiopak ada oklusal gigi 49 hingga dentin dalam. Tampak gambaran radiolusensi berbatas diffuse pada apical seluas kurang lebih 4 mm.', '', 'Darah Rutin', 'poip', ''),
+(23, '26', 'MzgxYTRjM2Ux', 'MGMwNGMwM2Fk', 'Panoramik', 42, ' Tampak gambaran radiopak ada oklusal gigi 42 hingga dentin dalam. Tampak gambaran radiolusensi berbatas diffuse pada apical seluas kurang lebih 3 mm.', '', 'Darah Rutin', 'fhgdgf', ''),
+(24, '42', 'NzI1MjE1ZWQ4', 'Y2RkYWE2ZTFh', 'Panoramik,Transcranial', 45, 'Tampak 45 gigi menjuntai - juntai 5mm', '', 'Darah Rutin', 'kashndbsaydga', ''),
+(25, '41', 'MTMwZGUyN2Uz', 'ZDhhZmJlM2Yw', 'Transcranial,Dental Regio', 45, 'Tampak gambaran radiopak ada oklusal gigi 49 hingga dentin dalam. Tampak gambaran radiolusensi berbatas diffuse pada apical seluas kurang lebih 4 mm.', '', 'Darah Rutin', 'poip', ''),
+(26, '27', 'YzhmN2U4Y2Y0', 'MTFkODY3Nzk2', 'Sefalometri,Dental Regio', 41, ' Tampak gambaran radiopak ada oklusal gigi 41 hingga dentin dalam. Tampak gambaran radiolusensi berbatas diffuse pada apical seluas kurang lebih 4 mm.', '', 'Darah Rutin', 'Tidak Ada', ''),
+(27, '40', 'MzJiZDQwMzYy', 'MjJlOWQ2YjEy', 'Panoramik,Transcranial,Dental Regio', 43, 'uiyiuuitrt43 5mm', '', 'Darah Rutin', 'kjhkjh', ''),
+(28, '26', 'MDEwZTQwNmRm', 'Y2NlYTE2MzUz', 'Panoramik', 42, ' Tampak gambaran radiopak ada oklusal gigi 42 hingga dentin dalam. Tampak gambaran radiolusensi berbatas diffuse pada apical seluas kurang lebih 3 mm.', '', 'Darah Rutin', 'fhgdgf', ''),
+(29, '25', 'MGZmMzliYmJm', 'MGU0NWE4N2Q2', 'Panoramik,Sefalometri', 0, '', '', 'Darah Rutin', '', ''),
+(30, '39', 'N2ZjYmZmMzJi', 'M2NiNzgyMGYz', 'Sefalometri,Dental Regio', 46, ' Tampak gambaran radiopak ada oklusal gigi 46 hingga dentin dalam. Tampak gambaran radiolusensi berbatas diffuse pada apical seluas kurang lebih 4 mm.', '', 'Darah Rutin', 'Tidak Ada', ''),
+(31, '27', 'YWE0NzU2MDQ2', 'ZmY3MGVhNDFi', 'Sefalometri,Dental Regio', 41, ' Tampak gambaran radiopak ada oklusal gigi 41 hingga dentin dalam. Tampak gambaran radiolusensi berbatas diffuse pada apical seluas kurang lebih 4 mm.', '', 'Darah Rutin', 'Tidak Ada', ''),
+(32, '24', 'MzMwMjhlMzQz', 'NDVlNzIwMGJk', 'Sefalometri,Transcranial,Dental Regio', 43, ' Tampak gambaran radiopak ada oklusal gigi 43 hingga dentin dalam. Tampak gambaran radiolusensi berbatas diffuse pada apical seluas kurang lebih 4 mm.', '', 'poi', 'Tidak Ada lll', ''),
+(33, '45', 'MTIzNjUwZGQw', 'ZTU5YmEzODk3', 'Panoramik,Transcranial,Dental Regio', 43, 'sadlkasjdlk', '', 'Darah Rutin', 'kasjdkajshd', ''),
+(34, '44', 'MDI1MWExNTUy', 'NTcxOTYyYTY5', 'Panoramik,Transcranial', 50, 'lkjiuy5550 nbb', '', 'Darah Rutin', 'mnbjgjgjhgjgjh', ''),
+(35, '43', 'Nzk1YTg3ZWEz', 'M2Q4ZDIyMjA0', 'Panoramik,Transcranial', 45, 'Tampak dkk 46 lebih 33mm', '', 'Darah Rutin', 'Addaaa', ''),
+(36, '42', 'ZWQxZjY1YTE2', 'NjhmZjBjNmVl', 'Panoramik,Transcranial', 45, 'Tampak 45 gigi menjuntai - juntai 5mm', '', 'Darah Rutin', 'kashndbsaydga', ''),
+(37, '41', 'OWFhZGUyMmQz', 'OGI5MzIyYThk', 'Transcranial,Dental Regio', 45, 'Tampak gambaran radiopak ada oklusal gigi 49 hingga dentin dalam. Tampak gambaran radiolusensi berbatas diffuse pada apical seluas kurang lebih 4 mm.', '', 'Darah Rutin', 'poip', ''),
+(38, '40', 'MzYzMDM5MWQy', 'ZDY5YWVkMmJl', 'Panoramik,Transcranial,Dental Regio', 43, 'uiyiuuitrt43 5mm', '', 'Darah Rutin', 'kjhkjh', ''),
+(39, '39', 'M2Q3NzljYWUy', 'YWJmZmJkNjE4', 'Sefalometri,Dental Regio', 46, ' Tampak gambaran radiopak ada oklusal gigi 46 hingga dentin dalam. Tampak gambaran radiolusensi berbatas diffuse pada apical seluas kurang lebih 4 mm.', '', 'Darah Rutin', 'Tidak Ada', ''),
+(40, '24', 'ZjIzMDc3YjYw', 'Mjg5MGY2NDhi', 'Sefalometri,Transcranial,Dental Regio', 43, ' Tampak gambaran radiopak ada oklusal gigi 43 hingga dentin dalam. Tampak gambaran radiolusensi berbatas diffuse pada apical seluas kurang lebih 4 mm.', '', 'poi', 'Tidak Ada lll', '');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pendapatan`
+-- Struktur dari tabel `pendapatan`
 --
 
 CREATE TABLE `pendapatan` (
@@ -14225,7 +14413,7 @@ CREATE TABLE `pendapatan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `pendapatan`
+-- Dumping data untuk tabel `pendapatan`
 --
 
 INSERT INTO `pendapatan` (`id`, `id_rekam_medis`, `id_apotik`, `jumlah`, `metode_bayar`) VALUES
@@ -14888,7 +15076,7 @@ INSERT INTO `pendapatan` (`id`, `id_rekam_medis`, `id_apotik`, `jumlah`, `metode
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pengeluaran`
+-- Struktur dari tabel `pengeluaran`
 --
 
 CREATE TABLE `pengeluaran` (
@@ -14900,7 +15088,7 @@ CREATE TABLE `pengeluaran` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `pengeluaran`
+-- Dumping data untuk tabel `pengeluaran`
 --
 
 INSERT INTO `pengeluaran` (`id`, `waktu`, `keterangan`, `pengambil`, `jumlah`) VALUES
@@ -15296,7 +15484,7 @@ INSERT INTO `pengeluaran` (`id`, `waktu`, `keterangan`, `pengambil`, `jumlah`) V
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pilih_layanan`
+-- Struktur dari tabel `pilih_layanan`
 --
 
 CREATE TABLE `pilih_layanan` (
@@ -15310,7 +15498,7 @@ CREATE TABLE `pilih_layanan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `pilih_layanan`
+-- Dumping data untuk tabel `pilih_layanan`
 --
 
 INSERT INTO `pilih_layanan` (`id_pil_layanan`, `id_pasien`, `id_rekam_medis`, `id_layanan`, `id_diskon`, `jumlah`, `detail_layanan`) VALUES
@@ -15329,12 +15517,34 @@ INSERT INTO `pilih_layanan` (`id_pil_layanan`, `id_pasien`, `id_rekam_medis`, `i
 (15, 45, 'OGRlYzM1Zjk0', 55, 0, 3, 'uwuwuuww'),
 (16, 42, 'ZmJkOWU3ZDYw', 55, 0, 3, 'Uwuwuwuuw'),
 (17, 45, 'ZGUyYTFhMzQ5', 54, 1, 5, 'Uwuwuwuuw'),
-(18, 24, 'Njc2ZTc2ODU2', 54, 0, 2, 'dfsc');
+(18, 24, 'Njc2ZTc2ODU2', 54, 0, 2, 'dfsc'),
+(19, 43, 'YjRiYWFmZjBl', 53, 0, 7, 'dfsc'),
+(20, 28, 'ZGY1NjY1ZGYw', 55, 0, 6, 'dfsc'),
+(21, 40, 'OGI2Y2MzZWU1', 56, 0, 2, 'gfhjgh'),
+(22, 41, 'OTc3ZjhiMzNk', 56, 0, 10, 'gfhjgh'),
+(23, 26, 'MGMwNGMwM2Fk', 55, 0, 10, 'gfhjgh'),
+(24, 42, 'Y2RkYWE2ZTFh', 53, 2, 5, 'dfsc'),
+(25, 41, 'ZDhhZmJlM2Yw', 56, 0, 2, 'hgh'),
+(26, 27, 'MTFkODY3Nzk2', 54, 0, 3, 'dfsc'),
+(27, 40, 'MjJlOWQ2YjEy', 56, 0, 2, 'sds'),
+(28, 26, 'Y2NlYTE2MzUz', 54, 0, 3, 'hgh'),
+(29, 25, 'MGU0NWE4N2Q2', 55, 0, 5, 'gfhjgh'),
+(30, 39, 'M2NiNzgyMGYz', 53, 0, 1, 'dfsc'),
+(31, 27, 'ZmY3MGVhNDFi', 54, 0, 3, 'gfhjgh'),
+(32, 24, 'NDVlNzIwMGJk', 55, 0, 3, 'sds'),
+(33, 45, 'ZTU5YmEzODk3', 53, 0, 4, 'fg'),
+(34, 44, 'NTcxOTYyYTY5', 54, 0, 6, 'ty'),
+(35, 43, 'M2Q4ZDIyMjA0', 55, 0, 3, 'sds'),
+(36, 42, 'NjhmZjBjNmVl', 56, 0, 3, 'hgh'),
+(37, 41, 'OGI5MzIyYThk', 53, 0, 2, 'dfsc'),
+(38, 40, 'ZDY5YWVkMmJl', 54, 0, 2, 'hgh'),
+(39, 39, 'YWJmZmJkNjE4', 55, 0, 1, 'dfsc'),
+(40, 24, 'Mjg5MGY2NDhi', 53, 0, 2, 'hgh');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `profil_pasien`
+-- Struktur dari tabel `profil_pasien`
 --
 
 CREATE TABLE `profil_pasien` (
@@ -15350,7 +15560,7 @@ CREATE TABLE `profil_pasien` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `profil_pasien`
+-- Dumping data untuk tabel `profil_pasien`
 --
 
 INSERT INTO `profil_pasien` (`id_profile`, `id_user`, `nama_depan`, `nama_belakang`, `tanggal_lahir`, `jenis_kelamin`, `alamat`, `email`, `no_hp`) VALUES
@@ -15359,7 +15569,7 @@ INSERT INTO `profil_pasien` (`id_profile`, `id_user`, `nama_depan`, `nama_belaka
 -- --------------------------------------------------------
 
 --
--- Table structure for table `rekam_medis`
+-- Struktur dari tabel `rekam_medis`
 --
 
 CREATE TABLE `rekam_medis` (
@@ -15381,46 +15591,62 @@ CREATE TABLE `rekam_medis` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `rekam_medis`
+-- Dumping data untuk tabel `rekam_medis`
 --
 
 INSERT INTO `rekam_medis` (`id_rekam_medis`, `id_booking`, `id_pasien`, `tanggal_periksa`, `jam_mulai_periksa`, `jam_selesai_periksa`, `foto`, `keluhan_utama`, `diagnosis`, `elemen_gigi`, `keadaan_umum`, `resep`, `status`, `subtotal`, `grandtotal`) VALUES
 ('asfdsd', 'safss', 50, '2020-11-01', '09:15:20', '11:12:13', NULL, 'sbdgjh', 'hsbgds', 45, 'snhskj', 'kjsnhadjas', 3, 300000, 225000),
-('M2NiNzgyMGYz', 'N2ZjYmZmMzJi', 39, '0000-00-00', '', '', NULL, '', '', 0, '', '', 0, 0, 0),
-('MGU0NWE4N2Q2', 'MGZmMzliYmJm', 25, '0000-00-00', '', '', NULL, '', '', 0, '', '', 0, 0, 0),
-('MjJlOWQ2YjEy', 'MzJiZDQwMzYy', 40, '0000-00-00', '', '', NULL, '', '', 0, '', '', 0, 0, 0),
-('MTFkODY3Nzk2', 'YzhmN2U4Y2Y0', 27, '0000-00-00', '', '', NULL, '', '', 0, '', '', 0, 0, 0),
-('MWRiNDk0ZTg5', 'MGMwMTg3ZTRh', 28, '0000-00-00', '', '', NULL, '', '', 0, '', '', 0, 0, 0),
+('M2NiNzgyMGYz', 'N2ZjYmZmMzJi', 39, '2020-12-01', '10:11:43', '10:13:01', NULL, 'abshdbj', 'bcnhdj yehsvbsx', 25, 'Baik', '', 3, 45000, 45000),
+('M2Q4ZDIyMjA0', 'Nzk1YTg3ZWEz', 43, '2020-12-21', '11:21:19', '11:22:06', NULL, 'zx', ';/l', 25, 'Buruk', '', 3, 600000, 600000),
+('MDlmMmVlZTNh', 'MGMwMTg3ZTRh', 28, '2020-12-15', '11:12:40', '11:13:32', NULL, 'poioirpwoer', 'khnskjhdsk', 45, 'Baik', '', 3, 600000, 0),
+('MGMwNGMwM2Fk', 'MzgxYTRjM2Ux', 26, '2020-12-01', '09:23:33', '09:28:25', NULL, 'ksajnhdsbj', 'jkgvhjctdrtuku', 20, 'Sedang', '', 3, 2000000, 2000000),
+('MGU0NWE4N2Q2', 'MGZmMzliYmJm', 25, '2020-12-01', '10:07:45', '10:09:54', NULL, 'kldkjkdxndkj', 'bvvyur', 30, 'Buruk', '', 3, 1000000, 1000000),
+('Mjg5MGY2NDhi', 'ZjIzMDc3YjYw', 24, '2020-12-21', '11:29:00', '11:29:41', NULL, 'sasa', 'trtvgr', 30, 'Baik', '', 3, 90000, 90000),
+('MjJlOWQ2YjEy', 'MzJiZDQwMzYy', 40, '2020-12-01', '10:05:43', '10:06:41', NULL, 'axsaadsa', 'asdsder', 30, 'Baik', '', 3, 300000, 255000),
+('MmYwOTI4YzI1', 'YjQ5YzIxZTMy', 26, '0000-00-00', '', '', NULL, '', '', 0, '', '', 0, 0, 0),
+('MTFkODY3Nzk2', 'YzhmN2U4Y2Y0', 27, '2020-12-01', '09:54:31', '09:58:27', NULL, 'kdhkjdks', 'lffgcfdrt', 20, 'Baik', '', 3, 150000, 150000),
 ('Mzc1OWJmZGU4', 'MTBmYzY3YTM0', 41, '2020-08-21', '09:16:13', '09:18:45', NULL, 'lasidjkasd', 'ini apa ya', 45, 'Sedang', '', 3, 300000, 300000),
-('NDVlNzIwMGJk', 'MzMwMjhlMzQz', 24, '0000-00-00', '', '', NULL, '', '', 0, '', '', 0, 0, 0),
+('MzU4MTY0NTAw', 'ZjI2YmRjYmEz', 26, '0000-00-00', '', '', NULL, '', '', 0, '', '', 0, 0, 0),
+('N2VkY2NjNjYx', 'MTg0NjU2OGQ1', 39, '0000-00-00', '', '', NULL, '', '', 0, '', '', 0, 0, 0),
+('NDVlNzIwMGJk', 'MzMwMjhlMzQz', 24, '2020-12-01', '10:21:31', '10:22:47', NULL, 'jsndkjsa', 'cneuhuhr', 30, 'Buruk', '', 3, 600000, 600000),
 ('NGEyZGRmMTQ4', 'MzMyM2ZlMTFl', 24, '2020-06-17', '07:02:03', '08:00:20', NULL, 'alias', 'qwertyuiop', 46, 'Baik', '', 3, 450000, 337500),
+('NGY1ZjRjNDJi', 'NjcwNWQ3N2Yy', 27, '2020-12-21', '11:27:40', '', NULL, '', '', 0, '', '', 1, 0, 0),
 ('Njc2ZTc2ODU2', 'YTgzNDVjM2Ji', 24, '2020-11-22', '09:19:36', '09:22:42', NULL, 'bengkak', 'uahxsadasndius', 0, 'Sedang', '', 3, 100000, 100000),
+('NjhmZjBjNmVl', 'ZWQxZjY1YTE2', 42, '2020-12-21', '11:22:12', '11:23:10', NULL, 'z', 'ahdshs', 40, 'Buruk', '', 3, 450000, 450000),
 ('NjJkYjhmNjFl', 'OGNmZWRmZjg2', 39, '2020-08-06', '04:00:15', '06:00`:00', NULL, 'asdfghjkl', 'lololalala', 46, 'Sedang', '', 3, 300000, 225000),
-('NjJmZGI2NDE1', 'YjZkNDhiNzNi', 43, '0000-00-00', '', '', NULL, '', '', 0, '', '', 0, 0, 0),
-('NWE5ZTU0NDE5', 'ZDRmNjlmYWY0', 40, '0000-00-00', '', '', NULL, '', '', 0, '', '', 0, 0, 0),
+('NTcxOTYyYTY5', 'MDI1MWExNTUy', 44, '2020-12-21', '11:20:11', '11:21:02', NULL, 'xzv', 'hmhj', 30, 'Baik', '', 3, 300000, 300000),
+('NzgyODhjNzg5', 'MDEwZTQwNmRm', 26, '2020-12-21', '11:28:38', '', NULL, '', '', 0, '', '', 1, 0, 0),
 ('NzU4ZGUzZDI0', 'MWJiOGMxNmZk', 25, '0000-00-00', '', '', NULL, '', '', 0, '', '', 0, 0, 0),
 ('ODA3MTRiMmUx', 'ZDU2MWQyMTMw', 41, '2020-08-06', '10:05:15', '12:00:20', NULL, 'qwertyuiop', 'zxcvbnm', 46, 'Sedang', '', 3, 600000, 600000),
+('ODc1NWUwYTky', 'ODYzMTdhMzI2', 25, '0000-00-00', '', '', NULL, '', '', 0, '', '', 0, 0, 0),
 ('ODJmYTEyOTQ1', 'NzMxNTdmY2Ew', 40, '2020-08-15', '18:54:13', '18:56:05', NULL, 'uuhuhuhiiijiji', 'ioiuoiuoiu', 43, 'Sedang', '', 3, 200000, 200000),
 ('ODRhZWVhMjli', 'NTk0MmIwNTk4', 41, '2020-08-15', '18:40:07', '18:42:12', NULL, 'UhuyLalala', 'lolololo', 49, 'Sedang', '', 3, 800000, 600000),
 ('OGE3MDFiMTc2', 'YjQwNjdmOGFh', 26, '2020-06-30', '07:01:00', '09:00:12', NULL, 'asdfghjkl', 'zxcvbnm', 42, 'Sedang', '', 3, 400000, 400000),
+('OGFmZmYyMjIy', 'Njg2ZGZiNjYx', 24, '0000-00-00', '', '', NULL, '', '', 0, '', '', 0, 0, 0),
+('OGI2Y2MzZWU1', 'ZDRmNjlmYWY0', 40, '2020-11-26', '10:18:04', '10:19:06', NULL, 'Poiuytr', 'zcfhghhg', 19, 'Buruk', '', 3, 300000, 255000),
+('OGI5MzIyYThk', 'OWFhZGUyMmQz', 41, '2020-12-21', '11:23:14', '11:24:03', NULL, 'sa', 'sSdaaf', 40, 'Baik', '', 3, 90000, 90000),
 ('OGRlYzM1Zjk0', 'MTY5NmE3ZThh', 45, '2020-08-17', '07:00:00', '09:00:00', NULL, 'iiiuuiui', 'Oke Sembuh', 42, 'Sedang', '', 3, 600000, 600000),
-('OTc3ZjhiMzNk', 'OWY4MjBhZGY4', 41, '0000-00-00', '', '', NULL, '', '', 0, '', '', 0, 0, 0),
+('OTc3ZjhiMzNk', 'OWY4MjBhZGY4', 41, '2020-11-27', '09:00:37', '09:01:51', NULL, 'dztbgxcfgfcbg', 'dbfnsdbj', 20, 'Buruk', '', 3, 1500000, 1500000),
 ('Y2I5YzEwY2Mx', 'ZmM5OGQ3MmE2', 43, '2020-08-05', '10:05:15', '12:00:20', NULL, 'Sakiiiiiitt', 'OKe Oke', 45, 'Baik', '', 3, 900000, 900000),
-('Y2NlYTE2MzUz', 'MDEwZTQwNmRm', 26, '0000-00-00', '', '', NULL, '', '', 0, '', '', 0, 0, 0),
-('Y2RkYWE2ZTFh', 'NzI1MjE1ZWQ4', 42, '0000-00-00', '', '', NULL, '', '', 0, '', '', 0, 0, 0),
+('Y2NlYTE2MzUz', 'MDEwZTQwNmRm', 26, '2020-12-01', '10:06:43', '10:07:42', NULL, 'jzcjxbcjsz', 'irutjdsnk', 25, 'Sedang', '', 3, 150000, 150000),
+('Y2RkYWE2ZTFh', 'NzI1MjE1ZWQ4', 42, '2020-12-01', '09:28:31', '09:31:36', NULL, 'shjfdsjj', 'copot', 25, 'Buruk', '', 3, 225000, 225000),
+('YjRiYWFmZjBl', 'YjZkNDhiNzNi', 43, '2020-11-26', '10:13:23', '10:15:12', NULL, 'hsabj', 'kebengkakan', 20, '', '', 3, 315000, 267750),
 ('YWI2NGM3ZWY4', 'YWRjNGI1MWI0', 24, '2020-07-05', '10:05:10', '12:00:30', NULL, 'zxcvbnm', 'asdfghjkl', 40, 'Buruk', '', 3, 200000, 200000),
+('YWJmZmJkNjE4', 'M2Q3NzljYWUy', 39, '2020-12-21', '11:24:50', '11:25:32', NULL, 'dx', 'vcxvfvf', 40, 'Buruk', '', 3, 200000, 170000),
 ('YzAxN2RlNGE1', 'NmFhNzA0ZWNj', 44, '2020-08-10', '07:02:03', '09:00:00', NULL, 'poiiuyytrrew', 'Uhuy', 50, 'Sedang', '', 3, 405000, 405000),
-('ZDhhZmJlM2Yw', 'MTMwZGUyN2Uz', 41, '2020-08-25', '13:59:11', '', NULL, '', '', 0, '', '', 1, 0, 0),
+('ZDhhZmJlM2Yw', 'MTMwZGUyN2Uz', 41, '2020-12-01', '09:31:39', '09:54:26', NULL, 'qwerty123456', 'hfcgdf', 25, 'Baik', '', 3, 300000, 300000),
 ('ZDQwNjExYWI4', 'MTExM2Q3YTc2', 27, '2020-07-01', '04:00:15', '06:12:00', NULL, 'qwertyuiop', 'qwertyuiop', 41, 'Baik', '', 3, 100000, 100000),
+('ZDY5YWVkMmJl', 'MzYzMDM5MWQy', 40, '2020-12-21', '11:24:07', '11:24:46', NULL, 'dg', 'dsdsvxvc', 25, 'Sedang', '', 3, 100000, 100000),
 ('ZGUyYTFhMzQ5', 'OGQ3MjM3YzY4', 45, '2020-08-29', '12:00:14', '12:07:04', NULL, 'Holllaai LIlas', 'poaispodisad', 43, 'Baik', '', 3, 250000, 187500),
 ('ZjcxMmMxMjAz', 'Mjg4NTQ5NDEy', 24, '2020-08-11', '07:02:03', '09:00:12', NULL, 'poipoipoilkjkjlkjlk', 'lolololo', 42, 'Baik', '', 3, 600000, 600000),
-('ZmJkOWU3ZDYw', 'YjY3ZDAyYmEx', 42, '2020-08-25', '13:49:33', '13:51:44', NULL, 'Nyeriiii Sekali ', 'Oke Fiks Kebal ', 42, 'Sedang', '', 2, 600000, 600000),
-('ZmY3MGVhNDFi', 'YWE0NzU2MDQ2', 27, '0000-00-00', '', '', NULL, '', '', 0, '', '', 0, 0, 0);
+('ZmJkOWU3ZDYw', 'YjY3ZDAyYmEx', 42, '2020-08-25', '13:49:33', '13:51:44', NULL, 'Nyeriiii Sekali ', 'Oke Fiks Kebal ', 42, 'Sedang', '', 3, 600000, 600000),
+('ZmY3MGVhNDFi', 'YWE0NzU2MDQ2', 27, '2020-12-01', '10:13:04', '10:21:19', NULL, 'zcxvdvd', 'ladjhfndj', 25, 'Sedang', '', 3, 150000, 150000),
+('ZTU5YmEzODk3', 'MTIzNjUwZGQw', 45, '2020-12-21', '11:16:17', '11:19:57', NULL, 'sds', 'oijdnfs', 45, 'Sedang', '', 3, 180000, 180000);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `rencana`
+-- Struktur dari tabel `rencana`
 --
 
 CREATE TABLE `rencana` (
@@ -15438,7 +15664,7 @@ CREATE TABLE `rencana` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `rencana`
+-- Dumping data untuk tabel `rencana`
 --
 
 INSERT INTO `rencana` (`id_rcn`, `id_booking`, `tanggal_rencana`, `jam_rencana`, `tanggal_keluhan`, `keluhan`, `id_metode`, `provider`, `kategori_asuransi`, `nomor_asuransi`, `foto_asuransi`) VALUES
@@ -15458,13 +15684,13 @@ INSERT INTO `rencana` (`id_rcn`, `id_booking`, `tanggal_rencana`, `jam_rencana`,
 (66, 'NTk0MmIwNTk4', '2020-08-14', '04:00:00-06:00:00', '2020-08-12', 'Uhuy', 1, NULL, NULL, '', NULL),
 (67, 'NzMxNTdmY2Ew', '2020-08-11', '04:00:00-06:00:00', '2020-08-04', 'uuhuhuh', 2, NULL, NULL, '', NULL),
 (68, 'MTBmYzY3YTM0', '2020-06-10', '10:00:00-12:00:00', '2020-06-02', 'piuiuoiuo', 2, NULL, NULL, '', NULL),
-(69, 'YjY3ZDAyYmEx', '2020-06-01', '10:00:00-12:00:00', '2020-05-27', 'Nyeriiii', 2, NULL, NULL, '', NULL),
+(69, 'YjY3ZDAyYmEx', '2020-06-01', '10:00:00-12:00:00', '2020-05-27', 'Nyeriiii', 1, NULL, NULL, '', NULL),
 (70, 'OGQ3MjM3YzY4', '2020-08-21', '10:00:00-12:00:00', '2020-08-15', 'Holllaai', 2, NULL, NULL, '123456789', NULL),
-(71, 'ZDRmNjlmYWY0', '2020-07-21', '10:00:00-12:00:00', '2020-07-06', 'Poiuytr', 3, 'inhealth', 'Gold', '123456789', 'elecomp.png'),
-(72, 'MGMwMTg3ZTRh', '2020-08-21', '10:00:00-12:00:00', '2020-08-13', 'poioirpwoer', 1, NULL, NULL, '', NULL),
+(71, 'ZDRmNjlmYWY0', '2020-11-26', '10:00:00-12:00:00', '2020-07-06', 'Poiuytr', 1, NULL, NULL, '123456789', NULL),
+(72, 'MGMwMTg3ZTRh', '2020-12-15', '10:00:00-12:00:00', '2020-08-13', 'poioirpwoer', 1, NULL, NULL, '', NULL),
 (74, 'MTMwZGUyN2Uz', '2020-07-08', '04:00:00-06:00:00', '2020-07-01', 'qwerty123456', 2, NULL, NULL, '', NULL),
-(75, 'YjZkNDhiNzNi', '2020-08-22', '07:00:00-09:00:00', '2020-08-19', 'pokok', 3, 'Provider Astra-Admedika', 'Asuransi Kesehatan', '08765746346876', NULL),
-(76, 'M2Q4NGRiZjE3', '2020-08-22', '07:00:00-09:00:00', '2020-08-20', 'g', 2, NULL, NULL, '', NULL),
+(75, 'YjZkNDhiNzNi', '2020-11-26', '10:00:00-12:00:00', '2020-08-19', 'pokok', 2, NULL, NULL, '08765746346876', NULL),
+(76, 'M2Q4NGRiZjE3', '2020-11-30', '07:00:00-09:00:00', '2020-08-20', 'g', 2, NULL, NULL, '', NULL),
 (77, 'ZDJlNDA0YjU0', '2020-11-21', '10:00:00-12:00:00', '2020-11-01', 'sakit bagian gusi', 1, NULL, NULL, '', NULL),
 (78, 'MGMwM2NlNGNi', '2020-11-21', '', '2020-11-01', 'zdaSAxa', 2, NULL, NULL, '', NULL),
 (79, 'YTgzNDVjM2Ji', '2020-11-22', '04:00:00-06:00:00', '2020-11-01', 'bengkak', 2, NULL, NULL, '', NULL),
@@ -15481,12 +15707,31 @@ INSERT INTO `rencana` (`id_rcn`, `id_booking`, `tanggal_rencana`, `jam_rencana`,
 (90, 'MDEwZTQwNmRm', '2020-11-25', '07:00:00-09:00:00', '2020-11-05', 'jzcjxbcjsz', 1, NULL, NULL, '', NULL),
 (91, 'YzhmN2U4Y2Y0', '2020-12-04', '07:00:00-09:00:00', '2020-11-07', 'kdhkjdks', 1, NULL, NULL, '', NULL),
 (92, 'YWE0NzU2MDQ2', '2020-12-03', '10:00:00-12:00:00', '2020-11-08', 'zcxvdvd', 2, NULL, NULL, '', NULL),
-(93, 'NDE2NGY4NDFi', '2020-11-26', '07:00:00-09:00:00', '2020-11-01', 'gfxgf', 2, NULL, NULL, '', NULL);
+(93, 'NDE2NGY4NDFi', '2020-11-26', '07:00:00-09:00:00', '2020-11-01', 'gfxgf', 2, NULL, NULL, '', NULL),
+(94, 'MzgxYTRjM2Ux', '0000-00-00', '10:00:00-12:00:00', '2020-11-29', 'ksajnhdsbj', 1, NULL, NULL, '', NULL),
+(95, 'YzUzNWUzYTdm', '2020-12-07', '', '2020-12-04', 'hnjhjkd', 1, NULL, NULL, '', NULL),
+(96, 'ZWViN2VlYmJi', '2020-12-05', '07:00:00-09:00:00', '2020-12-04', 'dfssfsf', 2, NULL, NULL, '', NULL),
+(97, 'YjQ5YzIxZTMy', '0000-00-00', '07:00:00-09:00:00', '2020-12-03', 'dfggd', 2, NULL, NULL, '', NULL),
+(98, 'MTg0NjU2OGQ1', '2020-12-05', '07:00:00-09:00:00', '2020-12-02', 'fssfg', 1, NULL, NULL, '', NULL),
+(99, 'ZjhiZGNjNjdi', '2020-12-15', '10:00:00-12:00:00', '2020-12-03', 'gchh', 2, NULL, NULL, '', NULL),
+(100, 'Njg2ZGZiNjYx', '2020-12-17', '10:00:00-12:00:00', '2020-12-01', 'sdfds', 2, NULL, NULL, '', NULL),
+(101, 'ZjIzMDc3YjYw', '2020-12-21', '10:00:00-12:00:00', '2020-12-01', 'sasa', 2, NULL, NULL, '', NULL),
+(102, 'ZjI2YmRjYmEz', '2020-12-21', '10:00:00-12:00:00', '2020-12-02', 'g', 1, NULL, NULL, '', NULL),
+(103, 'ODYzMTdhMzI2', '2020-12-21', '10:00:00-12:00:00', '2020-12-03', 'a', 1, NULL, NULL, '', NULL),
+(104, 'NjcwNWQ3N2Yy', '2020-12-21', '10:00:00-12:00:00', '2020-12-04', 'x', 2, NULL, NULL, '', NULL),
+(105, 'M2Q3NzljYWUy', '2020-12-21', '10:00:00-12:00:00', '2020-12-05', 'dx', 1, NULL, NULL, '', NULL),
+(106, 'MzYzMDM5MWQy', '2020-12-21', '10:00:00-12:00:00', '2020-12-06', 'dg', 2, NULL, NULL, '', NULL),
+(107, 'OWFhZGUyMmQz', '2020-12-21', '10:00:00-12:00:00', '2020-12-07', 'sa', 1, NULL, NULL, '', NULL),
+(108, 'ZWQxZjY1YTE2', '2020-12-21', '10:00:00-12:00:00', '2020-12-08', 'z', 2, NULL, NULL, '', NULL),
+(109, 'Nzk1YTg3ZWEz', '2020-12-21', '10:00:00-12:00:00', '2020-12-09', 'zx', 1, NULL, NULL, '', NULL),
+(110, 'MDI1MWExNTUy', '2020-12-21', '10:00:00-12:00:00', '2020-12-10', 'xzv', 2, NULL, NULL, '', NULL),
+(111, 'MTQ3ZTE0MWVj', '2020-12-21', '10:00:00-12:00:00', '2020-12-01', 'sf', 2, NULL, NULL, '', NULL),
+(112, 'MTIzNjUwZGQw', '2020-12-21', '10:00:00-12:00:00', '2020-12-11', 'sds', 2, NULL, NULL, '', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `survey`
+-- Struktur dari tabel `survey`
 --
 
 CREATE TABLE `survey` (
@@ -15499,7 +15744,7 @@ CREATE TABLE `survey` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `survey`
+-- Dumping data untuk tabel `survey`
 --
 
 INSERT INTO `survey` (`id_survey`, `id_pasien`, `survey1`, `survey2`, `survey3`, `survey4`) VALUES
@@ -15560,12 +15805,31 @@ INSERT INTO `survey` (`id_survey`, `id_pasien`, `survey1`, `survey2`, `survey3`,
 (94, 26, '1', 'Sosial Media', 'Whatsapp', 'Ya'),
 (95, 27, '1', 'Sosial Media', 'Whatsapp', 'Ya'),
 (96, 27, '1', 'Sosial Media', 'Whatsapp', 'Ya'),
-(97, 24, '1', 'Sosial Media', 'Whatsapp', 'Ya');
+(97, 24, '1', 'Sosial Media', 'Whatsapp', 'Ya'),
+(98, 26, '1', 'Sosial Media', 'Whatsapp', 'Ya'),
+(99, 24, '1', 'Sosial Media', 'Whatsapp', 'Ya'),
+(100, 26, '1', 'Sosial Media', 'Whatsapp', 'Ya'),
+(101, 26, '1', 'Sosial Media', 'Whatsapp', 'Ya'),
+(102, 39, '1', 'Sosial Media', 'Whatsapp', 'Ya'),
+(103, 26, '1', 'Sosial Media', 'Whatsapp', 'Ya'),
+(104, 24, '1', 'Sosial Media', 'Whatsapp', 'Ya'),
+(105, 24, '1', 'Sosial Media', 'Whatsapp', 'Ya'),
+(106, 26, '1', 'Sosial Media', 'Whatsapp', 'Ya'),
+(107, 25, '1', 'Sosial Media', 'Whatsapp', 'Ya'),
+(108, 27, '1', 'Sosial Media', 'Whatsapp', 'Ya'),
+(109, 39, '1', 'Sosial Media', 'Whatsapp', 'Ya'),
+(110, 40, '1', 'Sosial Media', 'Whatsapp', 'Ya'),
+(111, 41, '1', 'Sosial Media', 'Whatsapp', 'Ya'),
+(112, 42, '1', 'Sosial Media', 'Whatsapp', 'Ya'),
+(113, 43, '1', 'Sosial Media', 'Whatsapp', 'Ya'),
+(114, 44, '1', 'Sosial Media', 'Whatsapp', 'Ya'),
+(115, 24, '1', 'Sosial Media', 'Whatsapp', 'Ya'),
+(116, 45, '1', 'Sosial Media', 'Whatsapp', 'Ya');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tokens`
+-- Struktur dari tabel `tokens`
 --
 
 CREATE TABLE `tokens` (
@@ -15577,7 +15841,7 @@ CREATE TABLE `tokens` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tokens`
+-- Dumping data untuk tabel `tokens`
 --
 
 INSERT INTO `tokens` (`id_token`, `token`, `email`, `no_hp`, `date_created`) VALUES
@@ -15604,7 +15868,7 @@ INSERT INTO `tokens` (`id_token`, `token`, `email`, `no_hp`, `date_created`) VAL
 -- --------------------------------------------------------
 
 --
--- Table structure for table `transaksi`
+-- Struktur dari tabel `transaksi`
 --
 
 CREATE TABLE `transaksi` (
@@ -15618,7 +15882,7 @@ CREATE TABLE `transaksi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `transaksi`
+-- Dumping data untuk tabel `transaksi`
 --
 
 INSERT INTO `transaksi` (`id_transaksi`, `id_rekam_medis`, `status`, `waktu`, `total`, `saldo`, `metode_bayar`) VALUES
@@ -16740,396 +17004,396 @@ INSERT INTO `transaksi` (`id_transaksi`, `id_rekam_medis`, `status`, `waktu`, `t
 --
 
 --
--- Indexes for table `antrian`
+-- Indeks untuk tabel `antrian`
 --
 ALTER TABLE `antrian`
   ADD PRIMARY KEY (`no_antrian`);
 
 --
--- Indexes for table `apotik`
+-- Indeks untuk tabel `apotik`
 --
 ALTER TABLE `apotik`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `asuransi`
+-- Indeks untuk tabel `asuransi`
 --
 ALTER TABLE `asuransi`
   ADD PRIMARY KEY (`id_asuransi`);
 
 --
--- Indexes for table `booking`
+-- Indeks untuk tabel `booking`
 --
 ALTER TABLE `booking`
   ADD PRIMARY KEY (`id_booking`);
 
 --
--- Indexes for table `cabang`
+-- Indeks untuk tabel `cabang`
 --
 ALTER TABLE `cabang`
   ADD PRIMARY KEY (`id_cabang`);
 
 --
--- Indexes for table `cabang_dokter`
+-- Indeks untuk tabel `cabang_dokter`
 --
 ALTER TABLE `cabang_dokter`
   ADD PRIMARY KEY (`id_cbdokter`);
 
 --
--- Indexes for table `ci_sessions`
+-- Indeks untuk tabel `ci_sessions`
 --
 ALTER TABLE `ci_sessions`
   ADD PRIMARY KEY (`id`),
   ADD KEY `ci_sessions_timestamp` (`timestamp`);
 
 --
--- Indexes for table `detail_apotik`
+-- Indeks untuk tabel `detail_apotik`
 --
 ALTER TABLE `detail_apotik`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `detail_layanan`
+-- Indeks untuk tabel `detail_layanan`
 --
 ALTER TABLE `detail_layanan`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `detail_obat`
+-- Indeks untuk tabel `detail_obat`
 --
 ALTER TABLE `detail_obat`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `detail_sisa_stok_obat`
+-- Indeks untuk tabel `detail_sisa_stok_obat`
 --
 ALTER TABLE `detail_sisa_stok_obat`
   ADD PRIMARY KEY (`id_detail_sisa_stok_obat`);
 
 --
--- Indexes for table `detail_stok_obat`
+-- Indeks untuk tabel `detail_stok_obat`
 --
 ALTER TABLE `detail_stok_obat`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `diskon`
+-- Indeks untuk tabel `diskon`
 --
 ALTER TABLE `diskon`
   ADD PRIMARY KEY (`id_diskon`);
 
 --
--- Indexes for table `dokter`
+-- Indeks untuk tabel `dokter`
 --
 ALTER TABLE `dokter`
   ADD PRIMARY KEY (`id_dokter`);
 
 --
--- Indexes for table `info_orang_terdekat`
+-- Indeks untuk tabel `info_orang_terdekat`
 --
 ALTER TABLE `info_orang_terdekat`
   ADD PRIMARY KEY (`id_iot`);
 
 --
--- Indexes for table `jadwal_dokter`
+-- Indeks untuk tabel `jadwal_dokter`
 --
 ALTER TABLE `jadwal_dokter`
   ADD PRIMARY KEY (`id_jadwal`);
 
 --
--- Indexes for table `layanan`
+-- Indeks untuk tabel `layanan`
 --
 ALTER TABLE `layanan`
   ADD PRIMARY KEY (`id_layanan`);
 
 --
--- Indexes for table `login_session`
+-- Indeks untuk tabel `login_session`
 --
 ALTER TABLE `login_session`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- Indexes for table `metode_pembayaran`
+-- Indeks untuk tabel `metode_pembayaran`
 --
 ALTER TABLE `metode_pembayaran`
   ADD PRIMARY KEY (`id_metode`);
 
 --
--- Indexes for table `obat`
+-- Indeks untuk tabel `obat`
 --
 ALTER TABLE `obat`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `pasien`
+-- Indeks untuk tabel `pasien`
 --
 ALTER TABLE `pasien`
   ADD PRIMARY KEY (`id_pasien`);
 
 --
--- Indexes for table `pemasukan`
+-- Indeks untuk tabel `pemasukan`
 --
 ALTER TABLE `pemasukan`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `pemeriksaan_klinis_khusus`
+-- Indeks untuk tabel `pemeriksaan_klinis_khusus`
 --
 ALTER TABLE `pemeriksaan_klinis_khusus`
   ADD PRIMARY KEY (`id_pemeriksaan_khusus`);
 
 --
--- Indexes for table `pemeriksaan_klinis_umum`
+-- Indeks untuk tabel `pemeriksaan_klinis_umum`
 --
 ALTER TABLE `pemeriksaan_klinis_umum`
   ADD PRIMARY KEY (`id_pemeriksaan_umum`);
 
 --
--- Indexes for table `pemeriksaan_penunjang`
+-- Indeks untuk tabel `pemeriksaan_penunjang`
 --
 ALTER TABLE `pemeriksaan_penunjang`
   ADD PRIMARY KEY (`id_pemeriksaan_penunjang`);
 
 --
--- Indexes for table `pendapatan`
+-- Indeks untuk tabel `pendapatan`
 --
 ALTER TABLE `pendapatan`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `pengeluaran`
+-- Indeks untuk tabel `pengeluaran`
 --
 ALTER TABLE `pengeluaran`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `pilih_layanan`
+-- Indeks untuk tabel `pilih_layanan`
 --
 ALTER TABLE `pilih_layanan`
   ADD PRIMARY KEY (`id_pil_layanan`);
 
 --
--- Indexes for table `profil_pasien`
+-- Indeks untuk tabel `profil_pasien`
 --
 ALTER TABLE `profil_pasien`
   ADD PRIMARY KEY (`id_profile`);
 
 --
--- Indexes for table `rekam_medis`
+-- Indeks untuk tabel `rekam_medis`
 --
 ALTER TABLE `rekam_medis`
   ADD PRIMARY KEY (`id_rekam_medis`);
 
 --
--- Indexes for table `rencana`
+-- Indeks untuk tabel `rencana`
 --
 ALTER TABLE `rencana`
   ADD PRIMARY KEY (`id_rcn`);
 
 --
--- Indexes for table `survey`
+-- Indeks untuk tabel `survey`
 --
 ALTER TABLE `survey`
   ADD PRIMARY KEY (`id_survey`);
 
 --
--- Indexes for table `tokens`
+-- Indeks untuk tabel `tokens`
 --
 ALTER TABLE `tokens`
   ADD PRIMARY KEY (`id_token`);
 
 --
--- Indexes for table `transaksi`
+-- Indeks untuk tabel `transaksi`
 --
 ALTER TABLE `transaksi`
   ADD PRIMARY KEY (`id_transaksi`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `antrian`
+-- AUTO_INCREMENT untuk tabel `antrian`
 --
 ALTER TABLE `antrian`
-  MODIFY `no_antrian` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=94;
+  MODIFY `no_antrian` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=114;
 
 --
--- AUTO_INCREMENT for table `apotik`
+-- AUTO_INCREMENT untuk tabel `apotik`
 --
 ALTER TABLE `apotik`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=667;
 
 --
--- AUTO_INCREMENT for table `asuransi`
+-- AUTO_INCREMENT untuk tabel `asuransi`
 --
 ALTER TABLE `asuransi`
   MODIFY `id_asuransi` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `cabang`
+-- AUTO_INCREMENT untuk tabel `cabang`
 --
 ALTER TABLE `cabang`
   MODIFY `id_cabang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `cabang_dokter`
+-- AUTO_INCREMENT untuk tabel `cabang_dokter`
 --
 ALTER TABLE `cabang_dokter`
   MODIFY `id_cbdokter` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `detail_apotik`
+-- AUTO_INCREMENT untuk tabel `detail_apotik`
 --
 ALTER TABLE `detail_apotik`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6956;
 
 --
--- AUTO_INCREMENT for table `detail_layanan`
+-- AUTO_INCREMENT untuk tabel `detail_layanan`
 --
 ALTER TABLE `detail_layanan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=963;
 
 --
--- AUTO_INCREMENT for table `detail_obat`
+-- AUTO_INCREMENT untuk tabel `detail_obat`
 --
 ALTER TABLE `detail_obat`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1463;
 
 --
--- AUTO_INCREMENT for table `detail_sisa_stok_obat`
+-- AUTO_INCREMENT untuk tabel `detail_sisa_stok_obat`
 --
 ALTER TABLE `detail_sisa_stok_obat`
   MODIFY `id_detail_sisa_stok_obat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3209;
 
 --
--- AUTO_INCREMENT for table `detail_stok_obat`
+-- AUTO_INCREMENT untuk tabel `detail_stok_obat`
 --
 ALTER TABLE `detail_stok_obat`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1151;
 
 --
--- AUTO_INCREMENT for table `diskon`
+-- AUTO_INCREMENT untuk tabel `diskon`
 --
 ALTER TABLE `diskon`
   MODIFY `id_diskon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `dokter`
+-- AUTO_INCREMENT untuk tabel `dokter`
 --
 ALTER TABLE `dokter`
   MODIFY `id_dokter` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `info_orang_terdekat`
+-- AUTO_INCREMENT untuk tabel `info_orang_terdekat`
 --
 ALTER TABLE `info_orang_terdekat`
-  MODIFY `id_iot` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
+  MODIFY `id_iot` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=118;
 
 --
--- AUTO_INCREMENT for table `jadwal_dokter`
+-- AUTO_INCREMENT untuk tabel `jadwal_dokter`
 --
 ALTER TABLE `jadwal_dokter`
   MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `layanan`
+-- AUTO_INCREMENT untuk tabel `layanan`
 --
 ALTER TABLE `layanan`
   MODIFY `id_layanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
--- AUTO_INCREMENT for table `login_session`
+-- AUTO_INCREMENT untuk tabel `login_session`
 --
 ALTER TABLE `login_session`
-  MODIFY `id_user` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id_user` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
--- AUTO_INCREMENT for table `metode_pembayaran`
+-- AUTO_INCREMENT untuk tabel `metode_pembayaran`
 --
 ALTER TABLE `metode_pembayaran`
   MODIFY `id_metode` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `obat`
+-- AUTO_INCREMENT untuk tabel `obat`
 --
 ALTER TABLE `obat`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
 
 --
--- AUTO_INCREMENT for table `pasien`
+-- AUTO_INCREMENT untuk tabel `pasien`
 --
 ALTER TABLE `pasien`
-  MODIFY `id_pasien` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id_pasien` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
--- AUTO_INCREMENT for table `pemasukan`
+-- AUTO_INCREMENT untuk tabel `pemasukan`
 --
 ALTER TABLE `pemasukan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `pemeriksaan_klinis_khusus`
+-- AUTO_INCREMENT untuk tabel `pemeriksaan_klinis_khusus`
 --
 ALTER TABLE `pemeriksaan_klinis_khusus`
-  MODIFY `id_pemeriksaan_khusus` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_pemeriksaan_khusus` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
--- AUTO_INCREMENT for table `pemeriksaan_klinis_umum`
+-- AUTO_INCREMENT untuk tabel `pemeriksaan_klinis_umum`
 --
 ALTER TABLE `pemeriksaan_klinis_umum`
-  MODIFY `id_pemeriksaan_umum` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_pemeriksaan_umum` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
--- AUTO_INCREMENT for table `pemeriksaan_penunjang`
+-- AUTO_INCREMENT untuk tabel `pemeriksaan_penunjang`
 --
 ALTER TABLE `pemeriksaan_penunjang`
-  MODIFY `id_pemeriksaan_penunjang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_pemeriksaan_penunjang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
--- AUTO_INCREMENT for table `pendapatan`
+-- AUTO_INCREMENT untuk tabel `pendapatan`
 --
 ALTER TABLE `pendapatan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=656;
 
 --
--- AUTO_INCREMENT for table `pengeluaran`
+-- AUTO_INCREMENT untuk tabel `pengeluaran`
 --
 ALTER TABLE `pengeluaran`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=389;
 
 --
--- AUTO_INCREMENT for table `pilih_layanan`
+-- AUTO_INCREMENT untuk tabel `pilih_layanan`
 --
 ALTER TABLE `pilih_layanan`
-  MODIFY `id_pil_layanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_pil_layanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
--- AUTO_INCREMENT for table `profil_pasien`
+-- AUTO_INCREMENT untuk tabel `profil_pasien`
 --
 ALTER TABLE `profil_pasien`
   MODIFY `id_profile` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `rencana`
+-- AUTO_INCREMENT untuk tabel `rencana`
 --
 ALTER TABLE `rencana`
-  MODIFY `id_rcn` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=94;
+  MODIFY `id_rcn` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
 
 --
--- AUTO_INCREMENT for table `survey`
+-- AUTO_INCREMENT untuk tabel `survey`
 --
 ALTER TABLE `survey`
-  MODIFY `id_survey` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
+  MODIFY `id_survey` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=117;
 
 --
--- AUTO_INCREMENT for table `tokens`
+-- AUTO_INCREMENT untuk tabel `tokens`
 --
 ALTER TABLE `tokens`
   MODIFY `id_token` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
--- AUTO_INCREMENT for table `transaksi`
+-- AUTO_INCREMENT untuk tabel `transaksi`
 --
 ALTER TABLE `transaksi`
   MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1112;
