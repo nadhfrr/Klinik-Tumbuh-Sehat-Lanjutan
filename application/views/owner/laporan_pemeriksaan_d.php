@@ -145,44 +145,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-12" style="border: 1px solid #e0e0e0; margin-top: 15px;">
-                        <div style="float: left">
-                            <span style="color: black; "><b>Filter :</b></span>
-                            <a>
-                                <div href="#" class="btn" style="border: none; color:black; font-weight:bold;">
-                                    <div class="col-md-2 outer" style="padding-top: 7px">
-                                        <img src="<?php echo base_url() ?>assets/images/Doctor.png" height="24px">
-                                    </div>
-                                    <div class="col-md-10" style="text-align: left; display: table-cell;vertical-align:middle; padding-right:0px; padding-left:0px">
-                                        <select id="f_dokter" class="form-control form-control-sm">
-                                            <!-- <option value="" disabled selected style="display: none;">Filter Dokter</option> -->
-                                            <option value="b.id_dokter">Tampilkan Semua</option>
-                                            <?php foreach ($dokter->result() as $result) : ?>
-                                                <option value="<?php echo $result->id_dokter  ?>"><?php echo $result->nama_dokter ?></option>
-                                            <?php endforeach; ?>
-                                        </select>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
 
-                        <div style="float: right">
-                            <span style="color: black; "><b>Periode :</b></span>
-                            <a>
-                                <div href="#" class="btn" style="border: none; color:black; font-weight:bold;">
-                                    <div class="col-md-2 outer" style="text-align: left; display: table-cell;vertical-align:middle; padding-right:0px; padding-left:0px">
-                                        <input autocomplete="off" id="from" name='from' style="width: 80px;"> </input>
-                                    </div>
-                                </div>
-                                <span style="color: black; background-color: #e7e6e6;"><b>To</b></span>
-                                <div href="#" class="btn" style="border: none; color:black; font-weight:bold;">
-                                    <div class="col-md-2" style="text-align: left; display: table-cell;vertical-align:middle; padding-right:0px; padding-left:0px">
-                                        <input id="to" autocomplete="off" disabled='disabled' style="width: 80px;"> </input>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
                     <!-- <div class="col-lg-12">
                         <div class="col-lg-2 lap-mb">
                             <a href="<?php echo site_url('owner/laporan_pemeriksaan_t') ?>" type="button" class="btn col-md-12">Tahunan</a>

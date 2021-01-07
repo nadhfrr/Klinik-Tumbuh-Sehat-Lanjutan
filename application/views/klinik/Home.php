@@ -924,14 +924,13 @@
                 $tgl_rencana[] = $rencana_result['tanggal_rencana'];
               }
               $f_tanggal_jadwal = json_encode($tgl_rencana);
-              // echo $f_tanggal_jadwal;
               ?>
             </div>
           </div>
           <div class="col-md-3">
             <div class="form-group box2">
               <select id="filter_p" class="form-control">
-                <option value="" disabled selected style="display: none;">Filter Dokter</option>
+                <option value="" disabled selected style="display: none;">Dokter</option>
                 <option>Perlihatkan Semua</option>
                 <?php foreach ($dokter->result() as $result) : ?>
                   <option value="<?php echo $result->id_dokter  ?>"><?php echo $result->nama_dokter ?></option>
@@ -1116,15 +1115,12 @@
   $(document).ready(function() {
     profil();
     $('#filter_p').change(function() {
-      // let a = $(this).val();
-      // console.log(a);
       profil();
     });
   });
 
   function profil() {
     var id = $('#filter_p').val();
-    // var tgl = $('#filter_t').val();
     var tgl = $('#filter_t').val();
     $.ajax({
       url: "<?= base_url('klinik/filter_profil') ?>",

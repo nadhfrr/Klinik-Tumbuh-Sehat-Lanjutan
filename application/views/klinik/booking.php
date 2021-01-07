@@ -1075,21 +1075,21 @@
 											</div>
 											<!-- Fungsi cek jadwal dokter dan akan di disable jika tidak ada hari praktek dokter -->
 											<?php
-												foreach($dokter->result_array() as $row){
-													$hari_praktek[] = $row['hari'];
-												}
-												 $days=[];
-												 foreach  ($hari_praktek as $hp){
-													if ($hp == 'Minggu') $days[]=0;
-													if ($hp == 'Senin') $days[]=1;
-													if ($hp == 'Selasa') $days[]=2;
-													if ($hp == 'Rabu') $days[]=3;
-													if ($hp == 'Kamis') $days[]=4;
-													if ($hp == 'Jumat') $days[]=5;
-													if ($hp == 'Sabtu') $days[]=6;
-												}
-												  $jadwal_dokter =json_encode($days);
-												?>
+											foreach ($dokter->result_array() as $row) {
+												$hari_praktek[] = $row['hari'];
+											}
+											$days = [];
+											foreach ($hari_praktek as $hp) {
+												if ($hp == 'Minggu') $days[] = 0;
+												if ($hp == 'Senin') $days[] = 1;
+												if ($hp == 'Selasa') $days[] = 2;
+												if ($hp == 'Rabu') $days[] = 3;
+												if ($hp == 'Kamis') $days[] = 4;
+												if ($hp == 'Jumat') $days[] = 5;
+												if ($hp == 'Sabtu') $days[] = 6;
+											}
+											$jadwal_dokter = json_encode($days);
+											?>
 										</div>
 									</div>
 									<div class="col-lg-4">
@@ -1100,7 +1100,7 @@
 
 											<input type="hidden" id="hidden_dokter_id" name="id_dokter" value="<?php echo $result->id_dokter; ?>">
 											<select class="form-control" name="jam_rencana" id="jam_rencana">
-													<option value="" disabled selected style="display: none;">--- Pilih Waktu ---</option>
+												<option value="" disabled selected style="display: none;">--- Pilih Waktu ---</option>
 											</select>
 
 										</div>
@@ -1672,43 +1672,72 @@
 
 </div>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
-var jadwal_dokter=<?php echo $jadwal_dokter?>;
-$( "#tanggal_rencana").datepicker({
-  monthNames: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
-            'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
-  dayNamesMin: ['Min', 'Sen', 'Sel', 'Rab', 'Ka', 'Jum', 'Sab'],
-  dayNames: ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'],
-  minDate:0,
-  firstDay: 0,
-  dateFormat: "DD, dd-mm-yy",
-  beforeShowDay: function (date) {
-      return [jadwal_dokter.indexOf(date.getDay()) > -1];
-  },
-  onSelect: function (dateText, inst) {
-	var hilangkan_tanggal = dateText.indexOf(',');
-    var hari =dateText.substring(0, hilangkan_tanggal);
-	var id_dokter = $("#hidden_dokter_id").val();
-	// alert(id_dokter);
-	$.ajax({
-            url : "<?php echo base_url('klinik/get_jam_dokter');?>",
-                    method : "POST",
-                    data : {hari :hari, id_dokter :id_dokter},
-                    async : true,
-                    dataType : 'json',
-                    success: function(jam_praktek){
-                        var html = '';
-                        var i;
-                        for(i=0; i<jam_praktek.length; i++){
-                            html += '<option value='+jam_praktek[i].id_jadwal+'>'+jam_praktek[i].jam_mulai+'-'+jam_praktek[i].jam_tutup+'</option>';
-                        }
-                        $('#jam_rencana').html(html);
-                    }
-        });
-  }
-}).datepicker("setDate", '0');
-$('#datepicker').datepicker({ maxDate: 0 });
+	var jadwal_dokter = <?php echo $jadwal_dokter ?>;
+	$("#tanggal_rencana").datepicker({
+		monthNames: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
+			'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
+		],
+		dayNamesMin: ['Min', 'Sen', 'Sel', 'Rab', 'Ka', 'Jum', 'Sab'],
+		dayNames: ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'],
+		minDate: 0,
+		firstDay: 0,
+		dateFormat: "mm/dd/yy",
+		beforeShowDay: function(date) {
+			return [jadwal_dokter.indexOf(date.getDay()) > -1];
+		}
+		//   onSelect: function (dateText, inst) {
+		// 	var hilangkan_tanggal = dateText.indexOf(',');
+		//     var hari =dateText.substring(0, hilangkan_tanggal);
+		// 	var id_dokter = $("#hidden_dokter_id").val();
+		// 	// alert(id_dokter);
+		// 	$.ajax({
+		//             url : "<?php echo base_url('klinik/get_jam_dokter'); ?>",
+		//                     method : "POST",
+		//                     data : {hari :hari, id_dokter :id_dokter},
+		//                     async : true,
+		//                     dataType : 'json',
+		//                     success: function(jam_praktek){
+		//                         var html = '';
+		//                         var i;
+		//                         for(i=0; i<jam_praktek.length; i++){
+		//                             html += '<option value='+jam_praktek[i].id_jadwal+'>'+jam_praktek[i].jam_mulai+'-'+jam_praktek[i].jam_tutup+'</option>';
+		//                         }
+		//                         $('#jam_rencana').html(html);
+		//                     }
+		//         });
+		//   }
+	}).datepicker("setDate", '0');
+	$('#datepicker').datepicker({
+		maxDate: 0
+	});
+
+	$(document).ready(function() {
+		let tgl = $("#tanggal_rencana").val();
+		cek_waktu_booking(tgl);
+	});
+
+	$("#tanggal_rencana").on("change", function() {
+		cek_waktu_booking($(this).val());
+	});
+
+	function cek_waktu_booking(val) {
+		let split_tgl = val.split("/");
+		let tgl = split_tgl[2] + "-" + split_tgl[0] + "-" + split_tgl[1];
+
+		let id_booking = "<?= $this->uri->segment(4) ?>";
+		let id_dokter = "<?= $dokter2->row()->id_dokter ?>";
+
+		$.ajax({
+			url: "<?= base_url() ?>" + "index.php/owner/show_jadwal_dokter/" + id_booking + "/" + id_dokter + "/" + tgl,
+			dataType: "JSON",
+			success: function(data) {
+				$("#jam_rencana").html(data.output);
+				console.log(data);
+			}
+		});
+	}
 </script>
 <!--/.main-->

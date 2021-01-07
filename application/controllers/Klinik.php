@@ -419,12 +419,31 @@ class Klinik extends CI_Controller
     $this->load->view('template/template', $data);
   }
   //Untuk mendapatkan jam praktek dokter sesuai hari pada halaman booking
-  function get_jam_dokter()
+  // function get_jam_dokter()
+  // {
+  //   $hari = $this->input->post('hari');
+  //   $id_dokter = $this->input->post('id_dokter');
+  //   $jam_praktek = $this->Data_pasien_model->get_jam_praktek($hari, $id_dokter)->result();
+  //   echo json_encode($jam_praktek);
+  // }
+
+  function show_jadwal_dokter($id_booking, $id_dokter, $tgl)
   {
-    $hari = $this->input->post('hari');
-    $id_dokter = $this->input->post('id_dokter');
-    $jam_praktek = $this->Data_pasien_model->get_jam_praktek($hari, $id_dokter)->result();
-    echo json_encode($jam_praktek);
+    $html = '';
+    $dokter = $this->Data_pasien_model->get_dokter_id($id_booking);
+    $output = [];
+
+    $html .= '<select class="form-control" name="jam_rencana" id="jam_rencana">';
+    $html .= '<option value="" disabled selected style="display: none;">--- Pilih Waktu ---</option>';
+    foreach ($dokter->result() as $result) :
+      $jam = $result->jam_mulai . '-' . $result->jam_tutup;
+      $jadwal = $this->Data_pasien_model->jmlh_booking($id_dokter, $tgl, $jam);
+      $html .= '<option value="' . $jam . '" ' . ($jadwal >= 1 ? "disabled" : "") . '>' . $jam . '</option>';
+    endforeach;
+    $html .= '</select>';
+
+    $output = ["output" => $html];
+    echo json_encode($output);
   }
 
   public function informasi_pasien()
