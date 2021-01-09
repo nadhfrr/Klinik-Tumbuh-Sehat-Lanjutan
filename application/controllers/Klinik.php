@@ -1001,7 +1001,7 @@ class Klinik extends CI_Controller
   public function export_harian()
   {
     $data['title'] = 'Laporan Total Pendapatan Harian';
-    $data['harian'] = $this->Klinik_model->get_harian();
+    $data['harian'] = $this->Klinik_model->get_harian('', date("Y-m-d"), 1);
 
     $this->load->view('klinik/vw_laporan_pendapatan_harian', $data);
   }

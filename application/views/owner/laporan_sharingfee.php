@@ -626,7 +626,8 @@
                     $('#chart_sharingfee2').html(data);
                 },
                 error: function(request, status, error) {
-                    alert(request.responseText);
+                    // alert(request.responseText);
+                    alert('Gagal mengambil data');
                 }
             });
             end.attr('disabled', !this.value.length).
@@ -669,7 +670,8 @@
                             $('#chart_sharingfee2').html(data);
                         },
                         error: function(request, status, error) {
-                            alert(request.responseText);
+                            // alert(request.responseText);
+                            alert('Gagal mengambil data');
                         },
                     });
                 },

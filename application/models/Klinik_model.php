@@ -348,6 +348,10 @@ class Klinik_model extends CI_Model
 
 	function get_harian($id_dokter, $endDate, $interval)
 	{
+		$clausa_dokter = '';
+		if ($id_dokter != '') {
+			$clausa_dokter = 'AND (b.id_dokter=' . $id_dokter . ' OR ' . $id_dokter . ' =0)';
+		}
 		$sql = "SELECT
 		tgl,IFNULL(SUM(u.grandtotal),0)AS money,nama_dokter,spesialis,DAYNAME(tgl) as hari,tanggal_periksa
 	FROM
@@ -447,12 +451,12 @@ class Klinik_model extends CI_Model
 	) dr
 	LEFT JOIN 
 	(rekam_medis u INNER JOIN rencana r ON u.id_booking=r.id_booking
-	 INNER JOIN booking b ON b.id_booking=u.id_booking INNER JOIN dokter d ON d.id_dokter=b.id_dokter AND u.status=3 AND b.status=3 AND (b.id_dokter=? OR ? =0))
+	 INNER JOIN booking b ON b.id_booking=u.id_booking INNER JOIN dokter d ON d.id_dokter=b.id_dokter AND u.status=3 AND b.status=3 " . $clausa_dokter . ")
 	 ON
 		dr.tgl = DATE(u.tanggal_periksa)
 	GROUP BY
 		dr.tgl";
-		return $this->db->query($sql, array($endDate, $interval, $endDate, $endDate, $interval, $id_dokter, $id_dokter));
+		return $this->db->query($sql, array($endDate, $interval, $endDate, $endDate, $interval));
 	}
 
 	function get_dokter_filter()
