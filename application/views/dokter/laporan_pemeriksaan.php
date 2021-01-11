@@ -211,7 +211,7 @@
                                     </li>
 
                                     <li class="border-lap stileone1">
-                                        <div data-toggle="tab" href="#sharing_f">
+                                        <div data-toggle="tab" href="#laporan_sharingfee">
                                             <center>
                                               <font>Personal Sharing Fee</font>
                                             </center>
@@ -277,29 +277,6 @@
                                     </p>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div id="sharing_f" class="col-md-12 tab-pane fade" style="top:-800px;">
-                        <div>
-                        <table id="all_data_json" data-toggle="table" data-url="<?php echo base_url('Resepsionis/data_booking');?>" data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="nama" data-sort-order="asc" data-toolbar="#toolbar">
-                            <thead >
-                                <tr>
-                                    <th data-sortable="true" data-field="" data-formatter="runningFormatter" data-align="center" >No.</th>
-                                    <th data-sortable="true" data-align="left">Tanggal Pemeriksaan</th>
-                                    <th data-sortable="true" data-align="left">Total Pendapatan</th>
-                                    <th data-sortable="true" data-align="left">Persentase Fee</th>
-                                    <th data-sortable="true" data-align="left">Total Pendapatan Fee</th>
-                                </tr>
-                            </thead>
-
-                            <tbody>
-                                <td>1</td>
-                                <td>2020/07/17</td>
-                                <td>Rp. 100000</td>
-                                <td>60%</td>
-                                <td>Rp. 60000</td>
-                            </tbody>
-                        </table>                            
                         </div>
                     </div>
                 </div>
