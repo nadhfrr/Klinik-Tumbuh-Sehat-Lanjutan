@@ -1163,6 +1163,35 @@ class Doctor extends CI_Controller
     endforeach;
   }
 
+<<<<<<< HEAD
+=======
+
+  public function sharing_fee()
+  {
+    $id_user = $this->session->userdata('id_user');
+    $this->db->select('*');
+    $this->db->from('dokter a');
+    $this->db->join('login_session b', 'a.id_user=b.id_user');
+    $this->db->where('a.id_user', $id_user);
+    $dokter = $this->db->get('')->result();
+
+    foreach ($dokter as $key) :
+      $id_dokter = $key->id_dokter;
+      $nama_dokter = $key->nama_dokter;
+      $spesialis = $key->spesialis;
+      $laporan = $this->Home_model->get_laporan_pemeriksaan($id_dokter);
+      $data['laporan'] = $laporan;
+      $data['harian'] = $this->Home_model->get_laporan_pendapatan_($id_dokter);
+      $data['nama_dokter'] = $nama_dokter;
+      $data['spesialis'] = $spesialis;
+      $data['id_dokter'] = $id_dokter;
+      $data['_laporan_pemeriksaan'] = 1;
+      $data['content'] = 'dokter/personal_sharing_fee';
+      $this->load->view('template/template', $data);
+    endforeach;
+  }
+
+>>>>>>> 7ddbe64027d529b0f673f94c1428b0b44f8ff809
   public function laporan_harian_dokter()
   {
     $laporan = $this->Home_model->get_laporan();
