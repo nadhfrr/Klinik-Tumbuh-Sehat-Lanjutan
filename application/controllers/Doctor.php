@@ -1163,9 +1163,6 @@ class Doctor extends CI_Controller
     endforeach;
   }
 
-<<<<<<< HEAD
-=======
-
   public function sharing_fee()
   {
     $id_user = $this->session->userdata('id_user');
@@ -1191,7 +1188,6 @@ class Doctor extends CI_Controller
     endforeach;
   }
 
->>>>>>> 7ddbe64027d529b0f673f94c1428b0b44f8ff809
   public function laporan_harian_dokter()
   {
     $laporan = $this->Home_model->get_laporan();
