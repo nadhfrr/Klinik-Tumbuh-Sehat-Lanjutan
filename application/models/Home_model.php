@@ -267,6 +267,22 @@ class Home_model extends CI_Model
 		return $this->db->get();
 	}
 
+	function get_feedokter()
+	{
+		$sql = $this->db->query('SELECT d.nama_dokter, b.id_dokter, rm.tanggal_periksa, SUM(rm.grandtotal) AS total_pendapatan, 
+		SUM(
+			CASE 
+				WHEN rm.grandtotal = 0 THEN 0
+				ELSE FLOOR(((rm.grandtotal * d.sharingfee_pers) / 100))
+			END
+		) AS total_pendapatan_fee
+		FROM rekam_medis rm
+		JOIN booking b ON rm.id_booking = b.id_booking
+		JOIN dokter d ON b.id_dokter = d.id_dokter
+		GROUP BY b.id_dokter');
+		return $sql->result();
+	}
+
 	function get_laporan_pendapatan($id_dokter = '')
 	{
 		$clausa_dokter = '';
@@ -396,6 +412,10 @@ class Home_model extends CI_Model
 
 	function get_laporan_pendapatan_m($id_dokter = '')
 	{
+		$clausa_dokter = '';
+		if ($id_dokter != '') {
+			$clausa_dokter = 'AND b.id_dokter=' . $id_dokter;
+		}
 		return $this->db->query('SELECT
 		tgl as startDate,IFNULL(SUM(u.grandtotal),0)AS money,DAYNAME(tgl) as hari,(tgl+INTERVAL 6 DAY) as endDate,DAYNAME(tgl+INTERVAL 6 DAY) as hari2
 	FROM
@@ -495,7 +515,7 @@ class Home_model extends CI_Model
 	) dr
 	LEFT JOIN 
 	(rekam_medis u INNER JOIN rencana r ON u.id_booking=r.id_booking
-	 INNER JOIN booking b ON b.id_booking=u.id_booking INNER JOIN dokter d ON d.id_dokter=b.id_dokter AND u.status=3 AND b.status=3 AND b.id_dokter=' . $id_dokter . ')
+	 INNER JOIN booking b ON b.id_booking=u.id_booking INNER JOIN dokter d ON d.id_dokter=b.id_dokter AND u.status=3 AND b.status=3 ' . $clausa_dokter . ')
 	 ON
 		dr.tgl = DATE(u.tanggal_periksa)
 	GROUP BY
@@ -523,6 +543,10 @@ ORDER BY tgl ASC LIMIT 8 OFFSET 1');
 
 	function get_laporan_pendapatan_b($id_dokter = '')
 	{
+		$clausa_dokter = '';
+		if ($id_dokter != '') {
+			$clausa_dokter = 'AND b.id_dokter=' . $id_dokter;
+		}
 		return $this->db->query('SELECT
 		t1.month as bulan,
 		t1.md,t1.year as year,
@@ -546,7 +570,7 @@ ORDER BY tgl ASC LIMIT 8 OFFSET 1');
 		  SELECT DATE_FORMAT(tanggal_periksa, "%b") AS month, SUM(grandtotal) as amount ,DATE_FORMAT(tanggal_periksa, "%Y-%m") as md
 		  FROM rekam_medis u
 			INNER JOIN rencana r ON u.id_booking=r.id_booking
-			 INNER JOIN booking b ON b.id_booking=u.id_booking INNER JOIN dokter d ON d.id_dokter=b.id_dokter AND u.status=3 AND b.status=3 AND b.id_dokter=' . $id_dokter . '
+			 INNER JOIN booking b ON b.id_booking=u.id_booking INNER JOIN dokter d ON d.id_dokter=b.id_dokter AND u.status=3 AND b.status=3 ' . $clausa_dokter . '
 		  and tanggal_periksa <= NOW() and tanggal_periksa >= Date_add(Now(),interval - 12 month)
 		  GROUP BY md
 		)t2
@@ -572,8 +596,12 @@ ORDER BY tgl ASC LIMIT 8 OFFSET 1');
 		// return $this->db->get();
 	}
 
-	function get_laporan_pendapatan_t()
+	function get_laporan_pendapatan_t($id_dokter = '')
 	{
+		$clausa_dokter = '';
+		if ($id_dokter != '') {
+			$clausa_dokter = 'AND b.id_dokter=' . $id_dokter;
+		}
 		return $this->db->query('SELECT
 		t1.year as tahun,
 		t1.md,
@@ -597,7 +625,7 @@ ORDER BY tgl ASC LIMIT 8 OFFSET 1');
 		  SELECT DATE_FORMAT(tanggal_periksa, "%Y") AS year, SUM(grandtotal) as amount ,DATE_FORMAT(tanggal_periksa, "%Y") as md
 		  FROM rekam_medis u
 			INNER JOIN rencana r ON u.id_booking=r.id_booking
-			 INNER JOIN booking b ON b.id_booking=u.id_booking INNER JOIN dokter d ON d.id_dokter=b.id_dokter AND u.status=3 AND b.status=3
+			 INNER JOIN booking b ON b.id_booking=u.id_booking INNER JOIN dokter d ON d.id_dokter=b.id_dokter AND u.status=3 AND b.status=3 ' . $clausa_dokter . '
 		  and tanggal_periksa <= NOW() and tanggal_periksa >= Date_add(Now(),interval - 12 year)
 		  GROUP BY md
 		)t2

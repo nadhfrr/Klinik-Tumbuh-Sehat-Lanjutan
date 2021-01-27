@@ -242,9 +242,6 @@
                             <a href="<?php echo site_url('doctor/laporan_pemeriksaan') ?>" type="button" class="btn col-md-12">Harian</a>
                         </div>
                     </div>
-                    <div id="total_t" class="col-md-12 tab-pane fade in active" style="margin-top: 20px;">
-                        <div id="pemeriksaan"></div>
-                    </div>
                     <div id="lap_sharingfee" class="col-md-12 tab-pane fade in active" style="margin-top: 20px;">
                         <div id="fee"></div>
                     </div>

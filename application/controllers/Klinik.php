@@ -1010,6 +1010,7 @@ class Klinik extends CI_Controller
   {
     $data['title'] = 'Laporan Pendapatan Harian Dokter';
     $data['perdokter'] = $this->Klinik_model->get_perdokter();
+    $data['harian'] = $this->Klinik_model->get_harian('', date("Y-m-d"), 1);
 
     $this->load->view('klinik/vw_laporan_perdokter', $data);
   }

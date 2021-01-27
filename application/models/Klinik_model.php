@@ -470,7 +470,7 @@ class Klinik_model extends CI_Model
 	function get_perdokter()
 	{
 		return $this->db->query("select nama_dokter, spesialis, 
-		tanggal_rencana,SUM(rekam_medis.grandtotal) 
+		tanggal_periksa,SUM(rekam_medis.grandtotal) 
 		AS money FROM rencana join rekam_medis on 
 		rencana.id_booking= rekam_medis.id_booking JOIN booking on 
 		booking.id_booking=rencana.id_booking join dokter on 
