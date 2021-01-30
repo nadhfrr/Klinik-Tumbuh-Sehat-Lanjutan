@@ -213,7 +213,7 @@
                             <div class="col-lg-12 nav-menu-lap">
                                 <ul>
                                     <li class="border-lap stileone">
-                                        <div data-toggle="tab" href="#total_t">
+                                        <div data-toggle="tab" href="#total_t" aria-controls="total_t" role="tab">
                                             <center>
                                                 <font>Total Transaksi</font>
                                             </center>
@@ -221,7 +221,7 @@
                                     </li>
 
                                     <li class="border-lap stileone1">
-                                        <div data-toggle="tab" href="#lap_sharingfee">
+                                        <div data-toggle="tab" href="#lap_sharingfee" aria-controls="lap_sharingfee" role="tab">
                                             <center>
                                                 <font>Personal Sharing Fee</font>
                                             </center>
@@ -242,11 +242,13 @@
                             <a href="<?php echo site_url('doctor/laporan_pemeriksaan') ?>" type="button" class="btn col-md-12">Harian</a>
                         </div>
                     </div>
-                    <div id="total_t" class="col-md-12 tab-pane fade in active" style="margin-top: 20px;">
-                        <div id="pemeriksaan"></div>
-                    </div>
-                    <div id="lap_sharingfee" class="col-md-12 tab-pane fade in active" style="margin-top: 20px;">
-                        <div id="fee"></div>
+                    <div class="tab-content">
+                        <div id="total_t" class="col-md-12 tab-pane fade in active" style="margin-top: 20px;">
+                            <div id="pemeriksaan"></div>
+                        </div>
+                        <div id="lap_sharingfee" class="col-md-12 tab-pane fade in" style="margin-top: 20px;">
+                            <div id="fee"></div>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col" style="margin: 30px;border:1px solid #969696;border-radius:10px">

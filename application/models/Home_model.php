@@ -283,6 +283,23 @@ class Home_model extends CI_Model
 		return $sql->result();
 	}
 
+	function get_fee_dokter($id_dokter)
+	{
+		$sql = $this->db->query('SELECT d.nama_dokter, b.id_dokter, rm.tanggal_periksa, SUM(rm.grandtotal) AS total_pendapatan, 
+		SUM(
+			CASE 
+				WHEN rm.grandtotal = 0 THEN 0
+				ELSE FLOOR(((rm.grandtotal * d.sharingfee_pers) / 100))
+			END
+		) AS total_pendapatan_fee
+		FROM rekam_medis rm
+		JOIN booking b ON rm.id_booking = b.id_booking
+		JOIN dokter d ON b.id_dokter = d.id_dokter
+		WHERE b.id_dokter = "' . $id_dokter . '"
+		GROUP BY rm.tanggal_periksa');
+		return $sql->result();
+	}
+
 	function get_laporan_pendapatan($id_dokter = '')
 	{
 		$clausa_dokter = '';

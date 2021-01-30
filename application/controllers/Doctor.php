@@ -1086,9 +1086,9 @@ class Doctor extends CI_Controller
       $data['id_dokter'] = $id_dokter;
       $data['lap_fee'] = $lap_fee;
       $data['_laporan_pemeriksaan'] = 1;
-      $data['content'] = 'dokter/laporan_pemeriksaan';
-      $this->load->view('template/template', $data);
     endforeach;
+    $data['content'] = 'dokter/laporan_pemeriksaan';
+    $this->load->view('template/template', $data);
   }
 
   public function laporan_pemeriksaan()
@@ -1105,11 +1105,13 @@ class Doctor extends CI_Controller
       $nama_dokter = $key->nama_dokter;
       $spesialis = $key->spesialis;
       $laporan = $this->Home_model->get_laporan_pemeriksaan($id_dokter);
+      $lap_fee = $this->Home_model->get_fee_dokter($id_dokter);
       $data['laporan'] = $laporan;
       $data['harian'] = $this->Home_model->get_laporan_pendapatan($id_dokter);
       $data['nama_dokter'] = $nama_dokter;
       $data['spesialis'] = $spesialis;
       $data['id_dokter'] = $id_dokter;
+      $data['lap_fee'] = $lap_fee;
       $data['_laporan_pemeriksaan'] = 1;
       $data['content'] = 'dokter/laporan_pemeriksaan';
       $this->load->view('template/template', $data);

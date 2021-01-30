@@ -898,7 +898,7 @@
 			},
 			xAxis: {
 				categories: [
-					<?php foreach ($lap_fee as $lap) : ?> "<?php echo $lap->nama_dokter ?>",
+					<?php foreach ($lap_fee as $lap) : ?> "<?php echo $lap->tanggal_periksa ?>",
 					<?php endforeach; ?>
 				],
 				labels: {
