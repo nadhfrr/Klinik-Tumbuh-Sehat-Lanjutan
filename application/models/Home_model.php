@@ -267,7 +267,7 @@ class Home_model extends CI_Model
 		return $this->db->get();
 	}
 
-	function get_feedokter()
+	function get_fee()
 	{
 		$sql = $this->db->query('SELECT d.nama_dokter, b.id_dokter, rm.tanggal_periksa, SUM(rm.grandtotal) AS total_pendapatan, 
 		SUM(
