@@ -464,7 +464,7 @@
 				},
 				title: {
 					enabled: true,
-					text: '------ Rata2 pendapatan ------',
+					text: '------ Rata-rata pendapatan ------',
 					style: {
 						fontWeight: 'normal'
 					}
@@ -600,7 +600,7 @@
 				},
 				title: {
 					enabled: true,
-					text: '------ Rata2 pendapatan ------',
+					text: '------ Rata-rata pendapatan ------',
 					style: {
 						fontWeight: 'normal'
 					}
@@ -692,7 +692,7 @@
 				},
 				title: {
 					enabled: true,
-					text: '------ Rata2 pendapatan ------',
+					text: '------ Rata-rata pendapatan ------',
 					style: {
 						fontWeight: 'normal'
 					}
@@ -798,7 +798,7 @@
 				},
 				title: {
 					enabled: true,
-					text: '------ Rata2 pendapatan ------',
+					text: '------ Rata-rata pendapatan ------',
 					style: {
 						fontWeight: 'normal'
 					}
@@ -909,7 +909,7 @@
 				},
 				title: {
 					enabled: true,
-					text: '------ Rata2 pendapatan ------',
+					text: '------ Sharing fee ------',
 					style: {
 						fontWeight: 'normal'
 					}
