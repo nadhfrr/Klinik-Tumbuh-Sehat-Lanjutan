@@ -692,7 +692,7 @@
 				},
 				title: {
 					enabled: true,
-					text: '------ Rata-rata pendapatan ------',
+					text: '------ Total Sharing fee ------',
 					style: {
 						fontWeight: 'normal'
 					}
