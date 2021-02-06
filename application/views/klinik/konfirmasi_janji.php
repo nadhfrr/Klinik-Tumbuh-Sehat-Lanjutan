@@ -91,11 +91,12 @@
 							<tr>
 								<th data-field="" data-formatter="runningFormatter" data-align="right">No.</th>
 								<!--<th data-field="no_antrian"  data-sortable="true" data-align="right">No. Antrian</th>-->
-								<th data-field="nama_depan">Nama</th>
+								<th data-field="nama_depan">Nama Pasien</th>
 								<th data-field="tanggal_lahir">Tanggal Lahir</th>
+								<th data-field="rekam_medis" data-sortable="true">Nomor Rekam <br> Medis</th>
 								<th data-field="nama_dokter" data-sortable="true">Dokter Pilihan</th>
-								<th data-field="tanggal_rencana" data-sortable="true">Tanggal Periksa</th>
-								<th data-field="jam_rencana" data-sortable="true">Jam Periksa</th>
+								<th data-field="tanggal_rencana" data-sortable="true">Hari & Tanggal <br> Pemeriksaan</th>
+								<th data-field="jam_rencana" data-sortable="true">Jam <br> Pemeriksaan</th>
 
 								<th>Activity</th>
 							</tr>
@@ -109,7 +110,7 @@
 								<?php $tgl_lahir = date('d F Y', strtotime($result->tanggal_lahir)); ?>
 								<tr>
 									<td><?php echo $no++ ?></td>
-									
+
 									<td><?php echo $result->nama_depan ?> <?php echo $result->nama_belakang ?></td>
 									<td><?php echo $tgl_lahir ?></td>
 									<td><?php echo $result->nama_dokter  ?></td>
@@ -222,7 +223,7 @@
 							<?php endforeach; ?>
 						</tbody>
 					</table><br><br>
-					</div>
+				</div>
 			</div>
 		</div>
 	</div><!-- /.row -->
