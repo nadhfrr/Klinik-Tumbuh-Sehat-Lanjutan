@@ -762,7 +762,7 @@
 				type: 'column'
 			},
 			title: {
-				text: 'Pendapatan',
+				text: 'Total Transaksi',
 				align: 'left',
 				style: {
 					color: '#f4004a',
