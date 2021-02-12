@@ -753,17 +753,16 @@
           <div class="col-md-12">
             <!-- <h3 class="mb-20 weight-500">Jadwal yang akan datang</h3><br> -->
           </div>
-          <div class="col-md-1"><b>Filter:</b></div>
+          <div class="col-md-1" style="margin-top: 10px;">
+          <b>Filter:</b></div>
           <div class="col-md-3">
             <div class="form-group">
-              <select id="filter_t" class="form-control">
-                <option value="" disabled selected style="display: none;">Filter Tanggal</option>
-                <option>Perlihatkan Semua</option>
+              <input id="filter_t" type="date">
                 <?php foreach ($rencana_sebelum->result() as $result) : ?>
                   <?php $tgl = date('d F Y', strtotime($result->tanggal_rencana)); ?>
-                  <option value="<?php echo $result->tanggal_rencana ?>"><?php echo $tgl ?></option>
+                  <!-- <?php echo $result->tanggal_rencana ?> -->
                 <?php endforeach; ?>
-              </select>
+                </input>
             </div>
           </div>
           <div class="col-md-3">
