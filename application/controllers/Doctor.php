@@ -1037,6 +1037,33 @@ class Doctor extends CI_Controller
     redirect('doctor/laporan_pemeriksaan/' . $id_dokter);
   }
 
+  // public function sharing_fee()
+  // {
+  //   $id_user = $this->session->userdata('id_user');
+  //   $this->db->select('*');
+  //   $this->db->from('dokter a');
+  //   $this->db->join('login_session b', 'a.id_user=b.id_user');
+  //   $this->db->where('a.id_user', $id_user);
+  //   $dokter = $this->db->get('')->result();
+
+  //   foreach ($dokter as $key) :
+  //     $id_dokter = $key->id_dokter;
+  //     $nama_dokter = $key->nama_dokter;
+  //     $spesialis = $key->spesialis;
+  //     $laporan = $this->Home_model->get_laporan_pemeriksaan($id_dokter);
+  //     $lap_fee = $this->Home_model->get_fee();
+  //     $data['laporan'] = $laporan;
+  //     $data['harian'] = $this->Home_model->get_laporan_pendapatan_($id_dokter);
+  //     $data['nama_dokter'] = $nama_dokter;
+  //     $data['spesialis'] = $spesialis;
+  //     $data['id_dokter'] = $id_dokter;
+  //     $data['lap_fee'] = $lap_fee;
+  //     $data['_laporan_pemeriksaan'] = 1;
+  //     $data['content'] = 'dokter/laporan_sharingfee';
+  //     $this->load->view('template/template', $data);
+  //   endforeach;
+  // }
+
   public function laporan_sharingfee()
   {
     $id_user = $this->session->userdata('id_user');
@@ -1254,7 +1281,6 @@ class Doctor extends CI_Controller
 
     $this->load->view('dokter/vw_laporan_perdokter', $data);
   }
-  
   function filter_informasi_pasien()
   {
     $id_user = $this->session->userdata('id_user');
