@@ -151,7 +151,7 @@
                             <a>
                                 <div href="#" class="btn" style="border: none; color:black; font-weight:bold;">
                                     <div class="col-md-2 outer" style="padding-top: 7px">
-                                        <img src="<?php echo base_url() ?>assets/images/Doctor.png" height="24px">
+                                        <img src="<?php echo base_url() ?>assets/images/doctor.png" height="24px">
                                     </div>
                                     <div class="col-md-10" style="text-align: left; display: table-cell;vertical-align:middle; padding-right:0px; padding-left:0px">
                                         <select id="f_dokter" class="form-control form-control-sm">
