@@ -294,6 +294,7 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
                 <div class="col-md-3" style="background-color:  #f2f2f2; padding:0px;height: auto;">
                     <div class="col-md-12" style="padding-right: 0px;">

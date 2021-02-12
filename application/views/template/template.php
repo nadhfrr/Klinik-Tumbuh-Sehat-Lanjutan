@@ -1094,7 +1094,7 @@
 				type: 'column'
 			},
 			title: {
-				text: 'Total Transaksi',
+				text: 'Pendapatan',
 				align: 'left',
 				style: {
 					color: '#f4004a',
@@ -1104,22 +1104,22 @@
 			},
 			xAxis: {
 				categories: [
-					<?php foreach ($lap_sf->result() as $lap) : ?> "<?php if ($lap->hari == 'Sunday') {
-																		echo "Minggu";
-																	} elseif ($lap->hari == 'Monday') {
-																		echo "Senin";
-																	} elseif ($lap->hari == 'Tuesday') {
-																		echo "Selasa";
-																	} elseif ($lap->hari == 'Wednesday') {
-																		echo "Rabu";
-																	} elseif ($lap->hari == 'Thursday') {
-																		echo "Kamis";
-																	} elseif ($lap->hari == 'Friday') {
-																		echo "Jumat";
-																	} elseif ($lap->hari == 'Saturday') {
-																		echo "Sabtu";
-																	}
-																	?><br><?php echo $lap->tgl ?>",
+					<?php foreach ($harian->result() as $result89) : ?> "<?php if ($result89->hari == 'Sunday') {
+																				echo "Minggu";
+																			} elseif ($result89->hari == 'Monday') {
+																				echo "Senin";
+																			} elseif ($result89->hari == 'Tuesday') {
+																				echo "Selasa";
+																			} elseif ($result89->hari == 'Wednesday') {
+																				echo "Rabu";
+																			} elseif ($result89->hari == 'Thursday') {
+																				echo "Kamis";
+																			} elseif ($result89->hari == 'Friday') {
+																				echo "Jumat";
+																			} elseif ($result89->hari == 'Saturday') {
+																				echo "Sabtu";
+																			}
+																			?><br><?php echo $result89->tgl ?>",
 					<?php endforeach; ?>
 				],
 				labels: {
@@ -1130,7 +1130,7 @@
 				},
 				title: {
 					enabled: true,
-					text: '------ Rata-rata pendapatan ------',
+					text: '------ Rata2 pendapatan ------',
 					style: {
 						fontWeight: 'normal'
 					}
@@ -1183,11 +1183,11 @@
 				},
 				data: [
 					<?php
-					foreach ($lap_sf->result() as $lap => $value) : {
-							$total_pendapatan_fee = count($lap_sf->result()) - 1;
+					foreach ($harian->result() as $key => $value) : {
+							$last = count($harian->result()) - 1;
 							echo '{y :';
 							echo $value->money;
-							if ($lap == $total_pendapatan_fee) {
+							if ($key == $last) {
 								echo ",color : '#f40049'},";
 							} else
 								echo ",color : '#6A5C59'},";

@@ -195,7 +195,7 @@
                   <td><?php echo $result->id_rekam_medis ?></td>
                   <td><?php echo $tgl ?></td>
                   <td>
-                    <a href="<?php echo site_url('dokter/detail_informasi_pasien/' . $result->id_pasien . '/' . $result->id_booking . '/' . $result->id_rekam_medis) ?>" class="btn btn-anim" style="height: 35px; width: 70px; background-color: #f40049; color: white; border-radius: 5px"><span> Lihat</span></a>
+                    <a href="<?php echo site_url('doctor/detail_informasi_pasien/' . $result->id_pasien . '/' . $result->id_booking . '/' . $result->id_rekam_medis) ?>" class="btn btn-anim" style="height: 35px; width: 70px; background-color: #f40049; color: white; border-radius: 5px"><span> Lihat</span></a>
                   </td>
                 </tr>
                 <input type="hidden" id="hidden_dokter_id" name="id_dokter" value="<?php echo $result->id_dokter; ?>">
