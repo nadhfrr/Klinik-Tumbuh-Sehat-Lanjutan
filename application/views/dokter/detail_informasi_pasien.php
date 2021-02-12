@@ -1260,17 +1260,15 @@
                     <span>(Terakhir Update <?php echo $info->tanggal_periksa ?>)</span><br><br>
                   </div>
                   <div class="col-md-4">
-                    <div class="col-md-2"><b>Filter:</b></div>
+                    <div class="col-md-2" style="margin-top: 10px;">
+                    <b>Filter:</b></div>
                     <div class="col-md-9">
                       <div class="form-group">
-                        <select id="filter_t" class="form-control">
-                          <div class="fa fa-calendar"></div>
-                          <option value="" disabled selected style="display: none;">Tanggal Pemeriksaan</option>
-                          <option value="">Perlihatkan Semua</option>
+                        <input id="filter_t" type="date">
                           <?php foreach ($tanggal_periksa_penunjang->result() as $tgl) { ?>
-                            <option value="<?php echo $tgl->tanggal_periksa ?>"><?php echo $tgl->tanggal_periksa ?></option>
+                          <!-- <?php echo $tgl->tanggal_periksa ?> -->
                           <?php } ?>
-                        </select>
+                        </input>
                       </div>
                     </div>
                   </div>
@@ -1430,17 +1428,15 @@
                         <span>(Terakhir Update <?php echo $info->tanggal_periksa ?>)</span><br><br>
                       </div>
                       <div class="col-md-4">
-                        <div class="col-md-2"><b>Filter:</b></div>
+                        <div class="col-md-2" style="margin-top: 10px;">
+                        <b>Filter:</b></div>
                         <div class="col-md-9">
                           <div class="form-group">
-                            <select id="filter_t" class="form-control">
-                              <div class="fa fa-calendar"></div>
-                              <option value="" disabled selected style="display: none;">Tanggal Pemeriksaan</option>
-                              <option>Perlihatkan Semua</option>
+                            <input id="filter_t" type="date">
                               <?php foreach ($tanggal_periksa_penunjang->result() as $tgl) { ?>
-                                <option value="<?php echo $tgl->tanggal_periksa ?>"><?php echo $tgl->tanggal_periksa ?></option>
+                              <!-- <?php echo $tgl->tanggal_periksa ?> -->
                               <?php } ?>
-                            </select>
+                            </input>
                           </div>
                         </div>
                       </div>
@@ -1462,17 +1458,15 @@
                       <span>(Terakhir Update <?php echo $info->tanggal_periksa ?>)</span><br><br>
                     </div>
                     <div class="col-md-4">
-                      <div class="col-md-2"><b>Filter:</b></div>
+                      <div class="col-md-2" style="margin-top: 10px;">
+                      <b>Filter:</b></div>
                       <div class="col-md-9">
                         <div class="form-group">
-                          <select id="filter_t" class="form-control">
-                            <div class="fa fa-calendar"></div>
-                            <option value="" disabled selected style="display: none;">Tanggal Pemeriksaan</option>
-                            <option>Perlihatkan Semua</option>
+                          <input id="filter_t" type="date">
                             <?php foreach ($tanggal_periksa_penunjang->result() as $tgl) { ?>
-                              <option value="<?php echo $tgl->tanggal_periksa ?>"><?php echo $tgl->tanggal_periksa ?></option>
+                            <!-- <?php echo $tgl->tanggal_periksa ?> -->
                             <?php } ?>
-                          </select>
+                          </input>
                         </div>
                       </div>
                     </div>
@@ -1507,17 +1501,15 @@
                     </div>
                     <div class="col-md-4">
                       <br><br>
-                      <div class="col-md-2"><b>Filter:</b></div>
+                      <div class="col-md-2" style="margin-top: 10px;">
+                      <b>Filter:</b></div>
                       <div class="col-md-9">
                         <div class="form-group">
-                          <select id="filter_t" class="form-control">
-                            <div class="fa fa-calendar"></div>
-                            <option value="" disabled selected style="display: none;">Tanggal Pemeriksaan</option>
-                            <option>Perlihatkan Semua</option>
-                            <?php foreach ($tanggal_periksa_penunjang->result() as $tgl) { ?>
-                              <option value="<?php echo $tgl->tanggal_periksa ?>"><?php echo $tgl->tanggal_periksa ?></option>
-                            <?php } ?>
-                          </select>
+                          <input id="filter_t" type="date">
+                          <?php foreach ($tanggal_periksa_penunjang->result() as $tgl) { ?>
+                          <!-- <?php echo $tgl->tanggal_periksa ?> -->
+                          <?php } ?>
+                          </input>
                         </div>
                       </div>
                     </div>
@@ -1549,17 +1541,15 @@
 
               <div id="summary_rekam_medis" class="tab-pane fade">
                 <div class="col-md-12"><br>
-                  <div class="col-md-1"><b>Filter:</b></div>
+                  <div class="col-md-1" style="margin-top: 10px;">
+                  <b>Filter:</b></div>
                   <div class="col-md-3">
                     <div class="form-group">
-                      <select id="filter_t" class="form-control">
-                        <div class="fa fa-calendar"></div>
-                        <option value="" disabled selected style="display: none;">Filter Tanggal</option>
-                        <option>Perlihatkan Semua</option>
+                      <input id="filter_t" type="date">
                         <?php foreach ($tanggal_periksa_penunjang->result() as $tgl) { ?>
-                          <option value="<?php echo $tgl->tanggal_periksa ?>"><?php echo $tgl->tanggal_periksa ?></option>
+                        <!-- <?php echo $tgl->tanggal_periksa ?> -->
                         <?php } ?>
-                      </select>
+                      </input>
                     </div>
                   </div>
                   <div class="col-md-3">
@@ -1629,17 +1619,15 @@
                     <span>(Terakhir Update <?php echo $info->tanggal_periksa ?>)</span><br><br>
                   </div>
                   <div class="col-md-4">
-                    <div class="col-md-2"><b>Filter:</b></div>
+                    <div class="col-md-2" style="margin-top: 10px;">
+                    <b>Filter:</b></div>
                     <div class="col-md-9">
                       <div class="form-group">
-                        <select id="filter_t" class="form-control">
-                          <div class="fa fa-calendar"></div>
-                          <option value="" disabled selected style="display: none;">Tanggal Pemeriksaan</option>
-                          <option value="">Perlihatkan Semua</option>
+                        <input id="filter_t" class="form-control">
                           <?php foreach ($tanggal_periksa_penunjang->result() as $tgl) { ?>
-                            <option value="<?php echo $tgl->tanggal_periksa ?>"><?php echo $tgl->tanggal_periksa ?></option>
+                         <?php echo $tgl->tanggal_periksa ?>
                           <?php } ?>
-                        </select>
+                        </input>
                       </div>
                     </div>
                   </div>
