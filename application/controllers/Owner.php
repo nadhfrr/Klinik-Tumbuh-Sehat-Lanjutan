@@ -1065,7 +1065,7 @@ class Owner extends CI_Controller
       $interval = $_GET['interval'];
       $data['harian2'] = $this->Klinik_model->get_harian($id_dokter, $endDate, $interval);
     }
-    $this->load->view('template/filter_harian_chart_owner', $data);
+    $this->load->view('template/filter_harian_owner', $data);
   }
 
   public function export_detail()

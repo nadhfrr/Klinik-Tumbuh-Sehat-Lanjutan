@@ -108,23 +108,17 @@
 </style>
 
 <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main" style="">
-    <div class="row">
-        <div class="col-lg-12">
-        </div>
-    </div>
-    <br>
     <div class="panel panel-default">
         <div class="panel-body">
             <div class="row">
                 <div class="col-md-9">
                     <div class="col-md-12">
-                        <font style="font-weight: bold; font-size: 20px;">Laporan Harian</font>
-                        <a href="<?php echo base_url('owner/export_per_dokter') ?>" class="btn" style="margin-top: 45px; background-color: #e7e6e6; border: none; color:#f40049; font-weight:bold; float: right;">
+                        <font style="font-weight: bold; font-size: 20px;">Laporan Pemeriksaan</font>
+                        <a href="<?php echo base_url('owner/export_pemeriksaan') ?>" class="btn" style="margin-top: 45px; background-color: #e7e6e6; border: none; color:#f40049; font-weight:bold; float: right;">
                             <img src="<?php echo base_url() ?>assets/images/download.png" height="30px">
                             Download
                         </a>
                     </div>
-
                     <div class="col-md-12" style="border: 1px solid #e0e0e0; margin-top: 15px;">
                         <div style="float: left">
                             <a href="<?php echo base_url('owner/laporan_harian_dokter') ?>">
@@ -144,7 +138,6 @@
 
                         </div>
                     </div>
-
                     <div class="col-md-12" style="border: 1px solid #e0e0e0; margin-top: 15px;">
                         <div style="float: left">
                             <span style="color: black; "><b>Filter :</b></span>
@@ -298,7 +291,6 @@
             </div>
         </div>
     </div>
-
     <script>
         $(document).ready(function() {
             hubungan_pasien();
@@ -439,7 +431,7 @@
             var timeDifferenceInDays = timeDifferenceInHours / 24;
             var interval = timeDifferenceInDays;
             $.ajax({
-                url: "<?= base_url('owner/filter_laporan_pemeriksaan') ?>",
+                url: "<?= base_url('owner/filter_laporan_harian_dokter') ?>",
                 data: {
                     id_dokter: id_dokter,
                     interval: interval,
@@ -447,8 +439,8 @@
                     startDate: startDate
                 },
                 success: function(data) {
-                    $('#container').empty();
-                    $('#container2').html(data);
+                    $('#chart').empty();
+                    $('#chart2').html(data);
                 },
                 error: function(request, status, error) {
                     alert(request.responseText);
@@ -474,7 +466,7 @@
             var timeDifferenceInDays = timeDifferenceInHours / 24;
             var interval = timeDifferenceInDays;
             $.ajax({
-                url: "<?= base_url('owner/filter_laporan_pemeriksaan') ?>",
+                url: "<?= base_url('owner/filter_laporan_harian_dokter') ?>",
                 data: {
                     id_dokter: id_dokter,
                     interval: interval,
@@ -482,8 +474,8 @@
                     endDate: endDate
                 },
                 success: function(data) {
-                    $('#container').empty();
-                    $('#container2').html(data);
+                    $('#chart').empty();
+                    $('#chart2').html(data);
                 },
                 error: function(request, status, error) {
                     alert(request.responseText);
@@ -517,7 +509,7 @@
                     var timeDifferenceInDays = timeDifferenceInHours / 24;
                     var interval = timeDifferenceInDays;
                     $.ajax({
-                        url: "<?= base_url('owner/filter_laporan_pemeriksaan') ?>",
+                        url: "<?= base_url('owner/filter_laporan_harian_dokter') ?>",
                         data: {
                             id_dokter: id_dokter,
                             interval: interval,
@@ -525,8 +517,8 @@
                             starDate: startDate
                         },
                         success: function(data) {
-                            $('#container').empty();
-                            $('#container2').html(data);
+                            $('#chart').empty();
+                            $('#chart2').html(data);
                         },
                         error: function(request, status, error) {
                             alert(request.responseText);
@@ -557,6 +549,7 @@
             dayNames: ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu']
         }).bind('input', enableEnd);
     </script>
+
 
 
     <!-- <div class="RightCol" style="margin-top: 15%;">
