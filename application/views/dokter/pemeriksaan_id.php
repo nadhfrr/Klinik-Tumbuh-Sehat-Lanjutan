@@ -1248,10 +1248,9 @@
 											<div class="col-lg-2">
 												<div class="form-group">
 													<select class="form-control" name="jenis_id" id="jenis_id">
-														<option value="<?php echo $result->jenis_id; ?>" selected style="display: none;"><?php echo $result->jenis_id; ?></option>
-														<option value="VIP" id="VIP">KTP</option>
-														<option value="Umum" id="Umum">SIM</option>
-														<option value="Umum" id="Umum">PASSPOR</option>
+														<option value="KTP" id="KTP">KTP</option>
+														<option value="SIM" id="SIM">SIM</option>
+														<option value="PASSPOR" id="PASSPOR">PASSPOR</option>
 													</select>
 												</div>
 											</div>

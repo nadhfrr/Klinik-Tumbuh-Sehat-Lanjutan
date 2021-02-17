@@ -25,7 +25,7 @@ $average = "Rp " . number_format((int)$rata_rata, 0, ",", ".");
         7500000: 'Rp. 7.500.000',
         10000000: 'Rp. 10.500.000'
     };
-    Highcharts.chart('chart_sharingfee', {
+    Highcharts.chart('chart_sharingfee2', {
         chart: {
             height: 500,
             borderRadius: 10,
