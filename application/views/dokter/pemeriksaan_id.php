@@ -1540,7 +1540,7 @@
 
 											<div class="col-lg-2">
 												<div class="form-group">
-													<input type='text' class="form-control" rows="3" name="subkanan_kondisi" placeholder="Lunak/Kenyal/Keras" value="<?= $umum->subkanan_kondisi != NULL ? $umum->subkanan_kondisi  : null ?>">
+													<input type='text' class="form-control" rows="3" name="subkanan_kondisi" placeholder="Lunak/Kenyal/Keras">
 												</div>
 											</div>
 
@@ -1607,7 +1607,7 @@
 
 											<div class="col-lg-2">
 												<div class="form-group">
-													<input type='text' class="form-control" rows="3" name="subkiri_kondisi" placeholder="Lunak/Kenyal/Keras" value="<?= $umum->subkiri_kondisi != NULL ? $umum->subkiri_kondisi  : null ?>">
+													<input type='text' class="form-control" rows="3" name="subkiri_kondisi" placeholder="Lunak/Kenyal/Keras">
 												</div>
 											</div>
 
