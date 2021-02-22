@@ -1623,9 +1623,9 @@
                     <b>Filter:</b></div>
                     <div class="col-md-9">
                       <div class="form-group">
-                        <input id="filter_t" class="form-control">
+                        <input type="date" id="filter_t" class="form-control">
                           <?php foreach ($tanggal_periksa_penunjang->result() as $tgl) { ?>
-                         <?php echo $tgl->tanggal_periksa ?>
+                         <!-- <?php echo $tgl->tanggal_periksa ?> -->
                           <?php } ?>
                         </input>
                       </div>
