@@ -656,7 +656,7 @@ class Doctor extends CI_Controller
     endforeach;
   }
 
-  public function detail_informasi_pasien($id_pasien, $id_booking, $id_rekam_medis)
+  public function detail_informasi_pasien($id_pasien, $id_booking)
   {
     $id_user = $this->session->userdata('id_user');
     $this->db->select('*');
