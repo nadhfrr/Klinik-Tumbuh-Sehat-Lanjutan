@@ -65,6 +65,40 @@
         border-radius: 20px;
     }
 
+    .nav-menu-lap ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-menu-lap ul li {
+        float: left;
+    }
+
+    .nav-menu-lap ul li a {
+        display: block;
+        padding: 8px;
+        cursor: pointer;
+        text-decoration: none;
+        background: #fff;
+    }
+
+    .nav-menu-lap ul li a:hover {
+        color: #f40049;
+    }
+
+    .nav-menu-lap ul li a.active {
+        color: #f40049;
+    }
+
+    .border-lap a.active {
+        border-bottom: 3px solid #f40049;
+    }
+
+    .border-lap:hover {
+        border-bottom: 3px solid #f40049;
+    }
+
     .lap-mb {
         background: #fff;
         display: block;
@@ -108,17 +142,23 @@
 </style>
 
 <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main" style="">
+    <div class="row">
+        <div class="col-lg-12">
+        </div>
+    </div>
+    <br>
     <div class="panel panel-default">
         <div class="panel-body">
             <div class="row">
                 <div class="col-md-9">
                     <div class="col-md-12">
-                        <font style="font-weight: bold; font-size: 20px;">Laporan Pemeriksaan</font>
-                        <a href="<?php echo base_url('owner/export_pemeriksaan') ?>" class="btn" style="margin-top: 45px; background-color: #e7e6e6; border: none; color:#f40049; font-weight:bold; float: right;">
+                        <font style="font-weight: bold; font-size: 20px;">Laporan Bulanan</font>
+                        <a href="<?php echo base_url('owner/export_pemeriksaan_b') ?>" class="btn" style="margin-top: 45px; background-color: #e7e6e6; border: none; color:#f40049; font-weight:bold; float: right;">
                             <img src="<?php echo base_url() ?>assets/images/download.png" height="30px">
                             Download
                         </a>
                     </div>
+
                     <div class="col-md-12" style="border: 1px solid #e0e0e0; margin-top: 15px;">
                         <div style="float: left">
                             <a href="<?php echo base_url('owner/laporan_harian_dokter') ?>">
@@ -138,6 +178,7 @@
 
                         </div>
                     </div>
+
                     <div class="col-md-12" style="border: 1px solid #e0e0e0; margin-top: 15px;">
                         <div style="float: left">
                             <span style="color: black; "><b>Filter :</b></span>
@@ -176,21 +217,20 @@
                             </a>
                         </div>
                     </div>
-
                     <div class="col-lg-12">
-                        <div class="col-lg-2 lap-mb">
+                        <div class="col-lg-2 lap-mb active">
                             <a href="<?php echo site_url('owner/laporan_bulanan') ?>" type="button" class="btn col-md-12">Bulanan</a>
                         </div>
                         <div class="col-lg-2 lap-mb">
                             <a href="<?php echo site_url('owner/laporan_mingguan') ?>" type="button" class="btn col-md-12">Mingguan</a>
                         </div>
-                        <div class="col-lg-2 lap-mb active">
+                        <div class="col-lg-2 lap-mb">
                             <a href="<?php echo site_url('owner/laporan_harian_dokter') ?>" type="button" class="btn col-md-12">Harian</a>
                         </div>
                     </div>
                     <div class="col-md-12" style="margin-top: 20px;">
-                        <div id="chart"></div>
-                        <div id="chart2"></div>
+                        <div id="pemeriksaan_b_owner"></div>
+                        <div id="container2"></div>
                     </div>
                     <div class="row">
                         <div class="col" style="margin: 30px;border:1px solid #969696;border-radius:10px">
@@ -288,6 +328,7 @@
             </div>
         </div>
     </div>
+
     <script>
         $(document).ready(function() {
             hubungan_pasien();
@@ -401,6 +442,7 @@
             // });
         }
     </script>
+
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -428,7 +470,7 @@
             var timeDifferenceInDays = timeDifferenceInHours / 24;
             var interval = timeDifferenceInDays;
             $.ajax({
-                url: "<?= base_url('owner/filter_laporan_harian_dokter') ?>",
+                url: "<?= base_url('owner/filter_laporan_pemeriksaan_b') ?>",
                 data: {
                     id_dokter: id_dokter,
                     interval: interval,
@@ -436,8 +478,8 @@
                     startDate: startDate
                 },
                 success: function(data) {
-                    $('#chart').empty();
-                    $('#chart2').html(data);
+                    $('#pemeriksaan_b_owner').empty();
+                    $('#container2').html(data);
                 },
                 error: function(request, status, error) {
                     alert(request.responseText);
@@ -447,7 +489,7 @@
 
         function enableEnd() {
             var date = new Date(this.value);
-            date.setDate(date.getDate() + 13);
+            date.setDate(date.getDate() + 364);
             var id_dokter = $('#f_dokter').val();
             var startDate = $('#from').val();
             var endDate = $('#to').val();
@@ -463,7 +505,7 @@
             var timeDifferenceInDays = timeDifferenceInHours / 24;
             var interval = timeDifferenceInDays;
             $.ajax({
-                url: "<?= base_url('owner/filter_laporan_harian_dokter') ?>",
+                url: "<?= base_url('owner/filter_laporan_pemeriksaan_b') ?>",
                 data: {
                     id_dokter: id_dokter,
                     interval: interval,
@@ -471,8 +513,8 @@
                     endDate: endDate
                 },
                 success: function(data) {
-                    $('#chart').empty();
-                    $('#chart2').html(data);
+                    $('#pemeriksaan_b_owner').empty();
+                    $('#container2').html(data);
                 },
                 error: function(request, status, error) {
                     alert(request.responseText);
@@ -506,7 +548,7 @@
                     var timeDifferenceInDays = timeDifferenceInHours / 24;
                     var interval = timeDifferenceInDays;
                     $.ajax({
-                        url: "<?= base_url('owner/filter_laporan_harian_dokter') ?>",
+                        url: "<?= base_url('owner/filter_laporan_pemeriksaan_b') ?>",
                         data: {
                             id_dokter: id_dokter,
                             interval: interval,
@@ -514,8 +556,8 @@
                             starDate: startDate
                         },
                         success: function(data) {
-                            $('#chart').empty();
-                            $('#chart2').html(data);
+                            $('#pemeriksaan_b_owner').empty();
+                            $('#container2').html(data);
                         },
                         error: function(request, status, error) {
                             alert(request.responseText);
@@ -524,7 +566,7 @@
                 },
                 onClose: function(selectedDate) {
                     var date = new Date(selectedDate);
-                    date.setDate(date.getDate() - 13);
+                    date.setDate(date.getDate() - 364);
                     $("#from").datepicker('option', {
                         minDate: date,
                         maxDate: selectedDate
@@ -546,9 +588,6 @@
             dayNames: ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu']
         }).bind('input', enableEnd);
     </script>
-
-
-
     <!-- <div class="RightCol" style="margin-top: 15%;">
 
     <a href="#" class="btn" style="background-color: #e7e6e6; border: none; width: 300px; height: 70px ">A</a><br />

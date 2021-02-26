@@ -1068,6 +1068,92 @@ class Owner extends CI_Controller
     $this->load->view('template/filter_harian_owner', $data);
   }
 
+  public function laporan_mingguan()
+  {
+    $laporan = $this->Klinik_model->get_laporan();
+    $dokter = $this->Data_pasien_model->get_dokter_filter();
+    $data['harian'] = $this->Klinik_model->get_laporan_pendapatan_m();
+    $data['dokter'] = $dokter;
+    $data['laporan'] = $laporan;
+    $data['_laporan_transaksi'] = 1;
+    $data['content'] = 'owner/laporan_mingguan';
+    $this->load->view('template/template', $data);
+  }
+  public function filter_laporan_mingguan()
+  {
+    if (!empty($_GET['id_dokter']) && !empty($_GET['endDate'])) {
+      $id_dokter = $_GET['id_dokter'];
+      $endDate = $_GET['endDate'];
+      $interval = $_GET['interval'];
+      $data['harian2'] = $this->Klinik_model->filter_laporan_pendapatan_m($id_dokter, $endDate, $interval);
+    } else if (empty($_GET['id_dokter']) && empty($_GET['endDate'])) {
+      $id_dokter = 0;
+      $endDate = $_GET['startDate'];
+      $interval = 0;
+      $data['harian2'] = $this->Klinik_model->filter_laporan_pendapatan_m($id_dokter, $endDate, $interval);
+    } else if (!empty($_GET['id_dokter']) && empty($_GET['endDate']) && empty($_GET['startDate'])) {
+      $currentDate = date('Y-m-d');
+      $endDate = $currentDate;
+      $interval = 49;
+      $id_dokter = $_GET['id_dokter'];
+      $data['harian2'] = $this->Klinik_model->filter_laporan_pendapatan_m($id_dokter, $endDate, $interval);
+    } else if (!empty($_GET['id_dokter']) && empty($_GET['endDate']) && !empty($_GET['startDate'])) {
+      $endDate = $_GET['startDate'];
+      $interval = 0;
+      $id_dokter = $_GET['id_dokter'];
+      $data['harian2'] = $this->Klinik_model->filter_laporan_pendapatan_m($id_dokter, $endDate, $interval);
+    } else if (empty($_GET['id_dokter']) && !empty($_GET['endDate'])) {
+      $id_dokter = 0;
+      $endDate = $_GET['endDate'];
+      $interval = $_GET['interval'];
+      $data['harian2'] = $this->Klinik_model->filter_laporan_pendapatan_m($id_dokter, $endDate, $interval);
+    }
+    $this->load->view('template/filter_mingguan_chart_owner', $data);
+  }
+
+  public function laporan_bulanan()
+  {
+    $laporan = $this->Klinik_model->get_laporan();
+    $dokter = $this->Data_pasien_model->get_dokter_filter();
+    $data['laporan'] = $laporan;
+    $data['dokter'] = $dokter;
+    $data['harian'] = $this->Klinik_model->get_laporan_pendapatan_b();
+    $data['_laporan_transaksi'] = 1;
+    $data['content'] = 'owner/laporan_bulanan';
+    $this->load->view('template/template', $data);
+  }
+  public function filter_laporan_bulanan()
+  {
+    if (!empty($_GET['id_dokter']) && !empty($_GET['endDate'])) {
+      $id_dokter = $_GET['id_dokter'];
+      $endDate = $_GET['endDate'];
+      $interval = $_GET['interval'];
+      $data['harian2'] = $this->Klinik_model->filter_laporan_pendapatan_b($id_dokter, $endDate, $interval);
+    } else if (empty($_GET['id_dokter']) && empty($_GET['endDate'])) {
+      $id_dokter = 0;
+      $endDate = $_GET['startDate'];
+      $interval = 0;
+      $data['harian2'] = $this->Klinik_model->filter_laporan_pendapatan_b($id_dokter, $endDate, $interval);
+    } else if (!empty($_GET['id_dokter']) && empty($_GET['endDate']) && empty($_GET['startDate'])) {
+      $currentDate = date('Y-m-d');
+      $endDate = $currentDate;
+      $interval = 364;
+      $id_dokter = $_GET['id_dokter'];
+      $data['harian2'] = $this->Klinik_model->filter_laporan_pendapatan_b($id_dokter, $endDate, $interval);
+    } else if (!empty($_GET['id_dokter']) && empty($_GET['endDate']) && !empty($_GET['startDate'])) {
+      $endDate = $_GET['startDate'];
+      $interval = 0;
+      $id_dokter = $_GET['id_dokter'];
+      $data['harian2'] = $this->Klinik_model->filter_laporan_pendapatan_b($id_dokter, $endDate, $interval);
+    } else if (empty($_GET['id_dokter']) && !empty($_GET['endDate'])) {
+      $id_dokter = 0;
+      $endDate = $_GET['endDate'];
+      $interval = $_GET['interval'];
+      $data['harian2'] = $this->Klinik_model->filter_laporan_pendapatan_b($id_dokter, $endDate, $interval);
+    }
+    $this->load->view('template/filter_bulanan_chart_owner', $data);
+  }
+
   public function export_detail()
   {
     $data['title'] = 'Laporan Detail Pemeriksaan';
